@@ -3,246 +3,215 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pawprint</title>
+<title>Pawprint Pet Shop</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Nunito:wght@400;600;800&display=swap">
 <script src="https://cdn.tailwindcss.com"></script>
-<!-- structure: https://playwright.dev/ via uimodulay 0.1.0 -->
 </head>
-<body class="bg-white text-neutral-900 antialiased">
-<header data-module="Header" class="sticky top-0 z-10 bg-white/90 backdrop-blur border-b border-neutral-200 px-4 py-2">
-<div class="flex flex-wrap items-center gap-2">
-<div data-module="Group" class="px-0 py-1">
-<div class="flex flex-wrap items-center gap-2">
-<div data-module="Group" class="px-0 py-0">
-<div class="grid grid-cols-1 md:grid-cols-2 items-center gap-2">
-<span class="inline-block size-6 rounded-full bg-amber-400" aria-hidden="true"></span>
-<p class="text-neutral-600">Free delivery over $40, or pick up in store within the hour.</p>
-</div>
-</div>
-<a href="#" class="hover:underline underline-offset-4">Shop</a>
-<a href="#" class="hover:underline underline-offset-4">Grooming</a>
-<a href="#" class="hover:underline underline-offset-4">Adopt</a>
-<a href="#" class="hover:underline underline-offset-4">Vet care</a>
-<a href="#" class="inline-flex items-center rounded-full bg-amber-500 px-5 py-2.5 font-semibold text-neutral-900 hover:bg-amber-400">Shop now</a>
-</div>
-</div>
-<div data-module="Group" class="px-0 py-1">
-<div class="flex flex-wrap items-center gap-2">
-<a href="#" class="hover:underline underline-offset-4">Stores</a>
-<a href="#" class="hover:underline underline-offset-4">Shop</a>
-<a href="#" class="inline-flex items-center rounded-full bg-amber-500 px-5 py-2.5 font-semibold text-neutral-900 hover:bg-amber-400">Book a visit</a>
-<div data-module="Group" class="px-2 py-0">
-<div class="grid grid-cols-1 md:grid-cols-2 items-center gap-2">
-<p class="text-neutral-600">Nutrition plans reviewed by our in-house vets.</p>
-<div data-module="TextBlock" class="px-0 py-0">
-<div class="grid grid-cols-1 md:grid-cols-2 items-center gap-2">
-<p class="text-neutral-600">Toys tested by a labrador named Bruno. If it survives him, it ships.</p>
-<p class="text-neutral-600">Loyalty points on every purchase, doubled on adoption supplies.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<body>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { display: ["Fraunces", "Georgia", "serif"], body: ["Nunito", "system-ui", "sans-serif"] },
+        colors: {
+          moss: { 50: "#f1f7f2", 100: "#dcebe0", 200: "#b9d7c2", 500: "#3d7a56", 700: "#255540", 900: "#173428" },
+          clay: { 100: "#fdebd7", 400: "#f0a24b", 500: "#e08a2a" },
+          ink: "#1b2320",
+        },
+      },
+    },
+  };
+</script>
+<style>
+  body { background: #fbfcfa; color: #1b2320; }
+  .photo { background: radial-gradient(circle at 30% 30%, #dcebe0, #b9d7c2 60%, #9ec6ad); }
+  .photo-warm { background: radial-gradient(circle at 70% 30%, #fdebd7, #f6c98f 60%, #e9a95a); }
+  .paw { font-size: 4.5rem; line-height: 1; filter: drop-shadow(0 8px 12px rgba(23,52,40,.18)); }
+</style>
+
+<!-- Structure: playwright.dev at 1440px, as seen by uimodulay. Every data-module names the AST node it came from. -->
+
+<header data-module="Header [row 2]" class="sticky top-0 z-20 border-b border-moss-100 bg-[#fbfcfa]/90 backdrop-blur font-body">
+  <div class="mx-auto flex max-w-7xl flex-wrap items-center gap-x-8 gap-y-3 px-6 py-3">
+    <nav data-module="Nav [row 6]" class="flex flex-wrap items-center gap-x-7 gap-y-2 text-[15px] font-semibold">
+      <a href="#" data-module="Brand" class="mr-2 flex items-center gap-2 font-display text-2xl font-bold tracking-tight text-moss-900">
+        <span class="grid size-9 place-items-center rounded-full bg-clay-400 text-lg" aria-hidden="true">🐾</span>Pawprint
+      </a>
+      <a href="#shop" class="hover:text-moss-700">Shop</a>
+      <a href="#grooming" class="hover:text-moss-700">Grooming</a>
+      <a href="#vet" class="hover:text-moss-700">Vet care</a>
+      <a href="#adopt" class="hover:text-moss-700">Adopt</a>
+      <a href="#stores" class="hover:text-moss-700">Stores</a>
+    </nav>
+    <div data-module="Toolbar [row 4]" class="ml-auto flex items-center gap-3">
+      <label data-module="Search" class="hidden items-center gap-2 rounded-full border border-moss-200 bg-white px-3 py-1.5 text-sm text-moss-700 md:flex">
+        <span aria-hidden="true">⌕</span><input class="w-40 bg-transparent outline-none placeholder:text-moss-500/60" placeholder="Search food, toys, vets…"><kbd class="rounded bg-moss-50 px-1.5 text-[11px]">/</kbd>
+      </label>
+      <a href="#" data-module="IconLink" class="grid size-9 place-items-center rounded-full hover:bg-moss-50" aria-label="Favourites">♡</a>
+      <a href="#" data-module="IconLink" class="grid size-9 place-items-center rounded-full hover:bg-moss-50" aria-label="Basket">🧺</a>
+      <a href="#vet" data-module="Button" class="rounded-full bg-moss-700 px-4 py-2 text-sm font-bold text-white hover:bg-moss-900">Book a vet visit</a>
+    </div>
+  </div>
 </header>
-<section data-module="Hero" class="bg-amber-50 px-20 py-20">
-<div class="flex flex-col gap-6">
-<h1 class="text-5xl md:text-6xl font-bold tracking-tight text-balance">Everything your best friend needs, from one shop that actually knows them</h1>
-<p class="text-lg text-neutral-600 max-w-prose">Food, toys, beds and check-ups for dogs, cats and the small ones too. Same-day pickup at 12 stores, or delivered before dinner.</p>
-<section data-module="Section" class="px-0 py-12">
-<div class="max-w-[297px] mx-auto flex flex-wrap items-center gap-4">
-<a href="#" class="inline-flex items-center rounded-full bg-amber-500 px-5 py-2.5 font-semibold text-neutral-900 hover:bg-amber-400">Shop now</a>
-<div data-module="Group" class="px-0 py-0">
-<div class="grid grid-cols-1 md:grid-cols-2 items-center gap-2">
-<a href="#" class="inline-flex items-center rounded-full bg-amber-500 px-5 py-2.5 font-semibold text-neutral-900 hover:bg-amber-400">Shop now</a>
-<a href="#" class="hover:underline underline-offset-4">Learn more</a>
-</div>
-</div>
-</div>
+
+<section data-module="Hero" class="font-body">
+  <div class="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-[1.1fr_.9fr] md:items-center md:py-24">
+    <div class="flex flex-col gap-6">
+      <h1 data-module="Heading" class="font-display text-5xl font-bold leading-[1.05] tracking-tight text-moss-900 md:text-6xl" style="text-wrap:balance">
+        Everything your best friend needs, from people who go home to one.
+      </h1>
+      <p data-module="Paragraph" class="max-w-prose text-lg leading-relaxed text-ink/75">
+        Food matched to breed and age, toys tested by a labrador named Bruno, and a vet in the back of every store.
+        Order by 4pm and it is on your doorstep before the evening walk.
+      </p>
+      <div data-module="CTA [row 2]" class="flex flex-wrap items-center gap-4">
+        <a href="#shop" data-module="Button" class="rounded-full bg-clay-500 px-6 py-3 text-base font-extrabold text-ink shadow-sm hover:bg-clay-400">Shop the essentials</a>
+        <a href="#" data-module="GithubStars [split 2]" class="flex items-center gap-2 rounded-full border border-moss-200 bg-white px-4 py-2 text-sm font-semibold text-moss-900">
+          <span class="text-clay-500">★ 4.9</span><span class="text-ink/60">from 12,400 pet parents</span>
+        </a>
+      </div>
+    </div>
+    <div class="photo relative aspect-[4/3] overflow-hidden rounded-[2rem]" role="img" aria-label="A dog and a cat on a green rug">
+      <span class="paw absolute left-[12%] top-[22%]">🐕</span>
+      <span class="paw absolute right-[14%] top-[40%]">🐈</span>
+      <span class="absolute bottom-5 left-5 rounded-full bg-white/85 px-3 py-1 text-xs font-bold text-moss-900">Same-day pickup at 12 stores</span>
+    </div>
+  </div>
 </section>
-</div>
-</section>
-<main data-module="Main" class="px-0 py-12">
-<div class="flex flex-col gap-2">
-<section data-module="Section" class="px-16 py-12">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-2">
-<article data-module="Group" class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm px-4 py-0">
-<div class="flex flex-col gap-4">
-<h3 class="text-xl font-bold tracking-tight text-balance">Dog food</h3>
-<p class="text-neutral-600">Free delivery over $40, or pick up in store within the hour.</p>
-<p class="text-neutral-600">Nutrition plans reviewed by our in-house vets.</p>
-<a href="#" class="hover:underline underline-offset-4">See cat trees</a>
-</div>
-</article>
-<article data-module="Group" class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm px-4 py-0">
-<div class="flex flex-col gap-4">
-<h3 class="text-xl font-bold tracking-tight text-balance">Grooming</h3>
-<p class="text-lg text-neutral-600 max-w-prose">Toys tested by a labrador named Bruno. If it survives him, it ships.</p>
-<p class="text-neutral-600">Loyalty points on every purchase, doubled on adoption supplies.</p>
-<a href="#" class="hover:underline underline-offset-4">Start an aquarium</a>
-</div>
-</article>
-<article data-module="Group" class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm px-4 py-0">
-<div class="flex flex-col gap-4">
-<h3 class="text-xl font-bold tracking-tight text-balance">Small animals</h3>
-<p class="text-neutral-600">Free delivery over $40, or pick up in store within the hour.</p>
-<p class="text-neutral-600">Nutrition plans reviewed by our in-house vets.</p>
-<a href="#" class="hover:underline underline-offset-4">Meet the animals</a>
-</div>
-</article>
-</div>
-</section>
-<section data-module="Section" class="px-20 py-12">
-<div class="flex flex-col gap-8">
-<h2 class="text-3xl font-bold tracking-tight text-balance">Built for dogs</h2>
-<section data-module="Feature" class="px-0 py-0">
-<div class="grid grid-cols-1 md:grid-cols-2 items-center gap-2">
-<div data-module="Group" class="px-4 py-0">
-<div class="flex flex-col gap-2">
-<h2 class="text-xl font-bold tracking-tight text-balance">Built for cats</h2>
-<p class="text-lg text-neutral-600 max-w-prose">Toys tested by a labrador named Bruno. If it survives him, it ships.</p>
-<h2 class="text-xl font-bold tracking-tight text-balance">Vets on site</h2>
-<p class="text-lg text-neutral-600 max-w-prose">Loyalty points on every purchase, doubled on adoption supplies.</p>
-</div>
-</div>
-<div data-module="Group" class="px-4 py-0">
-<div class="flex flex-col gap-2">
-<h2 class="text-xl font-bold tracking-tight text-balance">Supported by people who own pets</h2>
-<p class="text-lg text-neutral-600 max-w-prose">Free delivery over $40, or pick up in store within the hour.</p>
-<h2 class="text-xl font-bold tracking-tight text-balance">Chosen by shelters and breeders across the country</h2>
-<p class="text-lg text-neutral-600 max-w-prose">Nutrition plans reviewed by our in-house vets.</p>
-</div>
-</div>
-</div>
-</section>
-</div>
-</section>
-<section data-module="Section" class="px-20 py-12">
-<div class="flex flex-col gap-8">
-<h2 class="text-3xl font-bold tracking-tight text-balance">Rescue Sundays</h2>
-<section data-module="Feature" class="px-0 py-0">
-<div class="grid grid-cols-1 md:grid-cols-2 items-center gap-2">
-<div data-module="Group" class="px-4 py-0">
-<div class="flex flex-col gap-2">
-<h2 class="text-xl font-bold tracking-tight text-balance">Built for dogs</h2>
-<p class="text-lg text-neutral-600 max-w-prose">Toys tested by a labrador named Bruno. If it survives him, it ships.</p>
-<h2 class="text-xl font-bold tracking-tight text-balance">Built for cats</h2>
-<p class="text-lg text-neutral-600 max-w-prose">Loyalty points on every purchase, doubled on adoption supplies.</p>
-</div>
-</div>
-<div data-module="Group" class="px-4 py-0">
-<div class="flex flex-col gap-2">
-<h2 class="text-xl font-bold tracking-tight text-balance">Vets on site</h2>
-<p class="text-lg text-neutral-600 max-w-prose">Free delivery over $40, or pick up in store within the hour.</p>
-<h2 class="text-xl font-bold tracking-tight text-balance">Supported by people who own pets</h2>
-<p class="text-neutral-600">Nutrition plans reviewed by our in-house vets.</p>
-</div>
-</div>
-</div>
-</section>
-</div>
-</section>
-<section data-module="Section" class="px-20 py-12">
-<div class="flex flex-col gap-8">
-<h2 class="text-3xl font-bold tracking-tight text-balance">Chosen by shelters and breeders across the country</h2>
-<section data-module="Section" class="px-0 py-0">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-2">
-<article data-module="Group" class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm px-4 py-0">
-<div class="flex flex-col gap-2">
-<h3 class="text-xl font-bold tracking-tight text-balance">Dog food</h3>
-<p class="text-lg text-neutral-600 max-w-prose">Toys tested by a labrador named Bruno. If it survives him, it ships.</p>
-</div>
-</article>
-<article data-module="Group" class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm px-4 py-0">
-<div class="flex flex-col gap-2">
-<h3 class="text-xl font-bold tracking-tight text-balance">Cat trees</h3>
-<p class="text-lg text-neutral-600 max-w-prose">Loyalty points on every purchase, doubled on adoption supplies.</p>
-</div>
-</article>
-<article data-module="Group" class="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm px-4 py-0">
-<div class="flex flex-col gap-2">
-<h3 class="text-xl font-bold tracking-tight text-balance">Grooming</h3>
-<p class="text-lg text-neutral-600 max-w-prose">Free delivery over $40, or pick up in store within the hour.</p>
-</div>
-</article>
-</div>
-</section>
-</div>
-</section>
-<section data-module="Section" class="px-24 py-12">
-<div class="max-w-[600px] mx-auto flex flex-col gap-6">
-<div class="max-w-full rounded-xl bg-neutral-200" style="width:386px;aspect-ratio:386/94" role="img" aria-label="photo"></div>
-<p class="text-lg text-neutral-600 max-w-prose">Nutrition plans reviewed by our in-house vets.</p>
-</div>
-</section>
-<section data-module="Section" class="px-20 py-20">
-<div class="flex flex-col gap-10">
-<h2 class="text-xl font-bold tracking-tight text-balance">Rescue Sundays</h2>
-<nav data-module="Nav" class="text-sm font-medium px-24 py-0">
-<div class="max-w-[908px] mx-auto flex flex-wrap items-center gap-10">
-<div class="max-w-full rounded-xl bg-neutral-200" style="width:65px;aspect-ratio:65/72" role="img" aria-label="photo"></div>
-<div class="max-w-full rounded-xl bg-neutral-200" style="width:65px;aspect-ratio:65/72" role="img" aria-label="photo"></div>
-<div class="max-w-full rounded-xl bg-neutral-200" style="width:70px;aspect-ratio:70/72" role="img" aria-label="photo"></div>
-<div class="max-w-full rounded-xl bg-neutral-200" style="width:65px;aspect-ratio:65/72" role="img" aria-label="photo"></div>
-<div class="max-w-full rounded-xl bg-neutral-200" style="width:82px;aspect-ratio:82/72" role="img" aria-label="photo"></div>
-<div class="max-w-full rounded-xl bg-neutral-200" style="width:65px;aspect-ratio:65/72" role="img" aria-label="photo"></div>
-<div class="max-w-full rounded-xl bg-neutral-200" style="width:47px;aspect-ratio:47/72" role="img" aria-label="photo"></div>
-<div class="max-w-full rounded-xl bg-neutral-200" style="width:65px;aspect-ratio:65/72" role="img" aria-label="photo"></div>
-<div class="max-w-full rounded-xl bg-neutral-200" style="width:65px;aspect-ratio:65/72" role="img" aria-label="photo"></div>
-</div>
-</nav>
-</div>
-</section>
-</div>
+
+<main class="font-body">
+
+  <section id="shop" data-module="CardGrid [row 3]" class="mx-auto max-w-7xl px-6 py-8">
+    <div class="grid gap-6 md:grid-cols-3">
+      <article data-module="ProductCard" class="flex flex-col gap-4 rounded-3xl border border-moss-100 bg-white p-7 shadow-sm">
+        <h3 class="font-display text-2xl font-bold text-moss-900">Dogs</h3>
+        <p class="text-ink/70">Dry, wet and fresh-frozen food by size and age. Beds from dachshund to Great Dane.</p>
+        <pre data-module="CodeSnippet" class="overflow-x-auto rounded-xl bg-moss-900 p-4 text-[13px] leading-6 text-moss-100"><span class="text-clay-400">starter bundle</span>  puppy
+  food      salmon &amp; rice · 3 kg
+  chew      bruno-approved ×2
+  bed       medium, washable</pre>
+        <a href="#" class="font-bold text-moss-700 hover:underline">Browse for dogs →</a>
+      </article>
+      <article data-module="ProductCard" class="flex flex-col gap-4 rounded-3xl border border-moss-100 bg-white p-7 shadow-sm">
+        <h3 class="font-display text-2xl font-bold text-moss-900">Cats</h3>
+        <p class="text-ink/70">Litter that stays in the box, trees that survive claws, and a grooming room with the door shut.</p>
+        <pre data-module="CodeSnippet" class="overflow-x-auto rounded-xl bg-moss-900 p-4 text-[13px] leading-6 text-moss-100"><span class="text-clay-400">starter bundle</span>  kitten
+  litter    clumping, unscented · 10 L
+  tree      sisal, 120 cm
+  toy       feather wand</pre>
+        <a href="#" class="font-bold text-moss-700 hover:underline">Browse for cats →</a>
+      </article>
+      <article data-module="ProductCard" class="flex flex-col gap-4 rounded-3xl border border-moss-100 bg-white p-7 shadow-sm">
+        <h3 class="font-display text-2xl font-bold text-moss-900">Small &amp; aquatic</h3>
+        <p class="text-ink/70">Rabbits, guinea pigs, hamsters and fish. Hay by the bale, tanks with the first month of food.</p>
+        <pre data-module="CodeSnippet" class="overflow-x-auto rounded-xl bg-moss-900 p-4 text-[13px] leading-6 text-moss-100"><span class="text-clay-400">starter bundle</span>  aquarium
+  tank      60 L, LED lid
+  filter    quiet, 3-stage
+  advice    included, unlimited</pre>
+        <a href="#" class="font-bold text-moss-700 hover:underline">Browse small pets →</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="grooming" data-module="Feature" class="mx-auto max-w-7xl px-6 py-16">
+    <h2 data-module="Heading" class="font-display text-3xl font-bold text-moss-900 md:text-4xl">Built for the whole household</h2>
+    <div data-module="FeatureGrid [split 2]" class="mt-8 grid gap-8 md:grid-cols-2">
+      <ul data-module="FeatureList" class="flex flex-col gap-3 rounded-3xl bg-moss-50 p-7">
+        <li class="font-bold text-moss-900">Food plans, not just food</li>
+        <li class="text-ink/75">A plan per animal: portions, allergies, the vet's notes. Subscribe and the bag arrives before the old one runs out.</li>
+        <li class="text-ink/75">Switch brands mid-plan with a taper schedule, so nobody gets an upset stomach.</li>
+      </ul>
+      <ul data-module="FeatureList" class="flex flex-col gap-3 rounded-3xl bg-moss-50 p-7">
+        <li class="font-bold text-moss-900">Grooming that respects nerves</li>
+        <li class="text-ink/75">Bath, trim and de-shed in under an hour. Anxious pets get the quiet room and a groomer who moves slowly.</li>
+        <li class="text-ink/75">Book online, see the live wait, get a photo when they are done.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="vet" data-module="Feature" class="mx-auto max-w-7xl px-6 py-16">
+    <h2 data-module="Heading" class="font-display text-3xl font-bold text-moss-900 md:text-4xl">A vet in the back of every store</h2>
+    <div data-module="FeatureGrid [split 2]" class="mt-8 grid gap-8 md:grid-cols-2 md:items-center">
+      <ul data-module="FeatureList" class="flex flex-col gap-3">
+        <li class="font-bold text-moss-900">Walk in for the small things</li>
+        <li class="text-ink/75">Vaccinations, nail trims, dental checks and microchips without an appointment. Wait times are shown on the door and online.</li>
+        <li class="font-bold text-moss-900">Book for the rest</li>
+        <li class="text-ink/75">Blood work, imaging and surgery at four of our stores, with the same vet from first visit to follow-up.</li>
+      </ul>
+      <div class="photo-warm relative aspect-[5/4] overflow-hidden rounded-[2rem]" role="img" aria-label="A vet with a rabbit">
+        <span class="paw absolute left-[18%] top-[30%]">🐇</span>
+        <span class="paw absolute right-[18%] top-[36%]">🩺</span>
+      </div>
+    </div>
+  </section>
+
+  <section data-module="Feature" class="mx-auto max-w-7xl px-6 py-16">
+    <h2 data-module="Heading" class="font-display text-3xl font-bold text-moss-900 md:text-4xl">Tools for pet parents</h2>
+    <div data-module="FeatureGrid [row 3]" class="mt-8 grid gap-6 md:grid-cols-3">
+      <article data-module="FeatureCard" class="rounded-3xl border border-moss-100 bg-white p-7">
+        <div class="mb-4 grid size-11 place-items-center rounded-2xl bg-clay-100 text-xl" aria-hidden="true">📱</div>
+        <h3 class="font-bold text-moss-900">The Pawprint app</h3>
+        <p class="mt-2 text-ink/70">Vaccination records, reorder in one tap, and the vet's notes in your pocket.</p>
+      </article>
+      <article data-module="FeatureCard" class="rounded-3xl border border-moss-100 bg-white p-7">
+        <div class="mb-4 grid size-11 place-items-center rounded-2xl bg-clay-100 text-xl" aria-hidden="true">🔁</div>
+        <h3 class="font-bold text-moss-900">Subscribe &amp; skip</h3>
+        <p class="mt-2 text-ink/70">Food and litter on your schedule, 10% off, pause or skip from a text message.</p>
+      </article>
+      <article data-module="FeatureCard" class="rounded-3xl border border-moss-100 bg-white p-7">
+        <div class="mb-4 grid size-11 place-items-center rounded-2xl bg-clay-100 text-xl" aria-hidden="true">🏅</div>
+        <h3 class="font-bold text-moss-900">Paw points</h3>
+        <p class="mt-2 text-ink/70">A point per dollar, doubled on adoption supplies. Redeem for grooming or donate to a shelter.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="adopt" data-module="BrowserSupport" class="mx-auto max-w-7xl px-6 py-16">
+    <div class="flex flex-col items-center gap-6 rounded-[2rem] bg-moss-900 px-8 py-12 text-center text-white">
+      <div data-module="Image" class="flex flex-wrap justify-center gap-4 text-4xl" aria-hidden="true">
+        <span class="grid size-16 place-items-center rounded-full bg-white/10">🐕</span>
+        <span class="grid size-16 place-items-center rounded-full bg-white/10">🐈</span>
+        <span class="grid size-16 place-items-center rounded-full bg-white/10">🐇</span>
+        <span class="grid size-16 place-items-center rounded-full bg-white/10">🐹</span>
+        <span class="grid size-16 place-items-center rounded-full bg-white/10">🐠</span>
+        <span class="grid size-16 place-items-center rounded-full bg-white/10">🦜</span>
+      </div>
+      <p data-module="Paragraph" class="max-w-2xl text-lg text-white/80">
+        Dogs, cats, rabbits, rodents, fish and birds are all welcome in store, on a lead or in a carrier.
+        Every Sunday a local shelter brings animals looking for a home. Bring treats, leave with a friend.
+      </p>
+    </div>
+  </section>
+
+  <section id="stores" data-module="Showcase" class="mx-auto max-w-7xl px-6 py-16">
+    <h2 data-module="Heading" class="text-center font-display text-2xl font-bold text-moss-900">Chosen by shelters and breeders across the country</h2>
+    <div data-module="LogoRow [row 9]" class="mt-8 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-sm font-extrabold uppercase tracking-widest text-moss-700/60">
+      <span data-module="Logo">Riverside Rescue</span><span data-module="Logo">Second Chance</span><span data-module="Logo">Hilltop Shelter</span>
+      <span data-module="Logo">Paws &amp; Co.</span><span data-module="Logo">Bright Eyes</span><span data-module="Logo">The Cattery</span>
+      <span data-module="Logo">Oakfield Kennels</span><span data-module="Logo">Harbour SPCA</span><span data-module="Logo">Little Lives</span>
+    </div>
+  </section>
+
 </main>
-<footer data-module="Footer" class="bg-neutral-900 text-neutral-300 px-16 py-12">
-<div class="flex flex-col gap-4">
-<section data-module="Section" class="px-0 py-12">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-2">
-<div data-module="Group" class="px-4 py-0">
-<div class="flex flex-col gap-4">
-<p class="text-neutral-600">Toys tested by a labrador named Bruno. If it survives him, it ships.</p>
-<nav data-module="Nav" class="text-sm font-medium px-0 py-0">
-<div class="flex flex-col gap-2">
-<a href="#" class="hover:underline underline-offset-4">Grooming</a>
-<a href="#" class="hover:underline underline-offset-4">Adopt</a>
-<a href="#" class="hover:underline underline-offset-4">Vet care</a>
-<a href="#" class="hover:underline underline-offset-4">Stores</a>
-</div>
-</nav>
-</div>
-</div>
-<div data-module="Group" class="px-4 py-0">
-<div class="flex flex-col gap-4">
-<p class="text-neutral-600">Loyalty points on every purchase, doubled on adoption supplies.</p>
-<nav data-module="Nav" class="text-sm font-medium px-0 py-0">
-<div class="flex flex-col gap-2">
-<a href="#" class="hover:underline underline-offset-4">Shop</a>
-<a href="#" class="hover:underline underline-offset-4">Grooming</a>
-<a href="#" class="hover:underline underline-offset-4">Adopt</a>
-<a href="#" class="hover:underline underline-offset-4">Vet care</a>
-</div>
-</nav>
-</div>
-</div>
-<div data-module="Group" class="px-4 py-0">
-<div class="flex flex-col gap-4">
-<p class="text-neutral-600">Free delivery over $40, or pick up in store within the hour.</p>
-<nav data-module="Nav" class="text-sm font-medium px-0 py-0">
-<div class="flex flex-col gap-2">
-<a href="#" class="hover:underline underline-offset-4">Stores</a>
-<a href="#" class="hover:underline underline-offset-4">Shop</a>
-<a href="#" class="hover:underline underline-offset-4">Grooming</a>
-<a href="#" class="hover:underline underline-offset-4">Adopt</a>
-<a href="#" class="hover:underline underline-offset-4">Vet care</a>
-</div>
-</nav>
-</div>
-</div>
-</div>
-</section>
-<p class="text-sm">© 2026 Pawprint Pet Shop. Open every day, 9 to 8.</p>
-</div>
+
+<footer data-module="Footer" class="mt-8 bg-moss-900 font-body text-moss-100">
+  <div class="mx-auto max-w-7xl px-6 py-14">
+    <div data-module="LinkColumns [row 3]" class="grid gap-10 sm:grid-cols-3">
+      <div data-module="LinkColumn">
+        <h3 class="mb-3 font-bold text-white">Shop</h3>
+        <nav class="flex flex-col gap-2 text-moss-100/80"><a href="#" class="hover:text-white">Dogs</a><a href="#" class="hover:text-white">Cats</a><a href="#" class="hover:text-white">Small &amp; aquatic</a><a href="#" class="hover:text-white">Subscriptions</a></nav>
+      </div>
+      <div data-module="LinkColumn">
+        <h3 class="mb-3 font-bold text-white">Services</h3>
+        <nav class="flex flex-col gap-2 text-moss-100/80"><a href="#" class="hover:text-white">Grooming</a><a href="#" class="hover:text-white">Vet care</a><a href="#" class="hover:text-white">Rescue Sundays</a><a href="#" class="hover:text-white">Training classes</a></nav>
+      </div>
+      <div data-module="LinkColumn">
+        <h3 class="mb-3 font-bold text-white">Pawprint</h3>
+        <nav class="flex flex-col gap-2 text-moss-100/80"><a href="#" class="hover:text-white">Stores</a><a href="#" class="hover:text-white">Careers</a><a href="#" class="hover:text-white">Help &amp; returns</a><a href="#" class="hover:text-white">Privacy</a></nav>
+      </div>
+    </div>
+    <p data-module="Copyright" class="mt-12 text-sm text-moss-100/60">© 2026 Pawprint Pet Shop. Open every day, 9 to 8. Pawprint is a fictional shop drawn from playwright.dev's page structure.</p>
+  </div>
 </footer>
 </body>
 </html>
