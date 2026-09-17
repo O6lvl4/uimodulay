@@ -65,6 +65,7 @@ uimodulay <url> --sketch page.svg            hand-drawn wireframe
 uimodulay <url> --ai                         Claude renames generic modules (your own claude login)
 uimodulay <url> --widths phone,tablet,desktop
                                              390 / 820 / 1440: one tree per width + what rearranges
+uimodulay <url> --crawl 20 --crawl-depth 2   follow same-origin links; site tree with each page's modules
 uimodulay <url> --save snap.json             keep the raw snapshot …
 uimodulay --from snap.json                   … and re-analyze it offline, instantly
 ```
@@ -116,6 +117,7 @@ set.changes;                                    // [{ path, arrangement: ["stack
 | `renderTree(tree)` / `renderAst(node)` | text tree |
 | `sketchSvg(ast, opts)` | wireframe SVG (also `import { sketchSvg } from "uimodulay/sketch"`) |
 | `compare(variants)` / `renderChanges(set)` | the responsive changes table |
+| `crawl(url, opts, onPage)` | breadth-first same-origin crawl; `onPage` receives each page's snapshots as they arrive |
 
 ## How it works
 

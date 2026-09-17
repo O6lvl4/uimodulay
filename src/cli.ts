@@ -4,7 +4,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { toAst, type LayoutAst } from "./ast.ts";
 import { capture } from "./capture.ts";
-import { analyzeResponsive, finish, PRESET_WIDTHS, renderChanges } from "./index.ts";
+import { analyzeResponsive, analyzeSnapshot, crawl, finish, PRESET_WIDTHS, renderChanges, renderSiteTree } from "./index.ts";
 import { renderAst, renderTree, type RenderOptions } from "./render.ts";
 import type { ResponsiveSet } from "./responsive.ts";
 import { sketchSvg } from "./sketch.ts";
@@ -19,6 +19,7 @@ const USAGE = `uimodulay ${VERSION} — semantic UI structure analyzer
   uimodulay <url> --ai            let Claude (your own login, via the Agent SDK) refine the names
   uimodulay <url> --widths phone,tablet,desktop
                                   responsive run: one tree per width + a table of what rearranges
+  uimodulay <url> --crawl 20      follow same-origin links (--crawl-depth 2) and print the site tree
   uimodulay --from snap.json      re-analyze a saved snapshot offline
 
 Options
@@ -34,7 +35,7 @@ Options
   --no-scroll     do not scroll through the page before capturing
 `;
 
-const VALUE_FLAGS = ["width", "widths", "height", "depth", "model", "save", "from", "sketch", "sketch-width"];
+const VALUE_FLAGS = ["width", "widths", "height", "depth", "model", "save", "from", "sketch", "sketch-width", "crawl", "crawl-depth"];
 
 interface Args {
   url?: string;
@@ -133,6 +134,28 @@ async function runSingle(a: Args): Promise<void> {
   else print(renderTree(result.tree, renderOpts(a)));
 }
 
+/** Crawl run: the site's URL tree, each page summarized by its top-level modules. */
+async function runCrawl(a: Args, maxPages: number): Promise<void> {
+  const widthsArg = a.values.get("widths");
+  const summaries = new Map<string, string>();
+  const tree = await crawl(normalizeUrl(a.url), {
+    maxPages,
+    maxDepth: Number(a.values.get("crawl-depth") ?? 2),
+    widths: widthsArg ? parseWidths(widthsArg) : undefined,
+    scroll: !a.flags.has("no-scroll"),
+  }, (page) => {
+    const top = analyzeSnapshot(page.snapshots[0]).children.map((c) => c.type).join(" · ");
+    summaries.set(page.url, top);
+    note(`crawl: ${page.url}`);
+  });
+  if (a.flags.has("json")) {
+    print(JSON.stringify(tree, null, 2));
+    return;
+  }
+  print(renderSiteTree(tree, (n) => summaries.get(n.url) ?? ""));
+  if (tree.skipped.length > 0) print(`(${tree.skipped.length} links not visited: budget, depth or robots.txt)`);
+}
+
 async function main(argv: string[]): Promise<void> {
   if (argv.length === 0 || argv.includes("-h") || argv.includes("--help")) {
     print(USAGE);
@@ -140,7 +163,9 @@ async function main(argv: string[]): Promise<void> {
   }
   const a = parseArgs(argv);
   const widths = a.values.get("widths");
-  if (widths && !a.values.has("from")) await runResponsive(a, parseWidths(widths));
+  const crawlPages = a.values.get("crawl");
+  if (crawlPages !== undefined) await runCrawl(a, Number(crawlPages));
+  else if (widths && !a.values.has("from")) await runResponsive(a, parseWidths(widths));
   else await runSingle(a);
 }
 

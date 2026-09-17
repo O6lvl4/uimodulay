@@ -20,6 +20,8 @@ export type { Change, ResponsiveSet, Variant } from "./responsive.ts";
 export type { SketchOptions } from "./sketch.ts";
 export { AST_FORMAT, AST_VERSION, CONTENT_OF, ROLE_OF, toAst } from "./ast.ts";
 export { capture, captureMany, PRESET_WIDTHS } from "./capture.ts";
+export { crawl, normalizeUrl, parseRobots, renderSiteTree } from "./crawl.ts";
+export type { CrawlOptions, CrawledPage, SiteNode, SiteTree } from "./crawl.ts";
 export { detectLayout, groupRows } from "./layout.ts";
 export { fromAst, renderAst, renderTree } from "./render.ts";
 export { compare, renderChanges } from "./responsive.ts";

@@ -112,12 +112,15 @@ function describe(n: Node, children: LayoutNode[], layout: string | undefined, c
   let lm = landmark(n);
   // A <header> that is not at the top, or as tall as a screen, is a section header — usually the hero.
   if (lm === "Header" && (b.y > 150 || b.h >= ctx.vh * 0.35)) lm = undefined;
+  // A <footer> that is narrow or sits in the upper half is a card's footer, not the page's.
+  if (lm === "Footer" && (b.w < ctx.vw * 0.6 || b.y + b.h < ctx.docH * 0.5)) lm = undefined;
   return { n, b, children, layout, lm, wide: b.w >= ctx.vw * 0.8, links: count(children, (c) => LINKISH.has(c.type)), ctx };
 }
 
 /** A wrapper that holds the page's regions is scaffolding; `tidy` splices it away. */
 function frameRule(c: Container): string | undefined {
-  const holds = c.children.some((k) => k.type === "Main" || k.type === "Footer" || k.type === "Frame" || (k.type === "Header" && k.bounds[1] <= 16));
+  const wide = (k: LayoutNode): boolean => k.bounds[2] >= c.ctx.vw * 0.8;
+  const holds = c.children.some((k) => k.type === "Frame" || (k.type === "Main" && wide(k)) || (k.type === "Footer" && wide(k)) || (k.type === "Header" && k.bounds[1] <= 16));
   return holds ? "Frame" : undefined;
 }
 
@@ -166,7 +169,8 @@ function isHeaderBar(c: Container): boolean {
 
 function isFooterBand(c: Container): boolean {
   const { b, ctx, children } = c;
-  const bottom = b.y + b.h >= ctx.docH - 48;
+  // touches the bottom of the document, and lives in its lower half: not just any tall block
+  const bottom = b.y + b.h >= ctx.docH - 48 && b.y >= ctx.docH * 0.5;
   return bottom && b.h <= 800 && (c.links >= 1 || has(children, ["Nav", "Link", "Text"]));
 }
 

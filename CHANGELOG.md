@@ -15,3 +15,5 @@ First public release.
   modules across widths by the words they contain.
 - `sketchSvg(ast)` / `--sketch`: hand-drawn monochrome wireframe, no dependencies.
 - `uimodulay-app`: local server with a URL bar, width chips, compare view and hover-linked outline.
+- `crawl(url)` / `--crawl N`: follow same-origin links breadth-first (robots.txt honoured, off-site
+  redirects dropped) and capture every page; returns a `uimodulay/site-tree` document.

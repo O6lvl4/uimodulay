@@ -124,11 +124,13 @@ export function probe(): Snapshot {
   }
 
   walk(document.body, { parent: -1, clip: null });
+  // Pages that scroll inside an inner container report a short scrollHeight; the boxes know better.
+  const lowest = boxes.reduce((m, b) => Math.max(m, b.y + b.h), 0);
   return {
     url: location.href,
     width: vw,
     height: window.innerHeight,
-    docHeight: Math.max(document.documentElement.scrollHeight, document.body.scrollHeight),
+    docHeight: Math.max(document.documentElement.scrollHeight, document.body.scrollHeight, lowest),
     boxes,
   };
 }
