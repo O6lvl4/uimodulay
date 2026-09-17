@@ -1,0 +1,6 @@
+node_modules/
+out/
+dist/
+viewer/index.html
+viewer/sketch.js
+codopsy-report.json

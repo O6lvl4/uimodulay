@@ -1,0 +1,70 @@
+{
+  "name": "uimodulay",
+  "version": "0.1.0",
+  "description": "Semantic UI structure analyzer: give it a URL, get the page back as a Layout AST — Header, Hero, Gallery [grid 3], Card — plus a hand-drawn wireframe of it.",
+  "keywords": [
+    "layout",
+    "wireframe",
+    "page-segmentation",
+    "semantic-layout",
+    "playwright",
+    "design-tokens",
+    "responsive",
+    "ast"
+  ],
+  "license": "MIT",
+  "author": "O6lvl4",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/O6lvl4/uimodulay.git"
+  },
+  "homepage": "https://github.com/O6lvl4/uimodulay#readme",
+  "bugs": "https://github.com/O6lvl4/uimodulay/issues",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./sketch": {
+      "types": "./dist/sketch.d.ts",
+      "default": "./dist/sketch.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "uimodulay": "./dist/cli.js",
+    "uimodulay-app": "./dist/serve.js"
+  },
+  "files": [
+    "dist",
+    "viewer/index.html",
+    "viewer/sketch.js",
+    "docs/LAYOUT-AST.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node viewer/build.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test test/*.test.ts",
+    "lint": "codopsy analyze ./src --fail-on-warning",
+    "check": "npm run typecheck && npm test && npm run lint",
+    "cli": "node src/cli.ts",
+    "app": "node src/serve.ts --open",
+    "build:viewer": "node viewer/build.mjs",
+    "prepublishOnly": "npm run check && npm run build"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "0.3.273",
+    "playwright": "^1.58.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.3"
+  }
+}

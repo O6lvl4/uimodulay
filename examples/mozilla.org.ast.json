@@ -1,0 +1,5242 @@
+{
+  "format": "uimodulay/layout-ast",
+  "version": 1,
+  "source": {
+    "url": "https://www.mozilla.org/en-US/",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "height": 7997
+    },
+    "capturedAt": "2026-09-17T14:48:19.759Z",
+    "generator": "uimodulay 0.1.0"
+  },
+  "root": {
+    "id": 0,
+    "type": "Page",
+    "kind": "region",
+    "bounds": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 7997
+    },
+    "source": {
+      "tag": "body"
+    },
+    "children": [
+      {
+        "id": 1,
+        "type": "Header",
+        "kind": "region",
+        "bounds": {
+          "x": 0,
+          "y": -3,
+          "width": 1440,
+          "height": 57
+        },
+        "source": {
+          "tag": "nav",
+          "hints": [
+            "nav"
+          ]
+        },
+        "children": [
+          {
+            "id": 2,
+            "type": "Logo",
+            "kind": "leaf",
+            "bounds": {
+              "x": 32,
+              "y": 13,
+              "width": 100,
+              "height": 29
+            },
+            "source": {
+              "tag": "img"
+            },
+            "children": [],
+            "content": "logo"
+          },
+          {
+            "id": 3,
+            "type": "Nav",
+            "kind": "region",
+            "bounds": {
+              "x": 593,
+              "y": 13,
+              "width": 254,
+              "height": 39
+            },
+            "source": {
+              "tag": "ul"
+            },
+            "children": [
+              {
+                "id": 4,
+                "type": "Link",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 593,
+                  "y": 13,
+                  "width": 128,
+                  "height": 39
+                },
+                "source": {
+                  "tag": "li",
+                  "hints": [
+                    "li"
+                  ]
+                },
+                "children": [],
+                "content": "link",
+                "text": "Products"
+              },
+              {
+                "id": 5,
+                "type": "Link",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 721,
+                  "y": 13,
+                  "width": 126,
+                  "height": 39
+                },
+                "source": {
+                  "tag": "li",
+                  "hints": [
+                    "li"
+                  ]
+                },
+                "children": [],
+                "content": "link",
+                "text": "About us"
+              }
+            ],
+            "role": "navigation",
+            "layout": {
+              "mode": "split",
+              "columns": 2,
+              "rows": 1,
+              "gap": 0,
+              "padding": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          }
+        ],
+        "role": "banner",
+        "layout": {
+          "mode": "row",
+          "columns": 2,
+          "rows": 1,
+          "gap": 461,
+          "padding": {
+            "top": 16,
+            "right": 593,
+            "bottom": 2,
+            "left": 32
+          }
+        }
+      },
+      {
+        "id": 6,
+        "type": "Main",
+        "kind": "region",
+        "bounds": {
+          "x": 0,
+          "y": 57,
+          "width": 1440,
+          "height": 6912
+        },
+        "source": {
+          "tag": "main"
+        },
+        "children": [
+          {
+            "id": 7,
+            "type": "Hero",
+            "kind": "region",
+            "bounds": {
+              "x": 0,
+              "y": 57,
+              "width": 1440,
+              "height": 671
+            },
+            "source": {
+              "tag": "section"
+            },
+            "children": [
+              {
+                "id": 8,
+                "type": "Button",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 1272,
+                  "y": 121,
+                  "width": 136,
+                  "height": 32
+                },
+                "source": {
+                  "tag": "button"
+                },
+                "children": [],
+                "content": "button",
+                "text": "Pause animation"
+              },
+              {
+                "id": 9,
+                "type": "Group",
+                "kind": "container",
+                "bounds": {
+                  "x": 32,
+                  "y": 169,
+                  "width": 912,
+                  "height": 431
+                },
+                "source": {
+                  "tag": "div"
+                },
+                "children": [
+                  {
+                    "id": 10,
+                    "type": "Heading",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 32,
+                      "y": 169,
+                      "width": 912,
+                      "height": 256
+                    },
+                    "source": {
+                      "tag": "h1"
+                    },
+                    "children": [],
+                    "content": "heading",
+                    "text": "Welcome to Mozilla"
+                  },
+                  {
+                    "id": 11,
+                    "type": "Text",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 32,
+                      "y": 441,
+                      "width": 912,
+                      "height": 60
+                    },
+                    "source": {
+                      "tag": "p"
+                    },
+                    "children": [],
+                    "content": "text",
+                    "text": "From trustworthy tech to policies that defend your digital rights, we put you fi"
+                  },
+                  {
+                    "id": 12,
+                    "type": "ImageLink",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 32,
+                      "y": 565,
+                      "width": 912,
+                      "height": 35
+                    },
+                    "source": {
+                      "tag": "a"
+                    },
+                    "children": [],
+                    "content": "image",
+                    "text": "Learn about us"
+                  }
+                ],
+                "layout": {
+                  "mode": "stack",
+                  "rows": 3,
+                  "gap": 64,
+                  "padding": {
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 0,
+                    "left": 0
+                  }
+                }
+              },
+              {
+                "id": 13,
+                "type": "Paragraph",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 1076,
+                  "y": 169,
+                  "width": 216,
+                  "height": 431
+                },
+                "source": {
+                  "tag": "svg"
+                },
+                "children": [],
+                "content": "paragraph"
+              }
+            ],
+            "role": "region",
+            "layout": {
+              "mode": "flow",
+              "rows": 2,
+              "padding": {
+                "top": 64,
+                "right": 32,
+                "bottom": 128,
+                "left": 32
+              }
+            }
+          },
+          {
+            "id": 14,
+            "type": "Panel",
+            "kind": "leaf",
+            "bounds": {
+              "x": 0,
+              "y": 728,
+              "width": 1440,
+              "height": 90
+            },
+            "source": {
+              "tag": "div"
+            },
+            "children": [],
+            "content": "panel"
+          },
+          {
+            "id": 15,
+            "type": "Hero",
+            "kind": "region",
+            "bounds": {
+              "x": 0,
+              "y": 818,
+              "width": 1440,
+              "height": 1057
+            },
+            "source": {
+              "tag": "section"
+            },
+            "children": [
+              {
+                "id": 16,
+                "type": "Section",
+                "kind": "region",
+                "bounds": {
+                  "x": 32,
+                  "y": 882,
+                  "width": 1376,
+                  "height": 156
+                },
+                "source": {
+                  "tag": "div"
+                },
+                "children": [
+                  {
+                    "id": 17,
+                    "type": "Heading",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 32,
+                      "y": 882,
+                      "width": 1376,
+                      "height": 80
+                    },
+                    "source": {
+                      "tag": "h2"
+                    },
+                    "children": [],
+                    "content": "heading",
+                    "text": "Love the internet again"
+                  },
+                  {
+                    "id": 18,
+                    "type": "Text",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 32,
+                      "y": 978,
+                      "width": 1028,
+                      "height": 60
+                    },
+                    "source": {
+                      "tag": "p"
+                    },
+                    "children": [],
+                    "content": "text",
+                    "text": "Break free from big tech — our products put you in control of a safer, more priv"
+                  }
+                ],
+                "role": "region",
+                "layout": {
+                  "mode": "stack",
+                  "rows": 2,
+                  "gap": 16,
+                  "padding": {
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 0,
+                    "left": 0
+                  }
+                }
+              },
+              {
+                "id": 19,
+                "type": "Nav",
+                "kind": "region",
+                "bounds": {
+                  "x": 32,
+                  "y": 1102,
+                  "width": 1376,
+                  "height": 594
+                },
+                "source": {
+                  "tag": "ul"
+                },
+                "children": [
+                  {
+                    "id": 20,
+                    "type": "Link",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 32,
+                      "y": 1102,
+                      "width": 1376,
+                      "height": 76
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [],
+                    "content": "link",
+                    "text": "Firefox Get the gold standard for browsing with speed, privacy and control."
+                  },
+                  {
+                    "id": 21,
+                    "type": "Link",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 32,
+                      "y": 1176,
+                      "width": 1376,
+                      "height": 76
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [],
+                    "content": "link",
+                    "text": "Thunderbird Go chaos-free with one app for all your emails, calendars and contac"
+                  },
+                  {
+                    "id": 22,
+                    "type": "Link",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 32,
+                      "y": 1250,
+                      "width": 1376,
+                      "height": 76
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [],
+                    "content": "link",
+                    "text": "Mozilla VPN Keep your location and online adventures private — stream like a loc"
+                  },
+                  {
+                    "id": 23,
+                    "type": "Link",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 32,
+                      "y": 1324,
+                      "width": 1376,
+                      "height": 76
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [],
+                    "content": "link",
+                    "text": "Mozilla Monitor Get a heads-up if your personal info is at risk and lock it down"
+                  },
+                  {
+                    "id": 24,
+                    "type": "Link",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 32,
+                      "y": 1398,
+                      "width": 1376,
+                      "height": 76
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [],
+                    "content": "link",
+                    "text": "Firefox Relay Mask your email and phone number so you only get the messages you "
+                  },
+                  {
+                    "id": 25,
+                    "type": "Link",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 32,
+                      "y": 1472,
+                      "width": 1376,
+                      "height": 76
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [],
+                    "content": "link",
+                    "text": "Solo Instantly create a beautiful website so you can grow your business."
+                  },
+                  {
+                    "id": 26,
+                    "type": "Link",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 32,
+                      "y": 1546,
+                      "width": 1376,
+                      "height": 76
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [],
+                    "content": "link",
+                    "text": "0DIN Secure your AI by finding and fixing GenAI vulnerabilities before attackers"
+                  },
+                  {
+                    "id": 27,
+                    "type": "Link",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 32,
+                      "y": 1620,
+                      "width": 1376,
+                      "height": 76
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [],
+                    "content": "link",
+                    "text": "Tabstack Reliably automate web tasks with a simple developer-focused API."
+                  }
+                ],
+                "role": "navigation",
+                "layout": {
+                  "mode": "stack",
+                  "rows": 8,
+                  "gap": 0,
+                  "padding": {
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 0,
+                    "left": 0
+                  }
+                }
+              },
+              {
+                "id": 28,
+                "type": "ImageLink",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 32,
+                  "y": 1760,
+                  "width": 1376,
+                  "height": 51
+                },
+                "source": {
+                  "tag": "a"
+                },
+                "children": [],
+                "content": "image",
+                "text": "Explore our products"
+              }
+            ],
+            "role": "region",
+            "layout": {
+              "mode": "stack",
+              "rows": 3,
+              "gap": 64,
+              "padding": {
+                "top": 64,
+                "right": 32,
+                "bottom": 64,
+                "left": 32
+              }
+            }
+          },
+          {
+            "id": 29,
+            "type": "Section",
+            "kind": "region",
+            "bounds": {
+              "x": 0,
+              "y": 1875,
+              "width": 1440,
+              "height": 477
+            },
+            "source": {
+              "tag": "div"
+            },
+            "children": [
+              {
+                "id": 30,
+                "type": "Heading",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 32,
+                  "y": 1939,
+                  "width": 680,
+                  "height": 160
+                },
+                "source": {
+                  "tag": "h2"
+                },
+                "children": [],
+                "content": "heading",
+                "text": "Donate to Mozilla Foundation"
+              },
+              {
+                "id": 31,
+                "type": "Paragraph",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 32,
+                  "y": 2115,
+                  "width": 680,
+                  "height": 173
+                },
+                "source": {
+                  "tag": "p"
+                },
+                "children": [],
+                "content": "paragraph",
+                "text": "Mozilla Foundation is building a future where technology is powered by people, a"
+              },
+              {
+                "id": 32,
+                "type": "Image",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 844,
+                  "y": 1939,
+                  "width": 564,
+                  "height": 282
+                },
+                "source": {
+                  "tag": "img"
+                },
+                "children": [],
+                "content": "image"
+              },
+              {
+                "id": 33,
+                "type": "ImageLink",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 844,
+                  "y": 2221,
+                  "width": 564,
+                  "height": 67
+                },
+                "source": {
+                  "tag": "a"
+                },
+                "children": [],
+                "content": "image",
+                "text": "Donate"
+              }
+            ],
+            "role": "region",
+            "layout": {
+              "mode": "row",
+              "columns": 4,
+              "rows": 1,
+              "gap": 0,
+              "padding": {
+                "top": 64,
+                "right": 32,
+                "bottom": 64,
+                "left": 32
+              }
+            }
+          },
+          {
+            "id": 34,
+            "type": "Panel",
+            "kind": "leaf",
+            "bounds": {
+              "x": 0,
+              "y": 2352,
+              "width": 1440,
+              "height": 90
+            },
+            "source": {
+              "tag": "div"
+            },
+            "children": [],
+            "content": "panel"
+          },
+          {
+            "id": 35,
+            "type": "Section",
+            "kind": "region",
+            "bounds": {
+              "x": 0,
+              "y": 2442,
+              "width": 1440,
+              "height": 1595
+            },
+            "source": {
+              "tag": "section",
+              "hints": [
+                "section"
+              ]
+            },
+            "children": [
+              {
+                "id": 36,
+                "type": "Section",
+                "kind": "region",
+                "bounds": {
+                  "x": 32,
+                  "y": 2506,
+                  "width": 1376,
+                  "height": 156
+                },
+                "source": {
+                  "tag": "header"
+                },
+                "children": [
+                  {
+                    "id": 37,
+                    "type": "Heading",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 32,
+                      "y": 2506,
+                      "width": 1376,
+                      "height": 80
+                    },
+                    "source": {
+                      "tag": "h2"
+                    },
+                    "children": [],
+                    "content": "heading",
+                    "text": "Join the movement: AI for the people"
+                  },
+                  {
+                    "id": 38,
+                    "type": "Text",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 32,
+                      "y": 2602,
+                      "width": 1028,
+                      "height": 60
+                    },
+                    "source": {
+                      "tag": "p"
+                    },
+                    "children": [],
+                    "content": "text",
+                    "text": "Our mission is to make it easy for people to build with, and collaborate on, ope"
+                  }
+                ],
+                "role": "region",
+                "layout": {
+                  "mode": "stack",
+                  "rows": 2,
+                  "gap": 16,
+                  "padding": {
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 0,
+                    "left": 0
+                  }
+                }
+              },
+              {
+                "id": 39,
+                "type": "Gallery",
+                "kind": "region",
+                "bounds": {
+                  "x": 32,
+                  "y": 2726,
+                  "width": 1376,
+                  "height": 1247
+                },
+                "source": {
+                  "tag": "div"
+                },
+                "children": [
+                  {
+                    "id": 40,
+                    "type": "Card",
+                    "kind": "container",
+                    "bounds": {
+                      "x": 32,
+                      "y": 2726,
+                      "width": 448,
+                      "height": 582
+                    },
+                    "source": {
+                      "tag": "div"
+                    },
+                    "children": [
+                      {
+                        "id": 41,
+                        "type": "Heading",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 32,
+                          "y": 3190,
+                          "width": 448,
+                          "height": 35
+                        },
+                        "source": {
+                          "tag": "h3"
+                        },
+                        "children": [],
+                        "content": "heading",
+                        "text": "Mozilla Data Collective"
+                      },
+                      {
+                        "id": 42,
+                        "type": "Group",
+                        "kind": "container",
+                        "bounds": {
+                          "x": 32,
+                          "y": 2726,
+                          "width": 448,
+                          "height": 448
+                        },
+                        "source": {
+                          "tag": "picture"
+                        },
+                        "children": [
+                          {
+                            "id": 43,
+                            "type": "Image",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 32,
+                              "y": 2726,
+                              "width": 448,
+                              "height": 448
+                            },
+                            "source": {
+                              "tag": "img"
+                            },
+                            "children": [],
+                            "content": "image"
+                          }
+                        ],
+                        "layout": {
+                          "mode": "stack",
+                          "padding": {
+                            "top": 0,
+                            "right": 0,
+                            "bottom": 0,
+                            "left": 0
+                          }
+                        }
+                      },
+                      {
+                        "id": 44,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 40,
+                          "y": 2734,
+                          "width": 71,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Product"
+                      },
+                      {
+                        "id": 45,
+                        "type": "TextBlock",
+                        "kind": "container",
+                        "bounds": {
+                          "x": 32,
+                          "y": 3229,
+                          "width": 448,
+                          "height": 79
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [
+                          {
+                            "id": 46,
+                            "type": "Text",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 32,
+                              "y": 3229,
+                              "width": 448,
+                              "height": 40
+                            },
+                            "source": {
+                              "tag": "p"
+                            },
+                            "children": [],
+                            "content": "text",
+                            "text": "Mozilla Data Collective is rebuilding the AI data ecosystem with communities at "
+                          },
+                          {
+                            "id": 47,
+                            "type": "Text",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 32,
+                              "y": 3285,
+                              "width": 448,
+                              "height": 23
+                            },
+                            "source": {
+                              "tag": "p"
+                            },
+                            "children": [],
+                            "content": "text",
+                            "text": "Join today"
+                          }
+                        ],
+                        "layout": {
+                          "mode": "stack",
+                          "rows": 2,
+                          "gap": 16,
+                          "padding": {
+                            "top": 0,
+                            "right": 0,
+                            "bottom": 0,
+                            "left": 0
+                          }
+                        }
+                      }
+                    ],
+                    "layout": {
+                      "mode": "flow",
+                      "rows": 3,
+                      "padding": {
+                        "top": 0,
+                        "right": 0,
+                        "bottom": 0,
+                        "left": 0
+                      }
+                    }
+                  },
+                  {
+                    "id": 48,
+                    "type": "Card",
+                    "kind": "container",
+                    "bounds": {
+                      "x": 496,
+                      "y": 2726,
+                      "width": 448,
+                      "height": 582
+                    },
+                    "source": {
+                      "tag": "div"
+                    },
+                    "children": [
+                      {
+                        "id": 49,
+                        "type": "Heading",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 496,
+                          "y": 3190,
+                          "width": 448,
+                          "height": 35
+                        },
+                        "source": {
+                          "tag": "h3"
+                        },
+                        "children": [],
+                        "content": "heading",
+                        "text": "Owners, Not Renters"
+                      },
+                      {
+                        "id": 50,
+                        "type": "Group",
+                        "kind": "container",
+                        "bounds": {
+                          "x": 496,
+                          "y": 2726,
+                          "width": 448,
+                          "height": 448
+                        },
+                        "source": {
+                          "tag": "picture"
+                        },
+                        "children": [
+                          {
+                            "id": 51,
+                            "type": "Image",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 496,
+                              "y": 2726,
+                              "width": 448,
+                              "height": 448
+                            },
+                            "source": {
+                              "tag": "img"
+                            },
+                            "children": [],
+                            "content": "image"
+                          }
+                        ],
+                        "layout": {
+                          "mode": "stack",
+                          "padding": {
+                            "top": 0,
+                            "right": 0,
+                            "bottom": 0,
+                            "left": 0
+                          }
+                        }
+                      },
+                      {
+                        "id": 52,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 504,
+                          "y": 2734,
+                          "width": 71,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Product"
+                      },
+                      {
+                        "id": 53,
+                        "type": "TextBlock",
+                        "kind": "container",
+                        "bounds": {
+                          "x": 496,
+                          "y": 3229,
+                          "width": 448,
+                          "height": 59
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [
+                          {
+                            "id": 54,
+                            "type": "Text",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 496,
+                              "y": 3229,
+                              "width": 448,
+                              "height": 20
+                            },
+                            "source": {
+                              "tag": "p"
+                            },
+                            "children": [],
+                            "content": "text",
+                            "text": "Join our new Open Source AI community."
+                          },
+                          {
+                            "id": 55,
+                            "type": "Text",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 496,
+                              "y": 3265,
+                              "width": 448,
+                              "height": 23
+                            },
+                            "source": {
+                              "tag": "p"
+                            },
+                            "children": [],
+                            "content": "text",
+                            "text": "Sign up today"
+                          }
+                        ],
+                        "layout": {
+                          "mode": "stack",
+                          "rows": 2,
+                          "gap": 16,
+                          "padding": {
+                            "top": 0,
+                            "right": 0,
+                            "bottom": 0,
+                            "left": 0
+                          }
+                        }
+                      }
+                    ],
+                    "layout": {
+                      "mode": "flow",
+                      "rows": 3,
+                      "padding": {
+                        "top": 0,
+                        "right": 0,
+                        "bottom": 20,
+                        "left": 0
+                      }
+                    }
+                  },
+                  {
+                    "id": 56,
+                    "type": "Card",
+                    "kind": "container",
+                    "bounds": {
+                      "x": 960,
+                      "y": 2726,
+                      "width": 448,
+                      "height": 582
+                    },
+                    "source": {
+                      "tag": "div"
+                    },
+                    "children": [
+                      {
+                        "id": 57,
+                        "type": "Heading",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 960,
+                          "y": 3190,
+                          "width": 448,
+                          "height": 35
+                        },
+                        "source": {
+                          "tag": "h3"
+                        },
+                        "children": [],
+                        "content": "heading",
+                        "text": "A Rebel Alliance?"
+                      },
+                      {
+                        "id": 58,
+                        "type": "Group",
+                        "kind": "container",
+                        "bounds": {
+                          "x": 960,
+                          "y": 2726,
+                          "width": 448,
+                          "height": 448
+                        },
+                        "source": {
+                          "tag": "picture"
+                        },
+                        "children": [
+                          {
+                            "id": 59,
+                            "type": "Image",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 960,
+                              "y": 2726,
+                              "width": 448,
+                              "height": 448
+                            },
+                            "source": {
+                              "tag": "img"
+                            },
+                            "children": [],
+                            "content": "image"
+                          }
+                        ],
+                        "layout": {
+                          "mode": "stack",
+                          "padding": {
+                            "top": 0,
+                            "right": 0,
+                            "bottom": 0,
+                            "left": 0
+                          }
+                        }
+                      },
+                      {
+                        "id": 60,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 968,
+                          "y": 2734,
+                          "width": 65,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Impact"
+                      },
+                      {
+                        "id": 61,
+                        "type": "TextBlock",
+                        "kind": "container",
+                        "bounds": {
+                          "x": 960,
+                          "y": 3229,
+                          "width": 448,
+                          "height": 59
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [
+                          {
+                            "id": 62,
+                            "type": "Text",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 960,
+                              "y": 3229,
+                              "width": 448,
+                              "height": 20
+                            },
+                            "source": {
+                              "tag": "p"
+                            },
+                            "children": [],
+                            "content": "text",
+                            "text": "How Mozilla is taking on AI Industry Heavyweights."
+                          },
+                          {
+                            "id": 63,
+                            "type": "Text",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 960,
+                              "y": 3265,
+                              "width": 448,
+                              "height": 23
+                            },
+                            "source": {
+                              "tag": "p"
+                            },
+                            "children": [],
+                            "content": "text",
+                            "text": "Read here."
+                          }
+                        ],
+                        "layout": {
+                          "mode": "stack",
+                          "rows": 2,
+                          "gap": 16,
+                          "padding": {
+                            "top": 0,
+                            "right": 0,
+                            "bottom": 0,
+                            "left": 0
+                          }
+                        }
+                      }
+                    ],
+                    "layout": {
+                      "mode": "flow",
+                      "rows": 3,
+                      "padding": {
+                        "top": 0,
+                        "right": 0,
+                        "bottom": 20,
+                        "left": 0
+                      }
+                    }
+                  },
+                  {
+                    "id": 64,
+                    "type": "Card",
+                    "kind": "container",
+                    "bounds": {
+                      "x": 32,
+                      "y": 3372,
+                      "width": 448,
+                      "height": 602
+                    },
+                    "source": {
+                      "tag": "div"
+                    },
+                    "children": [
+                      {
+                        "id": 65,
+                        "type": "Heading",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 32,
+                          "y": 3836,
+                          "width": 448,
+                          "height": 35
+                        },
+                        "source": {
+                          "tag": "h3"
+                        },
+                        "children": [],
+                        "content": "heading",
+                        "text": "Mozilla Ventures"
+                      },
+                      {
+                        "id": 66,
+                        "type": "Group",
+                        "kind": "container",
+                        "bounds": {
+                          "x": 32,
+                          "y": 3372,
+                          "width": 448,
+                          "height": 448
+                        },
+                        "source": {
+                          "tag": "picture"
+                        },
+                        "children": [
+                          {
+                            "id": 67,
+                            "type": "Image",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 32,
+                              "y": 3372,
+                              "width": 448,
+                              "height": 448
+                            },
+                            "source": {
+                              "tag": "img"
+                            },
+                            "children": [],
+                            "content": "image"
+                          }
+                        ],
+                        "layout": {
+                          "mode": "stack",
+                          "padding": {
+                            "top": 0,
+                            "right": 0,
+                            "bottom": 0,
+                            "left": 0
+                          }
+                        }
+                      },
+                      {
+                        "id": 68,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 40,
+                          "y": 3380,
+                          "width": 74,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Program"
+                      },
+                      {
+                        "id": 69,
+                        "type": "TextBlock",
+                        "kind": "container",
+                        "bounds": {
+                          "x": 32,
+                          "y": 3875,
+                          "width": 448,
+                          "height": 99
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [
+                          {
+                            "id": 70,
+                            "type": "Paragraph",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 32,
+                              "y": 3875,
+                              "width": 448,
+                              "height": 60
+                            },
+                            "source": {
+                              "tag": "p"
+                            },
+                            "children": [],
+                            "content": "paragraph",
+                            "text": "Got an early-stage startup? Pitch your company to Mozilla Ventures and secure fu"
+                          },
+                          {
+                            "id": 71,
+                            "type": "Text",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 32,
+                              "y": 3951,
+                              "width": 448,
+                              "height": 23
+                            },
+                            "source": {
+                              "tag": "p"
+                            },
+                            "children": [],
+                            "content": "text",
+                            "text": "Read more"
+                          }
+                        ],
+                        "layout": {
+                          "mode": "stack",
+                          "rows": 2,
+                          "gap": 16,
+                          "padding": {
+                            "top": 0,
+                            "right": 0,
+                            "bottom": 0,
+                            "left": 0
+                          }
+                        }
+                      }
+                    ],
+                    "layout": {
+                      "mode": "flow",
+                      "rows": 3,
+                      "padding": {
+                        "top": 0,
+                        "right": 0,
+                        "bottom": 0,
+                        "left": 0
+                      }
+                    }
+                  },
+                  {
+                    "id": 72,
+                    "type": "Card",
+                    "kind": "container",
+                    "bounds": {
+                      "x": 496,
+                      "y": 3372,
+                      "width": 448,
+                      "height": 602
+                    },
+                    "source": {
+                      "tag": "div"
+                    },
+                    "children": [
+                      {
+                        "id": 73,
+                        "type": "Heading",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 496,
+                          "y": 3836,
+                          "width": 448,
+                          "height": 35
+                        },
+                        "source": {
+                          "tag": "h3"
+                        },
+                        "children": [],
+                        "content": "heading",
+                        "text": "A Double Bottom Line for Tech"
+                      },
+                      {
+                        "id": 74,
+                        "type": "Group",
+                        "kind": "container",
+                        "bounds": {
+                          "x": 496,
+                          "y": 3372,
+                          "width": 448,
+                          "height": 448
+                        },
+                        "source": {
+                          "tag": "picture"
+                        },
+                        "children": [
+                          {
+                            "id": 75,
+                            "type": "Image",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 496,
+                              "y": 3372,
+                              "width": 448,
+                              "height": 448
+                            },
+                            "source": {
+                              "tag": "img"
+                            },
+                            "children": [],
+                            "content": "image"
+                          }
+                        ],
+                        "layout": {
+                          "mode": "stack",
+                          "padding": {
+                            "top": 0,
+                            "right": 0,
+                            "bottom": 0,
+                            "left": 0
+                          }
+                        }
+                      },
+                      {
+                        "id": 76,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 504,
+                          "y": 3380,
+                          "width": 55,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Event"
+                      },
+                      {
+                        "id": 77,
+                        "type": "TextBlock",
+                        "kind": "container",
+                        "bounds": {
+                          "x": 496,
+                          "y": 3875,
+                          "width": 448,
+                          "height": 99
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [
+                          {
+                            "id": 78,
+                            "type": "Text",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 496,
+                              "y": 3875,
+                              "width": 448,
+                              "height": 60
+                            },
+                            "source": {
+                              "tag": "p"
+                            },
+                            "children": [],
+                            "content": "text",
+                            "text": "Mark Surman discusses how we can build a tech ecosystem with a double bottom lin"
+                          },
+                          {
+                            "id": 79,
+                            "type": "Text",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 496,
+                              "y": 3951,
+                              "width": 448,
+                              "height": 23
+                            },
+                            "source": {
+                              "tag": "p"
+                            },
+                            "children": [],
+                            "content": "text",
+                            "text": "Watch now"
+                          }
+                        ],
+                        "layout": {
+                          "mode": "stack",
+                          "rows": 2,
+                          "gap": 16,
+                          "padding": {
+                            "top": 0,
+                            "right": 0,
+                            "bottom": 0,
+                            "left": 0
+                          }
+                        }
+                      }
+                    ],
+                    "layout": {
+                      "mode": "flow",
+                      "rows": 3,
+                      "padding": {
+                        "top": 0,
+                        "right": 0,
+                        "bottom": 0,
+                        "left": 0
+                      }
+                    }
+                  },
+                  {
+                    "id": 80,
+                    "type": "Card",
+                    "kind": "container",
+                    "bounds": {
+                      "x": 960,
+                      "y": 3372,
+                      "width": 448,
+                      "height": 602
+                    },
+                    "source": {
+                      "tag": "div"
+                    },
+                    "children": [
+                      {
+                        "id": 81,
+                        "type": "Heading",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 960,
+                          "y": 3836,
+                          "width": 448,
+                          "height": 35
+                        },
+                        "source": {
+                          "tag": "h3"
+                        },
+                        "children": [],
+                        "content": "heading",
+                        "text": "Otari"
+                      },
+                      {
+                        "id": 82,
+                        "type": "Group",
+                        "kind": "container",
+                        "bounds": {
+                          "x": 960,
+                          "y": 3372,
+                          "width": 448,
+                          "height": 448
+                        },
+                        "source": {
+                          "tag": "picture"
+                        },
+                        "children": [
+                          {
+                            "id": 83,
+                            "type": "Image",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 960,
+                              "y": 3372,
+                              "width": 448,
+                              "height": 448
+                            },
+                            "source": {
+                              "tag": "img"
+                            },
+                            "children": [],
+                            "content": "image"
+                          }
+                        ],
+                        "layout": {
+                          "mode": "stack",
+                          "padding": {
+                            "top": 0,
+                            "right": 0,
+                            "bottom": 0,
+                            "left": 0
+                          }
+                        }
+                      },
+                      {
+                        "id": 84,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 968,
+                          "y": 3380,
+                          "width": 71,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Product"
+                      },
+                      {
+                        "id": 85,
+                        "type": "TextBlock",
+                        "kind": "container",
+                        "bounds": {
+                          "x": 960,
+                          "y": 3875,
+                          "width": 448,
+                          "height": 99
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [
+                          {
+                            "id": 86,
+                            "type": "Paragraph",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 960,
+                              "y": 3875,
+                              "width": 448,
+                              "height": 60
+                            },
+                            "source": {
+                              "tag": "p"
+                            },
+                            "children": [],
+                            "content": "paragraph",
+                            "text": "Otari eliminates the complexity of managing multiple AI providers by unifying ro"
+                          },
+                          {
+                            "id": 87,
+                            "type": "Text",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 960,
+                              "y": 3951,
+                              "width": 448,
+                              "height": 23
+                            },
+                            "source": {
+                              "tag": "p"
+                            },
+                            "children": [],
+                            "content": "text",
+                            "text": "Get started"
+                          }
+                        ],
+                        "layout": {
+                          "mode": "stack",
+                          "rows": 2,
+                          "gap": 16,
+                          "padding": {
+                            "top": 0,
+                            "right": 0,
+                            "bottom": 0,
+                            "left": 0
+                          }
+                        }
+                      }
+                    ],
+                    "layout": {
+                      "mode": "flow",
+                      "rows": 3,
+                      "padding": {
+                        "top": 0,
+                        "right": 0,
+                        "bottom": 0,
+                        "left": 0
+                      }
+                    }
+                  }
+                ],
+                "role": "region",
+                "layout": {
+                  "mode": "grid",
+                  "columns": 3,
+                  "rows": 2,
+                  "gap": 16,
+                  "rowGap": 64,
+                  "padding": {
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 0,
+                    "left": 0
+                  }
+                }
+              }
+            ],
+            "role": "region",
+            "layout": {
+              "mode": "stack",
+              "rows": 2,
+              "gap": 64,
+              "padding": {
+                "top": 64,
+                "right": 32,
+                "bottom": 64,
+                "left": 32
+              }
+            }
+          },
+          {
+            "id": 88,
+            "type": "Section",
+            "kind": "region",
+            "bounds": {
+              "x": 0,
+              "y": 4037,
+              "width": 1440,
+              "height": 983
+            },
+            "source": {
+              "tag": "section"
+            },
+            "children": [
+              {
+                "id": 89,
+                "type": "Heading",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 32,
+                  "y": 4101,
+                  "width": 1376,
+                  "height": 32
+                },
+                "source": {
+                  "tag": "h3"
+                },
+                "children": [],
+                "content": "heading",
+                "text": "You, AI and the internet — what’s really going on?"
+              },
+              {
+                "id": 90,
+                "type": "List",
+                "kind": "region",
+                "bounds": {
+                  "x": 32,
+                  "y": 4197,
+                  "width": 1376,
+                  "height": 759
+                },
+                "source": {
+                  "tag": "ul"
+                },
+                "children": [
+                  {
+                    "id": 91,
+                    "type": "Item",
+                    "kind": "region",
+                    "bounds": {
+                      "x": 32,
+                      "y": 4197,
+                      "width": 1376,
+                      "height": 33
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [
+                      {
+                        "id": 92,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 123,
+                          "y": 4205,
+                          "width": 77,
+                          "height": 15
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Type"
+                      },
+                      {
+                        "id": 93,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 232,
+                          "y": 4205,
+                          "width": 172,
+                          "height": 15
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Author(s)"
+                      },
+                      {
+                        "id": 94,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 436,
+                          "y": 4205,
+                          "width": 191,
+                          "height": 15
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Topic"
+                      },
+                      {
+                        "id": 95,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 659,
+                          "y": 4205,
+                          "width": 746,
+                          "height": 15
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Intro"
+                      }
+                    ],
+                    "role": "listitem",
+                    "layout": {
+                      "mode": "row",
+                      "columns": 4,
+                      "rows": 1,
+                      "gap": 32,
+                      "padding": {
+                        "top": 8,
+                        "right": 3,
+                        "bottom": 10,
+                        "left": 91
+                      }
+                    }
+                  },
+                  {
+                    "id": 96,
+                    "type": "Item",
+                    "kind": "region",
+                    "bounds": {
+                      "x": 32,
+                      "y": 4230,
+                      "width": 1376,
+                      "height": 66
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [
+                      {
+                        "id": 97,
+                        "type": "Icon",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 35,
+                          "y": 4246,
+                          "width": 32,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "span"
+                        },
+                        "children": [],
+                        "content": "icon"
+                      },
+                      {
+                        "id": 98,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 123,
+                          "y": 4252,
+                          "width": 77,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Article"
+                      },
+                      {
+                        "id": 99,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 232,
+                          "y": 4252,
+                          "width": 172,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Fast Company"
+                      },
+                      {
+                        "id": 100,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 436,
+                          "y": 4252,
+                          "width": 191,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "News"
+                      },
+                      {
+                        "id": 101,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 659,
+                          "y": 4252,
+                          "width": 746,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Mozilla’s new AI strategy marks a return to its ‘rebel alliance’ roots"
+                      }
+                    ],
+                    "role": "listitem",
+                    "layout": {
+                      "mode": "row",
+                      "columns": 5,
+                      "rows": 1,
+                      "gap": 32,
+                      "padding": {
+                        "top": 16,
+                        "right": 3,
+                        "bottom": 18,
+                        "left": 3
+                      }
+                    }
+                  },
+                  {
+                    "id": 102,
+                    "type": "Item",
+                    "kind": "region",
+                    "bounds": {
+                      "x": 32,
+                      "y": 4296,
+                      "width": 1376,
+                      "height": 66
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [
+                      {
+                        "id": 103,
+                        "type": "Icon",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 35,
+                          "y": 4312,
+                          "width": 32,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "span"
+                        },
+                        "children": [],
+                        "content": "icon"
+                      },
+                      {
+                        "id": 104,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 123,
+                          "y": 4318,
+                          "width": 77,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Article"
+                      },
+                      {
+                        "id": 105,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 232,
+                          "y": 4318,
+                          "width": 172,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Mozilla"
+                      },
+                      {
+                        "id": 106,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 436,
+                          "y": 4318,
+                          "width": 191,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Open Source AI"
+                      },
+                      {
+                        "id": 107,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 659,
+                          "y": 4318,
+                          "width": 746,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Mozilla and Mila announce strategic research partnership"
+                      }
+                    ],
+                    "role": "listitem",
+                    "layout": {
+                      "mode": "row",
+                      "columns": 5,
+                      "rows": 1,
+                      "gap": 32,
+                      "padding": {
+                        "top": 16,
+                        "right": 3,
+                        "bottom": 18,
+                        "left": 3
+                      }
+                    }
+                  },
+                  {
+                    "id": 108,
+                    "type": "Item",
+                    "kind": "region",
+                    "bounds": {
+                      "x": 32,
+                      "y": 4362,
+                      "width": 1376,
+                      "height": 66
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [
+                      {
+                        "id": 109,
+                        "type": "Icon",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 35,
+                          "y": 4378,
+                          "width": 32,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "span"
+                        },
+                        "children": [],
+                        "content": "icon"
+                      },
+                      {
+                        "id": 110,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 123,
+                          "y": 4384,
+                          "width": 77,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Video"
+                      },
+                      {
+                        "id": 111,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 232,
+                          "y": 4384,
+                          "width": 172,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Mozilla"
+                      },
+                      {
+                        "id": 112,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 436,
+                          "y": 4384,
+                          "width": 191,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Products"
+                      },
+                      {
+                        "id": 113,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 659,
+                          "y": 4384,
+                          "width": 746,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Why Firefox is Letting You Turn Off AI"
+                      }
+                    ],
+                    "role": "listitem",
+                    "layout": {
+                      "mode": "row",
+                      "columns": 5,
+                      "rows": 1,
+                      "gap": 32,
+                      "padding": {
+                        "top": 16,
+                        "right": 3,
+                        "bottom": 18,
+                        "left": 3
+                      }
+                    }
+                  },
+                  {
+                    "id": 114,
+                    "type": "Item",
+                    "kind": "region",
+                    "bounds": {
+                      "x": 32,
+                      "y": 4428,
+                      "width": 1376,
+                      "height": 66
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [
+                      {
+                        "id": 115,
+                        "type": "Icon",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 35,
+                          "y": 4444,
+                          "width": 32,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "span"
+                        },
+                        "children": [],
+                        "content": "icon"
+                      },
+                      {
+                        "id": 116,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 123,
+                          "y": 4450,
+                          "width": 77,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Article"
+                      },
+                      {
+                        "id": 117,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 232,
+                          "y": 4450,
+                          "width": 172,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Le Monde"
+                      },
+                      {
+                        "id": 118,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 436,
+                          "y": 4450,
+                          "width": 191,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "News"
+                      },
+                      {
+                        "id": 119,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 659,
+                          "y": 4450,
+                          "width": 746,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "AI summit in India pushes a 'third way' between US and China"
+                      }
+                    ],
+                    "role": "listitem",
+                    "layout": {
+                      "mode": "row",
+                      "columns": 5,
+                      "rows": 1,
+                      "gap": 32,
+                      "padding": {
+                        "top": 16,
+                        "right": 3,
+                        "bottom": 18,
+                        "left": 3
+                      }
+                    }
+                  },
+                  {
+                    "id": 120,
+                    "type": "Item",
+                    "kind": "region",
+                    "bounds": {
+                      "x": 32,
+                      "y": 4494,
+                      "width": 1376,
+                      "height": 66
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [
+                      {
+                        "id": 121,
+                        "type": "Icon",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 35,
+                          "y": 4510,
+                          "width": 32,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "span"
+                        },
+                        "children": [],
+                        "content": "icon"
+                      },
+                      {
+                        "id": 122,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 123,
+                          "y": 4516,
+                          "width": 77,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Video"
+                      },
+                      {
+                        "id": 123,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 232,
+                          "y": 4516,
+                          "width": 172,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Impact Alpha"
+                      },
+                      {
+                        "id": 124,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 436,
+                          "y": 4516,
+                          "width": 191,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Products"
+                      },
+                      {
+                        "id": 125,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 659,
+                          "y": 4516,
+                          "width": 746,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "(Human) agents of impact are shaping the algorithm for ‘good AI’"
+                      }
+                    ],
+                    "role": "listitem",
+                    "layout": {
+                      "mode": "row",
+                      "columns": 5,
+                      "rows": 1,
+                      "gap": 32,
+                      "padding": {
+                        "top": 16,
+                        "right": 3,
+                        "bottom": 18,
+                        "left": 3
+                      }
+                    }
+                  },
+                  {
+                    "id": 126,
+                    "type": "Item",
+                    "kind": "region",
+                    "bounds": {
+                      "x": 32,
+                      "y": 4560,
+                      "width": 1376,
+                      "height": 66
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [
+                      {
+                        "id": 127,
+                        "type": "Icon",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 35,
+                          "y": 4576,
+                          "width": 32,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "span"
+                        },
+                        "children": [],
+                        "content": "icon"
+                      },
+                      {
+                        "id": 128,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 123,
+                          "y": 4582,
+                          "width": 77,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Article"
+                      },
+                      {
+                        "id": 129,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 232,
+                          "y": 4582,
+                          "width": 172,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Rest of World"
+                      },
+                      {
+                        "id": 130,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 436,
+                          "y": 4582,
+                          "width": 191,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "News"
+                      },
+                      {
+                        "id": 131,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 659,
+                          "y": 4582,
+                          "width": 746,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Fed up with Big Tech, communities turn to data collectives for control"
+                      }
+                    ],
+                    "role": "listitem",
+                    "layout": {
+                      "mode": "row",
+                      "columns": 5,
+                      "rows": 1,
+                      "gap": 32,
+                      "padding": {
+                        "top": 16,
+                        "right": 3,
+                        "bottom": 18,
+                        "left": 3
+                      }
+                    }
+                  },
+                  {
+                    "id": 132,
+                    "type": "Item",
+                    "kind": "region",
+                    "bounds": {
+                      "x": 32,
+                      "y": 4626,
+                      "width": 1376,
+                      "height": 66
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [
+                      {
+                        "id": 133,
+                        "type": "Icon",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 35,
+                          "y": 4642,
+                          "width": 32,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "span"
+                        },
+                        "children": [],
+                        "content": "icon"
+                      },
+                      {
+                        "id": 134,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 123,
+                          "y": 4648,
+                          "width": 77,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Article"
+                      },
+                      {
+                        "id": 135,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 232,
+                          "y": 4648,
+                          "width": 172,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Mozilla Foundation"
+                      },
+                      {
+                        "id": 136,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 436,
+                          "y": 4648,
+                          "width": 191,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Open Source AI"
+                      },
+                      {
+                        "id": 137,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 659,
+                          "y": 4648,
+                          "width": 746,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Our first Democracy x AI incubator cohort is announced"
+                      }
+                    ],
+                    "role": "listitem",
+                    "layout": {
+                      "mode": "row",
+                      "columns": 5,
+                      "rows": 1,
+                      "gap": 32,
+                      "padding": {
+                        "top": 16,
+                        "right": 3,
+                        "bottom": 18,
+                        "left": 3
+                      }
+                    }
+                  },
+                  {
+                    "id": 138,
+                    "type": "Item",
+                    "kind": "region",
+                    "bounds": {
+                      "x": 32,
+                      "y": 4692,
+                      "width": 1376,
+                      "height": 66
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [
+                      {
+                        "id": 139,
+                        "type": "Icon",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 35,
+                          "y": 4708,
+                          "width": 32,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "span"
+                        },
+                        "children": [],
+                        "content": "icon"
+                      },
+                      {
+                        "id": 140,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 123,
+                          "y": 4714,
+                          "width": 77,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Article"
+                      },
+                      {
+                        "id": 141,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 232,
+                          "y": 4714,
+                          "width": 172,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Marketplace"
+                      },
+                      {
+                        "id": 142,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 436,
+                          "y": 4714,
+                          "width": 191,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Privacy & Security"
+                      },
+                      {
+                        "id": 143,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 659,
+                          "y": 4714,
+                          "width": 746,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Who should get an AI kill switch?"
+                      }
+                    ],
+                    "role": "listitem",
+                    "layout": {
+                      "mode": "row",
+                      "columns": 5,
+                      "rows": 1,
+                      "gap": 32,
+                      "padding": {
+                        "top": 16,
+                        "right": 3,
+                        "bottom": 18,
+                        "left": 3
+                      }
+                    }
+                  },
+                  {
+                    "id": 144,
+                    "type": "Item",
+                    "kind": "region",
+                    "bounds": {
+                      "x": 32,
+                      "y": 4758,
+                      "width": 1376,
+                      "height": 66
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [
+                      {
+                        "id": 145,
+                        "type": "Icon",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 35,
+                          "y": 4774,
+                          "width": 32,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "span"
+                        },
+                        "children": [],
+                        "content": "icon"
+                      },
+                      {
+                        "id": 146,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 123,
+                          "y": 4780,
+                          "width": 77,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Article"
+                      },
+                      {
+                        "id": 147,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 232,
+                          "y": 4780,
+                          "width": 172,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Mark Surman"
+                      },
+                      {
+                        "id": 148,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 436,
+                          "y": 4780,
+                          "width": 191,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Artificial Intelligence"
+                      },
+                      {
+                        "id": 149,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 659,
+                          "y": 4780,
+                          "width": 746,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Mozilla President: meet the open source ‘rebel alliance’ that could break Big Te"
+                      }
+                    ],
+                    "role": "listitem",
+                    "layout": {
+                      "mode": "row",
+                      "columns": 5,
+                      "rows": 1,
+                      "gap": 32,
+                      "padding": {
+                        "top": 16,
+                        "right": 3,
+                        "bottom": 18,
+                        "left": 3
+                      }
+                    }
+                  },
+                  {
+                    "id": 150,
+                    "type": "Item",
+                    "kind": "region",
+                    "bounds": {
+                      "x": 32,
+                      "y": 4824,
+                      "width": 1376,
+                      "height": 66
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [
+                      {
+                        "id": 151,
+                        "type": "Icon",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 35,
+                          "y": 4840,
+                          "width": 32,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "span"
+                        },
+                        "children": [],
+                        "content": "icon"
+                      },
+                      {
+                        "id": 152,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 123,
+                          "y": 4846,
+                          "width": 77,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Article"
+                      },
+                      {
+                        "id": 153,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 232,
+                          "y": 4846,
+                          "width": 172,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "The Register"
+                      },
+                      {
+                        "id": 154,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 436,
+                          "y": 4846,
+                          "width": 191,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Products"
+                      },
+                      {
+                        "id": 155,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 659,
+                          "y": 4846,
+                          "width": 746,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Mozilla throws Thunderbolt at enterprise AI providers"
+                      }
+                    ],
+                    "role": "listitem",
+                    "layout": {
+                      "mode": "row",
+                      "columns": 5,
+                      "rows": 1,
+                      "gap": 32,
+                      "padding": {
+                        "top": 16,
+                        "right": 3,
+                        "bottom": 18,
+                        "left": 3
+                      }
+                    }
+                  },
+                  {
+                    "id": 156,
+                    "type": "Item",
+                    "kind": "region",
+                    "bounds": {
+                      "x": 32,
+                      "y": 4890,
+                      "width": 1376,
+                      "height": 66
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [
+                      {
+                        "id": 157,
+                        "type": "Icon",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 35,
+                          "y": 4906,
+                          "width": 32,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "span"
+                        },
+                        "children": [],
+                        "content": "icon"
+                      },
+                      {
+                        "id": 158,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 123,
+                          "y": 4912,
+                          "width": 77,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Article"
+                      },
+                      {
+                        "id": 159,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 232,
+                          "y": 4912,
+                          "width": 172,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Raffi Krikorian"
+                      },
+                      {
+                        "id": 160,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 436,
+                          "y": 4912,
+                          "width": 191,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Privacy & Security"
+                      },
+                      {
+                        "id": 161,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 659,
+                          "y": 4912,
+                          "width": 746,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "New York Times: It’s the End of the Internet As We Know It"
+                      }
+                    ],
+                    "role": "listitem",
+                    "layout": {
+                      "mode": "row",
+                      "columns": 5,
+                      "rows": 1,
+                      "gap": 32,
+                      "padding": {
+                        "top": 16,
+                        "right": 3,
+                        "bottom": 18,
+                        "left": 3
+                      }
+                    }
+                  }
+                ],
+                "role": "list",
+                "layout": {
+                  "mode": "stack",
+                  "rows": 12,
+                  "gap": 0,
+                  "padding": {
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 0,
+                    "left": 0
+                  }
+                }
+              }
+            ],
+            "role": "region",
+            "layout": {
+              "mode": "stack",
+              "rows": 2,
+              "gap": 64,
+              "padding": {
+                "top": 64,
+                "right": 32,
+                "bottom": 64,
+                "left": 32
+              }
+            }
+          },
+          {
+            "id": 162,
+            "type": "Section",
+            "kind": "region",
+            "bounds": {
+              "x": 0,
+              "y": 5020,
+              "width": 1440,
+              "height": 1123
+            },
+            "source": {
+              "tag": "div"
+            },
+            "children": [
+              {
+                "id": 163,
+                "type": "Section",
+                "kind": "region",
+                "bounds": {
+                  "x": 32,
+                  "y": 5084,
+                  "width": 1376,
+                  "height": 224
+                },
+                "source": {
+                  "tag": "header"
+                },
+                "children": [
+                  {
+                    "id": 164,
+                    "type": "Heading",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 32,
+                      "y": 5084,
+                      "width": 1376,
+                      "height": 88
+                    },
+                    "source": {
+                      "tag": "h2"
+                    },
+                    "children": [],
+                    "content": "heading",
+                    "text": "State of Mozilla"
+                  },
+                  {
+                    "id": 165,
+                    "type": "Paragraph",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 32,
+                      "y": 5188,
+                      "width": 680,
+                      "height": 120
+                    },
+                    "source": {
+                      "tag": "p"
+                    },
+                    "children": [],
+                    "content": "paragraph",
+                    "text": "We’re at a crossroads for the future of technology, with Big AI companies consol"
+                  }
+                ],
+                "role": "region",
+                "layout": {
+                  "mode": "stack",
+                  "rows": 2,
+                  "gap": 16,
+                  "padding": {
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 0,
+                    "left": 0
+                  }
+                }
+              },
+              {
+                "id": 166,
+                "type": "Image",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 32,
+                  "y": 5338,
+                  "width": 1376,
+                  "height": 648
+                },
+                "source": {
+                  "tag": "figure",
+                  "hints": [
+                    "figure"
+                  ]
+                },
+                "children": [],
+                "content": "image"
+              },
+              {
+                "id": 167,
+                "type": "Feature",
+                "kind": "region",
+                "bounds": {
+                  "x": 32,
+                  "y": 5986,
+                  "width": 1376,
+                  "height": 93
+                },
+                "source": {
+                  "tag": "header"
+                },
+                "children": [
+                  {
+                    "id": 168,
+                    "type": "Heading",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 32,
+                      "y": 5986,
+                      "width": 680,
+                      "height": 69
+                    },
+                    "source": {
+                      "tag": "h3"
+                    },
+                    "children": [],
+                    "content": "heading",
+                    "text": "2025"
+                  },
+                  {
+                    "id": 169,
+                    "type": "ImageLink",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 728,
+                      "y": 5986,
+                      "width": 680,
+                      "height": 93
+                    },
+                    "source": {
+                      "tag": "a"
+                    },
+                    "children": [],
+                    "content": "image",
+                    "text": "Read the report"
+                  }
+                ],
+                "role": "region",
+                "layout": {
+                  "mode": "split",
+                  "columns": 2,
+                  "rows": 1,
+                  "gap": 16,
+                  "padding": {
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 0,
+                    "left": 0
+                  }
+                }
+              }
+            ],
+            "role": "region",
+            "layout": {
+              "mode": "stack",
+              "rows": 3,
+              "gap": 30,
+              "padding": {
+                "top": 64,
+                "right": 32,
+                "bottom": 64,
+                "left": 32
+              }
+            }
+          },
+          {
+            "id": 170,
+            "type": "Section",
+            "kind": "region",
+            "bounds": {
+              "x": 0,
+              "y": 6143,
+              "width": 1440,
+              "height": 826
+            },
+            "source": {
+              "tag": "section",
+              "hints": [
+                "section"
+              ]
+            },
+            "children": [
+              {
+                "id": 171,
+                "type": "Heading",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 32,
+                  "y": 6207,
+                  "width": 1376,
+                  "height": 160
+                },
+                "source": {
+                  "tag": "header",
+                  "hints": [
+                    "header"
+                  ]
+                },
+                "children": [],
+                "content": "heading",
+                "text": "Explore issues shaping the future of the internet"
+              },
+              {
+                "id": 172,
+                "type": "Feature",
+                "kind": "region",
+                "bounds": {
+                  "x": 32,
+                  "y": 6431,
+                  "width": 1376,
+                  "height": 474
+                },
+                "source": {
+                  "tag": "div"
+                },
+                "children": [
+                  {
+                    "id": 173,
+                    "type": "Group",
+                    "kind": "container",
+                    "bounds": {
+                      "x": 32,
+                      "y": 6431,
+                      "width": 680,
+                      "height": 474
+                    },
+                    "source": {
+                      "tag": "div"
+                    },
+                    "children": [
+                      {
+                        "id": 174,
+                        "type": "Heading",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 32,
+                          "y": 6787,
+                          "width": 680,
+                          "height": 35
+                        },
+                        "source": {
+                          "tag": "h3"
+                        },
+                        "children": [],
+                        "content": "heading",
+                        "text": "Open Source AI Is Winning"
+                      },
+                      {
+                        "id": 175,
+                        "type": "Group",
+                        "kind": "container",
+                        "bounds": {
+                          "x": 32,
+                          "y": 6431,
+                          "width": 680,
+                          "height": 340
+                        },
+                        "source": {
+                          "tag": "picture"
+                        },
+                        "children": [
+                          {
+                            "id": 176,
+                            "type": "Image",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 32,
+                              "y": 6431,
+                              "width": 680,
+                              "height": 340
+                            },
+                            "source": {
+                              "tag": "img"
+                            },
+                            "children": [],
+                            "content": "image"
+                          }
+                        ],
+                        "layout": {
+                          "mode": "stack",
+                          "padding": {
+                            "top": 0,
+                            "right": 0,
+                            "bottom": 0,
+                            "left": 0
+                          }
+                        }
+                      },
+                      {
+                        "id": 177,
+                        "type": "TextBlock",
+                        "kind": "container",
+                        "bounds": {
+                          "x": 32,
+                          "y": 6826,
+                          "width": 680,
+                          "height": 79
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [
+                          {
+                            "id": 178,
+                            "type": "Text",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 32,
+                              "y": 6826,
+                              "width": 680,
+                              "height": 40
+                            },
+                            "source": {
+                              "tag": "p"
+                            },
+                            "children": [],
+                            "content": "text",
+                            "text": "At a critical moment for the future of AI, our inaugural, annual survey looks at"
+                          },
+                          {
+                            "id": 179,
+                            "type": "Text",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 32,
+                              "y": 6882,
+                              "width": 680,
+                              "height": 23
+                            },
+                            "source": {
+                              "tag": "p"
+                            },
+                            "children": [],
+                            "content": "text",
+                            "text": "Read the report"
+                          }
+                        ],
+                        "layout": {
+                          "mode": "stack",
+                          "rows": 2,
+                          "gap": 16,
+                          "padding": {
+                            "top": 0,
+                            "right": 0,
+                            "bottom": 0,
+                            "left": 0
+                          }
+                        }
+                      }
+                    ],
+                    "layout": {
+                      "mode": "stack",
+                      "rows": 3,
+                      "gap": 16,
+                      "padding": {
+                        "top": 0,
+                        "right": 0,
+                        "bottom": 0,
+                        "left": 0
+                      }
+                    }
+                  },
+                  {
+                    "id": 180,
+                    "type": "Group",
+                    "kind": "container",
+                    "bounds": {
+                      "x": 728,
+                      "y": 6431,
+                      "width": 680,
+                      "height": 474
+                    },
+                    "source": {
+                      "tag": "div"
+                    },
+                    "children": [
+                      {
+                        "id": 181,
+                        "type": "Heading",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 728,
+                          "y": 6787,
+                          "width": 680,
+                          "height": 35
+                        },
+                        "source": {
+                          "tag": "h3"
+                        },
+                        "children": [],
+                        "content": "heading",
+                        "text": "Nothing Personal"
+                      },
+                      {
+                        "id": 182,
+                        "type": "Group",
+                        "kind": "container",
+                        "bounds": {
+                          "x": 728,
+                          "y": 6431,
+                          "width": 680,
+                          "height": 340
+                        },
+                        "source": {
+                          "tag": "picture"
+                        },
+                        "children": [
+                          {
+                            "id": 183,
+                            "type": "Image",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 728,
+                              "y": 6431,
+                              "width": 680,
+                              "height": 340
+                            },
+                            "source": {
+                              "tag": "img"
+                            },
+                            "children": [],
+                            "content": "image"
+                          }
+                        ],
+                        "layout": {
+                          "mode": "stack",
+                          "padding": {
+                            "top": 0,
+                            "right": 0,
+                            "bottom": 0,
+                            "left": 0
+                          }
+                        }
+                      },
+                      {
+                        "id": 184,
+                        "type": "TextBlock",
+                        "kind": "container",
+                        "bounds": {
+                          "x": 728,
+                          "y": 6826,
+                          "width": 680,
+                          "height": 79
+                        },
+                        "source": {
+                          "tag": "div"
+                        },
+                        "children": [
+                          {
+                            "id": 185,
+                            "type": "Text",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 728,
+                              "y": 6826,
+                              "width": 680,
+                              "height": 40
+                            },
+                            "source": {
+                              "tag": "p"
+                            },
+                            "children": [],
+                            "content": "text",
+                            "text": "Our new magazine for independent thinkers, technologists, and creatives on the f"
+                          },
+                          {
+                            "id": 186,
+                            "type": "Text",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 728,
+                              "y": 6882,
+                              "width": 680,
+                              "height": 23
+                            },
+                            "source": {
+                              "tag": "p"
+                            },
+                            "children": [],
+                            "content": "text",
+                            "text": "Read Now"
+                          }
+                        ],
+                        "layout": {
+                          "mode": "stack",
+                          "rows": 2,
+                          "gap": 16,
+                          "padding": {
+                            "top": 0,
+                            "right": 0,
+                            "bottom": 0,
+                            "left": 0
+                          }
+                        }
+                      }
+                    ],
+                    "layout": {
+                      "mode": "stack",
+                      "rows": 3,
+                      "gap": 16,
+                      "padding": {
+                        "top": 0,
+                        "right": 0,
+                        "bottom": 0,
+                        "left": 0
+                      }
+                    }
+                  }
+                ],
+                "role": "region",
+                "layout": {
+                  "mode": "split",
+                  "columns": 2,
+                  "rows": 1,
+                  "gap": 16,
+                  "padding": {
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 0,
+                    "left": 0
+                  }
+                }
+              }
+            ],
+            "role": "region",
+            "layout": {
+              "mode": "stack",
+              "rows": 2,
+              "gap": 64,
+              "padding": {
+                "top": 64,
+                "right": 32,
+                "bottom": 64,
+                "left": 32
+              }
+            }
+          }
+        ],
+        "role": "main",
+        "layout": {
+          "mode": "stack",
+          "rows": 9,
+          "gap": 0,
+          "padding": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        }
+      },
+      {
+        "id": 187,
+        "type": "Section",
+        "kind": "region",
+        "bounds": {
+          "x": 0,
+          "y": 7033,
+          "width": 1440,
+          "height": 174
+        },
+        "source": {
+          "tag": "div"
+        },
+        "children": [
+          {
+            "id": 188,
+            "type": "IconText",
+            "kind": "container",
+            "bounds": {
+              "x": 32,
+              "y": 7033,
+              "width": 680,
+              "height": 71
+            },
+            "source": {
+              "tag": "div"
+            },
+            "children": [
+              {
+                "id": 189,
+                "type": "Icon",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 32,
+                  "y": 7033,
+                  "width": 40,
+                  "height": 47
+                },
+                "source": {
+                  "tag": "img"
+                },
+                "children": [],
+                "content": "icon"
+              },
+              {
+                "id": 190,
+                "type": "Text",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 136,
+                  "y": 7033,
+                  "width": 442,
+                  "height": 62
+                },
+                "source": {
+                  "tag": "p"
+                },
+                "children": [],
+                "content": "text",
+                "text": "Discover Mozilla products and initiatives. We promise to keep your email private"
+              }
+            ],
+            "layout": {
+              "mode": "row",
+              "columns": 2,
+              "rows": 1,
+              "gap": 64,
+              "padding": {
+                "top": 0,
+                "right": 134,
+                "bottom": 9,
+                "left": 0
+              }
+            }
+          },
+          {
+            "id": 191,
+            "type": "Form",
+            "kind": "region",
+            "bounds": {
+              "x": 728,
+              "y": 7033,
+              "width": 680,
+              "height": 140
+            },
+            "source": {
+              "tag": "form",
+              "hints": [
+                "form"
+              ]
+            },
+            "children": [
+              {
+                "id": 192,
+                "type": "Text",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 728,
+                  "y": 7035,
+                  "width": 134,
+                  "height": 26
+                },
+                "source": {
+                  "tag": "label"
+                },
+                "children": [],
+                "content": "text",
+                "text": "Your email address:"
+              },
+              {
+                "id": 193,
+                "type": "Input",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 728,
+                  "y": 7061,
+                  "width": 680,
+                  "height": 40
+                },
+                "source": {
+                  "tag": "input"
+                },
+                "children": [],
+                "content": "input"
+              },
+              {
+                "id": 194,
+                "type": "Button",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 728,
+                  "y": 7133,
+                  "width": 680,
+                  "height": 40
+                },
+                "source": {
+                  "tag": "button"
+                },
+                "children": [],
+                "content": "button",
+                "text": "Sign Up Now"
+              }
+            ],
+            "role": "form",
+            "layout": {
+              "mode": "stack",
+              "rows": 3,
+              "gap": 32,
+              "padding": {
+                "top": 2,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          }
+        ],
+        "role": "region",
+        "layout": {
+          "mode": "split",
+          "columns": 2,
+          "rows": 1,
+          "gap": 16,
+          "padding": {
+            "top": 0,
+            "right": 32,
+            "bottom": 34,
+            "left": 32
+          }
+        }
+      },
+      {
+        "id": 195,
+        "type": "Footer",
+        "kind": "region",
+        "bounds": {
+          "x": 0,
+          "y": 7239,
+          "width": 1440,
+          "height": 758
+        },
+        "source": {
+          "tag": "div"
+        },
+        "children": [
+          {
+            "id": 196,
+            "type": "Section",
+            "kind": "region",
+            "bounds": {
+              "x": 32,
+              "y": 7239,
+              "width": 1376,
+              "height": 201
+            },
+            "source": {
+              "tag": "div"
+            },
+            "children": [
+              {
+                "id": 197,
+                "type": "Group",
+                "kind": "container",
+                "bounds": {
+                  "x": 32,
+                  "y": 7239,
+                  "width": 343,
+                  "height": 201
+                },
+                "source": {
+                  "tag": "div"
+                },
+                "children": [
+                  {
+                    "id": 198,
+                    "type": "Group",
+                    "kind": "container",
+                    "bounds": {
+                      "x": 32,
+                      "y": 7239,
+                      "width": 343,
+                      "height": 53
+                    },
+                    "source": {
+                      "tag": "h2"
+                    },
+                    "children": [
+                      {
+                        "id": 199,
+                        "type": "Image",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 32,
+                          "y": 7248,
+                          "width": 250,
+                          "height": 33
+                        },
+                        "source": {
+                          "tag": "img"
+                        },
+                        "children": [],
+                        "content": "image"
+                      }
+                    ],
+                    "layout": {
+                      "mode": "stack",
+                      "padding": {
+                        "top": 9,
+                        "right": 93,
+                        "bottom": 11,
+                        "left": 0
+                      }
+                    }
+                  },
+                  {
+                    "id": 200,
+                    "type": "Text",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 32,
+                      "y": 7316,
+                      "width": 343,
+                      "height": 20
+                    },
+                    "source": {
+                      "tag": "p"
+                    },
+                    "children": [],
+                    "content": "text",
+                    "text": "Add trust to your ad buy."
+                  },
+                  {
+                    "id": 201,
+                    "type": "Button",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 32,
+                      "y": 7368,
+                      "width": 166,
+                      "height": 40
+                    },
+                    "source": {
+                      "tag": "a"
+                    },
+                    "children": [],
+                    "content": "button",
+                    "text": "Learn more"
+                  }
+                ],
+                "layout": {
+                  "mode": "stack",
+                  "rows": 3,
+                  "gap": 32,
+                  "padding": {
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 32,
+                    "left": 0
+                  }
+                }
+              },
+              {
+                "id": 202,
+                "type": "Group",
+                "kind": "container",
+                "bounds": {
+                  "x": 475,
+                  "y": 7239,
+                  "width": 697,
+                  "height": 186
+                },
+                "source": {
+                  "tag": "div"
+                },
+                "children": [
+                  {
+                    "id": 203,
+                    "type": "Group",
+                    "kind": "container",
+                    "bounds": {
+                      "x": 491,
+                      "y": 7239,
+                      "width": 216,
+                      "height": 186
+                    },
+                    "source": {
+                      "tag": "section"
+                    },
+                    "children": [
+                      {
+                        "id": 204,
+                        "type": "Heading",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 491,
+                          "y": 7239,
+                          "width": 208,
+                          "height": 18
+                        },
+                        "source": {
+                          "tag": "h2"
+                        },
+                        "children": [],
+                        "content": "heading",
+                        "text": "Company"
+                      },
+                      {
+                        "id": 205,
+                        "type": "Nav",
+                        "kind": "region",
+                        "bounds": {
+                          "x": 491,
+                          "y": 7265,
+                          "width": 216,
+                          "height": 140
+                        },
+                        "source": {
+                          "tag": "ul"
+                        },
+                        "children": [
+                          {
+                            "id": 206,
+                            "type": "Link",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 491,
+                              "y": 7265,
+                              "width": 216,
+                              "height": 28
+                            },
+                            "source": {
+                              "tag": "li"
+                            },
+                            "children": [],
+                            "content": "link",
+                            "text": "Leadership"
+                          },
+                          {
+                            "id": 207,
+                            "type": "Link",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 491,
+                              "y": 7293,
+                              "width": 216,
+                              "height": 28
+                            },
+                            "source": {
+                              "tag": "li"
+                            },
+                            "children": [],
+                            "content": "link",
+                            "text": "Press Center"
+                          },
+                          {
+                            "id": 208,
+                            "type": "Link",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 491,
+                              "y": 7321,
+                              "width": 216,
+                              "height": 28
+                            },
+                            "source": {
+                              "tag": "li"
+                            },
+                            "children": [],
+                            "content": "link",
+                            "text": "Careers"
+                          },
+                          {
+                            "id": 209,
+                            "type": "Link",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 491,
+                              "y": 7349,
+                              "width": 216,
+                              "height": 28
+                            },
+                            "source": {
+                              "tag": "li"
+                            },
+                            "children": [],
+                            "content": "link",
+                            "text": "Merch Store"
+                          },
+                          {
+                            "id": 210,
+                            "type": "Link",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 491,
+                              "y": 7377,
+                              "width": 216,
+                              "height": 28
+                            },
+                            "source": {
+                              "tag": "li"
+                            },
+                            "children": [],
+                            "content": "link",
+                            "text": "Contact"
+                          }
+                        ],
+                        "role": "navigation",
+                        "layout": {
+                          "mode": "stack",
+                          "rows": 5,
+                          "gap": 0,
+                          "padding": {
+                            "top": 0,
+                            "right": 0,
+                            "bottom": 0,
+                            "left": 0
+                          }
+                        }
+                      }
+                    ],
+                    "layout": {
+                      "mode": "stack",
+                      "rows": 2,
+                      "gap": 8,
+                      "padding": {
+                        "top": 0,
+                        "right": 0,
+                        "bottom": 20,
+                        "left": 0
+                      }
+                    }
+                  },
+                  {
+                    "id": 211,
+                    "type": "Group",
+                    "kind": "container",
+                    "bounds": {
+                      "x": 723,
+                      "y": 7239,
+                      "width": 216,
+                      "height": 158
+                    },
+                    "source": {
+                      "tag": "section"
+                    },
+                    "children": [
+                      {
+                        "id": 212,
+                        "type": "Heading",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 723,
+                          "y": 7239,
+                          "width": 208,
+                          "height": 18
+                        },
+                        "source": {
+                          "tag": "h2"
+                        },
+                        "children": [],
+                        "content": "heading",
+                        "text": "Support"
+                      },
+                      {
+                        "id": 213,
+                        "type": "Nav",
+                        "kind": "region",
+                        "bounds": {
+                          "x": 723,
+                          "y": 7265,
+                          "width": 216,
+                          "height": 112
+                        },
+                        "source": {
+                          "tag": "ul"
+                        },
+                        "children": [
+                          {
+                            "id": 214,
+                            "type": "Link",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 723,
+                              "y": 7265,
+                              "width": 216,
+                              "height": 28
+                            },
+                            "source": {
+                              "tag": "li"
+                            },
+                            "children": [],
+                            "content": "link",
+                            "text": "Product Help"
+                          },
+                          {
+                            "id": 215,
+                            "type": "Link",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 723,
+                              "y": 7293,
+                              "width": 216,
+                              "height": 28
+                            },
+                            "source": {
+                              "tag": "li"
+                            },
+                            "children": [],
+                            "content": "link",
+                            "text": "File a Bug"
+                          },
+                          {
+                            "id": 216,
+                            "type": "Link",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 723,
+                              "y": 7321,
+                              "width": 216,
+                              "height": 28
+                            },
+                            "source": {
+                              "tag": "li"
+                            },
+                            "children": [],
+                            "content": "link",
+                            "text": "Localize Mozilla"
+                          },
+                          {
+                            "id": 217,
+                            "type": "Link",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 723,
+                              "y": 7349,
+                              "width": 216,
+                              "height": 28
+                            },
+                            "source": {
+                              "tag": "li"
+                            },
+                            "children": [],
+                            "content": "link",
+                            "text": "Security"
+                          }
+                        ],
+                        "role": "navigation",
+                        "layout": {
+                          "mode": "stack",
+                          "rows": 4,
+                          "gap": 0,
+                          "padding": {
+                            "top": 0,
+                            "right": 0,
+                            "bottom": 0,
+                            "left": 0
+                          }
+                        }
+                      }
+                    ],
+                    "layout": {
+                      "mode": "stack",
+                      "rows": 2,
+                      "gap": 8,
+                      "padding": {
+                        "top": 0,
+                        "right": 0,
+                        "bottom": 20,
+                        "left": 0
+                      }
+                    }
+                  },
+                  {
+                    "id": 218,
+                    "type": "Group",
+                    "kind": "container",
+                    "bounds": {
+                      "x": 956,
+                      "y": 7239,
+                      "width": 216,
+                      "height": 186
+                    },
+                    "source": {
+                      "tag": "section"
+                    },
+                    "children": [
+                      {
+                        "id": 219,
+                        "type": "Heading",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 956,
+                          "y": 7239,
+                          "width": 208,
+                          "height": 18
+                        },
+                        "source": {
+                          "tag": "h2"
+                        },
+                        "children": [],
+                        "content": "heading",
+                        "text": "Developers"
+                      },
+                      {
+                        "id": 220,
+                        "type": "Nav",
+                        "kind": "region",
+                        "bounds": {
+                          "x": 956,
+                          "y": 7265,
+                          "width": 216,
+                          "height": 140
+                        },
+                        "source": {
+                          "tag": "ul"
+                        },
+                        "children": [
+                          {
+                            "id": 221,
+                            "type": "Link",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 956,
+                              "y": 7265,
+                              "width": 216,
+                              "height": 28
+                            },
+                            "source": {
+                              "tag": "li"
+                            },
+                            "children": [],
+                            "content": "link",
+                            "text": "Developer Edition"
+                          },
+                          {
+                            "id": 222,
+                            "type": "Link",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 956,
+                              "y": 7293,
+                              "width": 216,
+                              "height": 28
+                            },
+                            "source": {
+                              "tag": "li"
+                            },
+                            "children": [],
+                            "content": "link",
+                            "text": "Enterprise"
+                          },
+                          {
+                            "id": 223,
+                            "type": "Link",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 956,
+                              "y": 7321,
+                              "width": 216,
+                              "height": 28
+                            },
+                            "source": {
+                              "tag": "li"
+                            },
+                            "children": [],
+                            "content": "link",
+                            "text": "Tools"
+                          },
+                          {
+                            "id": 224,
+                            "type": "Link",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 956,
+                              "y": 7349,
+                              "width": 216,
+                              "height": 28
+                            },
+                            "source": {
+                              "tag": "li"
+                            },
+                            "children": [],
+                            "content": "link",
+                            "text": "MDN"
+                          },
+                          {
+                            "id": 225,
+                            "type": "Link",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 956,
+                              "y": 7377,
+                              "width": 216,
+                              "height": 28
+                            },
+                            "source": {
+                              "tag": "li"
+                            },
+                            "children": [],
+                            "content": "link",
+                            "text": "Firefox Release Notes"
+                          }
+                        ],
+                        "role": "navigation",
+                        "layout": {
+                          "mode": "stack",
+                          "rows": 5,
+                          "gap": 0,
+                          "padding": {
+                            "top": 0,
+                            "right": 0,
+                            "bottom": 0,
+                            "left": 0
+                          }
+                        }
+                      }
+                    ],
+                    "layout": {
+                      "mode": "stack",
+                      "rows": 2,
+                      "gap": 8,
+                      "padding": {
+                        "top": 0,
+                        "right": 0,
+                        "bottom": 20,
+                        "left": 0
+                      }
+                    }
+                  }
+                ],
+                "layout": {
+                  "mode": "row",
+                  "columns": 3,
+                  "rows": 1,
+                  "gap": 17,
+                  "padding": {
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 0,
+                    "left": 16
+                  }
+                }
+              },
+              {
+                "id": 226,
+                "type": "Group",
+                "kind": "container",
+                "bounds": {
+                  "x": 1272,
+                  "y": 7239,
+                  "width": 136,
+                  "height": 181
+                },
+                "source": {
+                  "tag": "div"
+                },
+                "children": [
+                  {
+                    "id": 227,
+                    "type": "Group",
+                    "kind": "container",
+                    "bounds": {
+                      "x": 1272,
+                      "y": 7239,
+                      "width": 136,
+                      "height": 59
+                    },
+                    "source": {
+                      "tag": "div"
+                    },
+                    "children": [
+                      {
+                        "id": 228,
+                        "type": "Heading",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 1283,
+                          "y": 7239,
+                          "width": 125,
+                          "height": 18
+                        },
+                        "source": {
+                          "tag": "h2"
+                        },
+                        "children": [],
+                        "content": "heading",
+                        "text": "Follow @Mozilla"
+                      },
+                      {
+                        "id": 229,
+                        "type": "Nav",
+                        "kind": "region",
+                        "bounds": {
+                          "x": 1272,
+                          "y": 7273,
+                          "width": 136,
+                          "height": 25
+                        },
+                        "source": {
+                          "tag": "ul"
+                        },
+                        "children": [
+                          {
+                            "id": 230,
+                            "type": "Link",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 1272,
+                              "y": 7273,
+                              "width": 24,
+                              "height": 25
+                            },
+                            "source": {
+                              "tag": "li",
+                              "hints": [
+                                "li"
+                              ]
+                            },
+                            "children": [],
+                            "content": "link",
+                            "text": "Bluesky"
+                          },
+                          {
+                            "id": 231,
+                            "type": "Link",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 1300,
+                              "y": 7273,
+                              "width": 24,
+                              "height": 25
+                            },
+                            "source": {
+                              "tag": "li",
+                              "hints": [
+                                "li"
+                              ]
+                            },
+                            "children": [],
+                            "content": "link",
+                            "text": "Instagram"
+                          },
+                          {
+                            "id": 232,
+                            "type": "Link",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 1328,
+                              "y": 7273,
+                              "width": 24,
+                              "height": 25
+                            },
+                            "source": {
+                              "tag": "li",
+                              "hints": [
+                                "li"
+                              ]
+                            },
+                            "children": [],
+                            "content": "link",
+                            "text": "LinkedIn"
+                          },
+                          {
+                            "id": 233,
+                            "type": "Link",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 1356,
+                              "y": 7273,
+                              "width": 24,
+                              "height": 25
+                            },
+                            "source": {
+                              "tag": "li",
+                              "hints": [
+                                "li"
+                              ]
+                            },
+                            "children": [],
+                            "content": "link",
+                            "text": "TikTok"
+                          },
+                          {
+                            "id": 234,
+                            "type": "Link",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 1384,
+                              "y": 7273,
+                              "width": 24,
+                              "height": 25
+                            },
+                            "source": {
+                              "tag": "li",
+                              "hints": [
+                                "li"
+                              ]
+                            },
+                            "children": [],
+                            "content": "link",
+                            "text": "Spotify"
+                          }
+                        ],
+                        "role": "navigation",
+                        "layout": {
+                          "mode": "row",
+                          "columns": 5,
+                          "rows": 1,
+                          "gap": 4,
+                          "padding": {
+                            "top": 0,
+                            "right": 0,
+                            "bottom": 0,
+                            "left": 0
+                          }
+                        }
+                      }
+                    ],
+                    "layout": {
+                      "mode": "stack",
+                      "rows": 2,
+                      "gap": 16,
+                      "padding": {
+                        "top": 0,
+                        "right": 0,
+                        "bottom": 0,
+                        "left": 0
+                      }
+                    }
+                  },
+                  {
+                    "id": 235,
+                    "type": "Group",
+                    "kind": "container",
+                    "bounds": {
+                      "x": 1272,
+                      "y": 7330,
+                      "width": 136,
+                      "height": 59
+                    },
+                    "source": {
+                      "tag": "div"
+                    },
+                    "children": [
+                      {
+                        "id": 236,
+                        "type": "Heading",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 1285,
+                          "y": 7330,
+                          "width": 123,
+                          "height": 18
+                        },
+                        "source": {
+                          "tag": "h2"
+                        },
+                        "children": [],
+                        "content": "heading",
+                        "text": "Follow @Firefox"
+                      },
+                      {
+                        "id": 237,
+                        "type": "Nav",
+                        "kind": "region",
+                        "bounds": {
+                          "x": 1300,
+                          "y": 7363,
+                          "width": 108,
+                          "height": 25
+                        },
+                        "source": {
+                          "tag": "ul"
+                        },
+                        "children": [
+                          {
+                            "id": 238,
+                            "type": "Link",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 1300,
+                              "y": 7363,
+                              "width": 24,
+                              "height": 25
+                            },
+                            "source": {
+                              "tag": "li",
+                              "hints": [
+                                "li"
+                              ]
+                            },
+                            "children": [],
+                            "content": "link",
+                            "text": "Bluesky"
+                          },
+                          {
+                            "id": 239,
+                            "type": "Link",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 1328,
+                              "y": 7363,
+                              "width": 24,
+                              "height": 25
+                            },
+                            "source": {
+                              "tag": "li",
+                              "hints": [
+                                "li"
+                              ]
+                            },
+                            "children": [],
+                            "content": "link",
+                            "text": "Instagram"
+                          },
+                          {
+                            "id": 240,
+                            "type": "Link",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 1356,
+                              "y": 7363,
+                              "width": 24,
+                              "height": 25
+                            },
+                            "source": {
+                              "tag": "li",
+                              "hints": [
+                                "li"
+                              ]
+                            },
+                            "children": [],
+                            "content": "link",
+                            "text": "YouTube"
+                          },
+                          {
+                            "id": 241,
+                            "type": "Link",
+                            "kind": "leaf",
+                            "bounds": {
+                              "x": 1384,
+                              "y": 7363,
+                              "width": 24,
+                              "height": 25
+                            },
+                            "source": {
+                              "tag": "li",
+                              "hints": [
+                                "li"
+                              ]
+                            },
+                            "children": [],
+                            "content": "link",
+                            "text": "TikTok"
+                          }
+                        ],
+                        "role": "navigation",
+                        "layout": {
+                          "mode": "row",
+                          "columns": 4,
+                          "rows": 1,
+                          "gap": 4,
+                          "padding": {
+                            "top": 0,
+                            "right": 0,
+                            "bottom": 0,
+                            "left": 0
+                          }
+                        }
+                      }
+                    ],
+                    "layout": {
+                      "mode": "stack",
+                      "rows": 2,
+                      "gap": 15,
+                      "padding": {
+                        "top": 0,
+                        "right": 0,
+                        "bottom": 1,
+                        "left": 13
+                      }
+                    }
+                  }
+                ],
+                "layout": {
+                  "mode": "stack",
+                  "rows": 2,
+                  "gap": 32,
+                  "padding": {
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 31,
+                    "left": 0
+                  }
+                }
+              }
+            ],
+            "role": "region",
+            "layout": {
+              "mode": "row",
+              "columns": 3,
+              "rows": 1,
+              "gap": 100,
+              "padding": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          },
+          {
+            "id": 242,
+            "type": "Nav",
+            "kind": "region",
+            "bounds": {
+              "x": 32,
+              "y": 7472,
+              "width": 1376,
+              "height": 74
+            },
+            "source": {
+              "tag": "div"
+            },
+            "children": [
+              {
+                "id": 243,
+                "type": "Button",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 1003,
+                  "y": 7472,
+                  "width": 133,
+                  "height": 40
+                },
+                "source": {
+                  "tag": "a"
+                },
+                "children": [],
+                "content": "button",
+                "text": "Donate"
+              },
+              {
+                "id": 244,
+                "type": "ImageLink",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 1152,
+                  "y": 7472,
+                  "width": 256,
+                  "height": 40
+                },
+                "source": {
+                  "tag": "form",
+                  "hints": [
+                    "form"
+                  ]
+                },
+                "children": [],
+                "content": "image"
+              }
+            ],
+            "role": "navigation",
+            "layout": {
+              "mode": "row",
+              "columns": 2,
+              "rows": 1,
+              "gap": 16,
+              "padding": {
+                "top": 0,
+                "right": 0,
+                "bottom": 34,
+                "left": 971
+              }
+            }
+          },
+          {
+            "id": 245,
+            "type": "Section",
+            "kind": "region",
+            "bounds": {
+              "x": 32,
+              "y": 7578,
+              "width": 1376,
+              "height": 63
+            },
+            "source": {
+              "tag": "div"
+            },
+            "children": [
+              {
+                "id": 246,
+                "type": "Paragraph",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 32,
+                  "y": 7578,
+                  "width": 688,
+                  "height": 63
+                },
+                "source": {
+                  "tag": "p"
+                },
+                "children": [],
+                "content": "paragraph",
+                "text": "Donate to the not-for-profit . Portions of this content are ©1998–2026 by indivi"
+              },
+              {
+                "id": 247,
+                "type": "Nav",
+                "kind": "region",
+                "bounds": {
+                  "x": 857,
+                  "y": 7578,
+                  "width": 551,
+                  "height": 63
+                },
+                "source": {
+                  "tag": "ul"
+                },
+                "children": [
+                  {
+                    "id": 248,
+                    "type": "Link",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 857,
+                      "y": 7578,
+                      "width": 182,
+                      "height": 21
+                    },
+                    "source": {
+                      "tag": "li"
+                    },
+                    "children": [],
+                    "content": "link",
+                    "text": "Website Privacy Notice"
+                  },
+                  {
+                    "id": 249,
+                    "type": "Link",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 1043,
+                      "y": 7578,
+                      "width": 79,
+                      "height": 21
+                    },
+                    "source": {
+                      "tag": "li"
+                    },
+                    "children": [],
+                    "content": "link",
+                    "text": "Cookies"
+                  },
+                  {
+                    "id": 250,
+                    "type": "Link",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 1125,
+                      "y": 7578,
+                      "width": 61,
+                      "height": 21
+                    },
+                    "source": {
+                      "tag": "li"
+                    },
+                    "children": [],
+                    "content": "link",
+                    "text": "Legal"
+                  },
+                  {
+                    "id": 251,
+                    "type": "Link",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 857,
+                      "y": 7607,
+                      "width": 270,
+                      "height": 21
+                    },
+                    "source": {
+                      "tag": "li"
+                    },
+                    "children": [],
+                    "content": "link",
+                    "text": "Community Participation Guidelines"
+                  },
+                  {
+                    "id": 252,
+                    "type": "Link",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 1131,
+                      "y": 7607,
+                      "width": 124,
+                      "height": 21
+                    },
+                    "source": {
+                      "tag": "li"
+                    },
+                    "children": [],
+                    "content": "link",
+                    "text": "About this site"
+                  }
+                ],
+                "role": "navigation",
+                "layout": {
+                  "mode": "flow",
+                  "rows": 2,
+                  "padding": {
+                    "top": 0,
+                    "right": 153,
+                    "bottom": 13,
+                    "left": 0
+                  }
+                }
+              }
+            ],
+            "role": "region",
+            "layout": {
+              "mode": "split",
+              "columns": 2,
+              "rows": 1,
+              "gap": 137,
+              "padding": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          },
+          {
+            "id": 253,
+            "type": "Image",
+            "kind": "leaf",
+            "bounds": {
+              "x": 32,
+              "y": 7673,
+              "width": 1376,
+              "height": 288
+            },
+            "source": {
+              "tag": "img"
+            },
+            "children": [],
+            "content": "image"
+          }
+        ],
+        "role": "contentinfo",
+        "layout": {
+          "mode": "stack",
+          "rows": 4,
+          "gap": 32,
+          "padding": {
+            "top": 0,
+            "right": 32,
+            "bottom": 36,
+            "left": 32
+          }
+        }
+      }
+    ],
+    "role": "document",
+    "layout": {
+      "mode": "stack",
+      "rows": 2,
+      "gap": 32,
+      "padding": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    }
+  }
+}

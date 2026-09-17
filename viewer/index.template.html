@@ -1,0 +1,327 @@
+<title>UI Modulay Sketchbook</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --paper: #fafaf7;
+    --paper-2: #f1f0eb;
+    --ink: #1c1c1a;
+    --pencil: #7a7a75;
+    --rule: #d8d7d0;
+    --hilite: #fff3a8;
+    --hand: "Architects Daughter", "Comic Sans MS", cursive, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #1b1b19; --paper-2: #232320; --ink: #ecebe5; --pencil: #8f8f88; --rule: #3a3a36; --hilite: #4a4419;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #1b1b19; --paper-2: #232320; --ink: #ecebe5; --pencil: #8f8f88; --rule: #3a3a36; --hilite: #4a4419;
+  }
+  html, body { height: 100%; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--mono); font-size: 13px; display: flex; flex-direction: column; }
+  a { color: inherit; }
+
+  header {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px;
+    padding: 10px 16px; border-bottom: 1px solid var(--rule); background: var(--paper);
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 2;
+  }
+  header h1 { font-family: var(--hand); font-weight: 400; font-size: 22px; margin: 0; letter-spacing: 0.01em; }
+  header h1 small { font-family: var(--mono); font-size: 11px; color: var(--pencil); margin-left: 8px; }
+  .ctl { display: flex; align-items: center; gap: 6px; }
+  .ctl label { color: var(--pencil); text-transform: uppercase; letter-spacing: 0.08em; font-size: 10px; }
+  select, button, input[type="range"] { font: inherit; color: var(--ink); background: var(--paper-2); border: 1px solid var(--rule); border-radius: 3px; padding: 4px 8px; }
+  button { cursor: pointer; }
+  button:hover { border-color: var(--pencil); }
+  button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--ink); outline-offset: 1px; }
+  input[type="range"] { padding: 0; width: 110px; accent-color: var(--ink); }
+  input[type="url"] { font: inherit; color: var(--ink); background: var(--paper-2); border: 1px solid var(--rule); border-radius: 3px; padding: 4px 8px; width: min(38vw, 360px); }
+  #urlform { flex: 1 1 320px; }
+  #urlform.busy button { opacity: 0.6; cursor: progress; }
+  .ctl output { min-width: 2ch; text-align: right; font-variant-numeric: tabular-nums; }
+
+  main { flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 360px); min-height: 0; }
+  #canvas-wrap { overflow: auto; padding: 16px; background: var(--paper-2); }
+  #canvas { position: relative; margin: 0 auto; width: min(100%, 1100px); }
+  #canvas svg { width: 100%; height: auto; display: block; box-shadow: 0 1px 0 var(--rule), 0 12px 30px -18px rgba(0,0,0,0.5); }
+  #canvas svg.uimodulay-sketch { --sk-paper: var(--paper); --sk-ink: var(--ink); --sk-pencil: var(--pencil); }
+  #canvas svg g.node.hit > path { stroke: var(--ink); stroke-width: 2.4; }
+  #canvas svg g.node.hit > text { font-weight: 700; }
+
+  aside { border-left: 1px solid var(--rule); display: flex; flex-direction: column; min-height: 0; }
+  aside h2 { font-family: var(--hand); font-weight: 400; font-size: 16px; margin: 0; padding: 10px 14px 6px; }
+  #meta { color: var(--pencil); padding: 0 14px 8px; font-size: 11px; line-height: 1.5; word-break: break-all; }
+  #outline { overflow: auto; flex: 1; padding: 0 8px 16px; line-height: 1.45; }
+  #outline div { white-space: pre; cursor: default; padding: 0 6px; border-radius: 2px; }
+  #outline div:hover, #outline div.hit { background: var(--hilite); }
+  #outline .t { color: var(--ink); }
+  #outline .l { color: var(--pencil); }
+  #outline .x { color: var(--pencil); font-style: italic; }
+  #outline .tree { color: var(--rule); }
+
+  #drop {
+    border: 1.5px dashed var(--pencil); border-radius: 4px; padding: 10px 14px; margin: 8px 14px; font-family: var(--hand); font-size: 14px; color: var(--pencil);
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  #drop.over { background: var(--hilite); color: var(--ink); }
+  #drop textarea { width: 100%; box-sizing: border-box; height: 64px; font: 11px var(--mono); color: var(--ink); background: var(--paper); border: 1px solid var(--rule); border-radius: 3px; resize: vertical; }
+  #drop input[type="file"] { font: 11px var(--mono); color: var(--ink); }
+  #status { font: 11px var(--mono); color: var(--pencil); min-height: 1.2em; }
+
+  .chips { display: inline-flex; flex-wrap: wrap; gap: 4px; }
+  .chip { font-size: 11px; color: var(--ink); border: 1px solid var(--rule); border-radius: 12px; padding: 2px 8px 2px 4px; background: var(--paper-2); cursor: pointer; display: inline-flex; align-items: center; gap: 3px; }
+  .chip:has(input:checked) { border-color: var(--ink); background: var(--hilite); }
+  .chip input { margin: 0; accent-color: var(--ink); }
+
+  .tabs { display: flex; gap: 6px; width: min(100%, 1100px); margin: 0 auto 10px; }
+  .tab { font-family: var(--hand); font-size: 14px; padding: 3px 12px; border-radius: 3px 3px 0 0; border-bottom-width: 0; }
+  .tab.on { background: var(--paper); border-color: var(--ink); box-shadow: inset 0 -2px 0 var(--ink); }
+
+  .compare { display: flex; gap: 16px; align-items: flex-start; overflow-x: auto; }
+  .compare figure { margin: 0; flex: 0 0 auto; cursor: zoom-in; }
+  .compare figcaption { font-family: var(--hand); font-size: 13px; color: var(--pencil); margin-bottom: 4px; }
+  .compare svg { width: auto; }
+
+  #changes { border-bottom: 1px solid var(--rule); }
+  #changes h2 small { font-family: var(--mono); font-size: 10px; color: var(--pencil); margin-left: 8px; letter-spacing: 0.06em; text-transform: uppercase; }
+  #changes .note { padding: 0 14px 10px; color: var(--pencil); font-size: 11px; }
+  .tablewrap { overflow-x: auto; padding: 0 14px 10px; }
+  #changes table { border-collapse: collapse; font-size: 11px; width: 100%; font-variant-numeric: tabular-nums; }
+  #changes th { text-align: left; color: var(--pencil); font-weight: 500; padding: 2px 8px 4px 0; border-bottom: 1px solid var(--rule); text-transform: uppercase; letter-spacing: 0.06em; font-size: 10px; }
+  #changes td { padding: 3px 8px 3px 0; border-bottom: 1px dotted var(--rule); white-space: nowrap; }
+  #changes td.path { max-width: 190px; overflow: hidden; text-overflow: ellipsis; color: var(--ink); }
+  #changes td.absent { color: var(--rule); }
+  #changes td.col-on { background: var(--hilite); }
+
+  @media (max-width: 760px) {
+    main { grid-template-columns: 1fr; grid-template-rows: auto auto; }
+    aside { border-left: 0; border-top: 1px solid var(--rule); max-height: 45vh; }
+    #canvas-wrap { padding: 12px 16px; }
+  }
+  @media (prefers-reduced-motion: no-preference) { #outline div, #canvas svg g.node > path { transition: background-color 120ms, stroke-width 120ms; } }
+</style>
+
+<header>
+  <h1>UI Modulay Sketchbook <small>Layout AST → wireframe</small></h1>
+  <form id="urlform" class="ctl" hidden>
+    <label for="url">url</label>
+    <input id="url" type="url" placeholder="https://example.com" required>
+    <span class="chips" title="viewport widths to render">
+      <label class="chip"><input type="checkbox" name="w" value="390">phone 390</label>
+      <label class="chip"><input type="checkbox" name="w" value="820">tablet 820</label>
+      <label class="chip"><input type="checkbox" name="w" value="1024">laptop 1024</label>
+      <label class="chip"><input type="checkbox" name="w" value="1440" checked>desktop 1440</label>
+    </span>
+    <label for="ai" title="let Claude refine the names (your claude login)">ai</label><input id="ai" type="checkbox">
+    <button id="go" type="submit">Analyze</button>
+  </form>
+  <div class="ctl"><label for="sample">page</label>
+    <select id="sample">
+      <option value="playwright">playwright.dev</option>
+      <option value="mozilla">mozilla.org</option>
+      <option value="imported" hidden>imported</option>
+    </select></div>
+  <div class="ctl"><label for="depth">depth</label><input id="depth" type="range" min="1" max="8" value="4"><output id="depth-out">4</output></div>
+  <div class="ctl"><label for="labels">labels</label><input id="labels" type="checkbox" checked></div>
+  <div class="ctl"><label for="seed">pencil</label><input id="seed" type="range" min="1" max="40" value="7"></div>
+  <div class="ctl"><button id="copy" type="button">Copy SVG</button></div>
+</header>
+
+<main>
+  <div id="canvas-wrap"><div id="widths" class="tabs" hidden></div><div id="canvas"></div></div>
+  <aside>
+    <div id="drop">
+      <span>Import a Layout AST — drop a .json here, pick a file, or paste it.</span>
+      <input id="file" type="file" accept=".json,application/json">
+      <textarea id="paste" placeholder='{"format":"uimodulay/layout-ast", ...}   ← from `uimodulay <url> --json`'></textarea>
+      <div id="status"></div>
+    </div>
+    <div id="changes" hidden></div>
+    <h2>Outline</h2>
+    <div id="meta"></div>
+    <div id="outline"></div>
+  </aside>
+</main>
+
+<script type="application/json" id="ast-playwright">__PLAYWRIGHT__</script>
+<script type="application/json" id="ast-mozilla">__MOZILLA__</script>
+
+<script type="module">
+  import { sketchSvg } from "./sketch.js";
+
+  const $ = (id) => document.getElementById(id);
+  const PRESETS = { phone: 390, tablet: 820, laptop: 1024, desktop: 1440 };
+
+  // A "page" is a set of variants (one per width) plus the arrangement changes between them.
+  const asSet = (obj, name) => {
+    if (obj && obj.format === "uimodulay/layout-ast-set") return obj;
+    if (obj && obj.root) return { format: "uimodulay/layout-ast-set", version: 1, url: obj.source?.url ?? name, widths: [obj.source?.viewport?.width ?? obj.root.bounds.width], variants: [{ width: obj.source?.viewport?.width ?? obj.root.bounds.width, ast: obj }], changes: [] };
+    if (obj && obj.bounds && obj.children) return asSet({ format: "uimodulay/layout-ast", version: 1, source: { url: name }, root: obj }, name);
+    return null;
+  };
+  const pages = {
+    playwright: asSet(JSON.parse($("ast-playwright").textContent), "playwright.dev"),
+    mozilla: asSet(JSON.parse($("ast-mozilla").textContent), "mozilla.org"),
+    imported: null,
+  };
+  let current = "playwright";
+  let active = 0;          // index into pages[current].variants
+  let compare = false;     // all widths side by side
+
+  const label = (n) => n.type + (n.layout && n.layout.mode !== "stack" && n.layout.mode !== "flow" ? ` [${n.layout.mode}${n.layout.columns ? " " + n.layout.columns : ""}]` : "");
+  function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+  function countNodes(n) { return 1 + n.children.reduce((a, c) => a + countNodes(c), 0); }
+
+  function renderOutline(ast, maxDepth) {
+    const out = [];
+    const walk = (n, prefix, last, depth, top) => {
+      if (depth > maxDepth) return;
+      const branch = top ? "" : prefix + (last ? "└── " : "├── ");
+      const txt = n.children.length === 0 && n.text ? ` <span class="x">"${esc(n.text.length > 28 ? n.text.slice(0, 27) + "…" : n.text)}"</span>` : "";
+      out.push(`<div data-id="${n.id}"><span class="tree">${esc(branch)}</span><span class="t">${esc(n.type)}</span><span class="l">${esc(label(n).slice(n.type.length))}</span>${txt}</div>`);
+      const next = top ? "" : prefix + (last ? "    " : "│   ");
+      n.children.forEach((c, i) => walk(c, next, i === n.children.length - 1, depth + 1, false));
+    };
+    walk(ast.root, "", true, 0, true);
+    return out.join("");
+  }
+
+  function renderTabs(set) {
+    const tabs = $("widths");
+    if (set.variants.length < 2) { tabs.hidden = true; return; }
+    tabs.hidden = false;
+    tabs.innerHTML = set.variants.map((v, i) =>
+      `<button type="button" class="tab${!compare && i === active ? " on" : ""}" data-i="${i}">${v.width}px</button>`).join("") +
+      `<button type="button" class="tab${compare ? " on" : ""}" data-i="compare">compare</button>`;
+  }
+
+  function renderChanges(set) {
+    const box = $("changes");
+    if (set.variants.length < 2) { box.hidden = true; return; }
+    box.hidden = false;
+    if (set.changes.length === 0) { box.innerHTML = `<h2>Changes</h2><div class="note">No arrangement changes across ${set.widths.join(" / ")} px.</div>`; return; }
+    const head = `<tr><th>module</th>${set.widths.map((w) => `<th>${w}</th>`).join("")}</tr>`;
+    const rows = set.changes.map((c) => `<tr><td class="path" title="${esc(c.path)}">${esc(c.path)}</td>${c.arrangement.map((a, i) => `<td class="${a === "—" ? "absent" : ""}${!compare && i === active ? " col-on" : ""}">${esc(a)}</td>`).join("")}</tr>`).join("");
+    box.innerHTML = `<h2>Changes <small>${set.changes.length} modules rearrange</small></h2><div class="tablewrap"><table>${head}${rows}</table></div>`;
+  }
+
+  function draw() {
+    const set = pages[current];
+    if (!set) return;
+    active = Math.min(active, set.variants.length - 1);
+    const depth = Number($("depth").value);
+    $("depth-out").value = depth;
+    const opts = { depth, labels: $("labels").checked, seed: Number($("seed").value) };
+    const canvas = $("canvas");
+    const avail = canvas.clientWidth || 720;
+    if (compare && set.variants.length > 1) {
+      // One scale for all widths so proportions are true: the widest fills what is left after the others.
+      const gap = 16;
+      const sum = set.variants.reduce((a, v) => a + v.width, 0);
+      const s = Math.min(1, (avail - gap * (set.variants.length - 1)) / sum);
+      canvas.innerHTML = `<div class="compare">${set.variants.map((v, i) =>
+        `<figure data-i="${i}"><figcaption>${v.width}px</figcaption>${sketchSvg(v.ast, { ...opts, width: v.width * s })}</figure>`).join("")}</div>`;
+    } else {
+      const v = set.variants[active];
+      canvas.innerHTML = sketchSvg(v.ast, { ...opts, width: Math.min(1100, avail, Math.max(v.width, 360)) });
+    }
+    const v = set.variants[active];
+    $("outline").innerHTML = renderOutline(v.ast, depth);
+    const s = v.ast.source ?? {};
+    $("meta").textContent = `${set.url ?? s.url ?? "(no url)"} · ${v.width}×${s.viewport?.height ?? "?"} viewport · ${v.ast.root.bounds.height}px tall · ${countNodes(v.ast.root)} nodes${s.generator ? " · " + s.generator : ""}`;
+    renderTabs(set);
+    renderChanges(set);
+  }
+
+  // hover sync: outline row <-> sketch group (in compare mode, all variants light up by id)
+  function hit(id, on) {
+    for (const el of document.querySelectorAll(`[data-id="${id}"]`)) el.classList.toggle("hit", on);
+  }
+  document.body.addEventListener("mouseover", (e) => { const t = e.target.closest("[data-id]"); if (t) hit(t.dataset.id, true); });
+  document.body.addEventListener("mouseout", (e) => { const t = e.target.closest("[data-id]"); if (t) hit(t.dataset.id, false); });
+  $("outline").addEventListener("click", (e) => {
+    const t = e.target.closest("[data-id]"); if (!t) return;
+    document.querySelector(`#canvas g[data-id="${t.dataset.id}"]`)?.scrollIntoView({ block: "center", behavior: "smooth" });
+  });
+  $("widths").addEventListener("click", (e) => {
+    const b = e.target.closest("button[data-i]"); if (!b) return;
+    if (b.dataset.i === "compare") compare = !compare;
+    else { compare = false; active = Number(b.dataset.i); }
+    draw();
+  });
+  $("canvas").addEventListener("click", (e) => {
+    const fig = e.target.closest("figure[data-i]"); if (!fig || !compare) return;
+    compare = false; active = Number(fig.dataset.i); draw();
+  });
+
+  function load(obj, name) {
+    const set = asSet(obj, name);
+    if (!set) { $("status").textContent = "That is not a Layout AST: expected {format, version, source, root} or a layout-ast-set (see docs/LAYOUT-AST.md)."; return; }
+    pages.imported = set;
+    const opt = $("sample").querySelector('[value="imported"]');
+    opt.hidden = false; opt.textContent = name || "imported";
+    $("sample").value = "imported"; current = "imported"; active = set.variants.length - 1; compare = set.variants.length > 1;
+    $("status").textContent = `Loaded ${name || "AST"}: ${set.variants.map((v) => v.width + "px").join(" / ")}.`;
+    draw();
+  }
+  function loadText(text, name) {
+    try { load(JSON.parse(text), name); } catch (e) { $("status").textContent = "Could not parse JSON: " + e.message; }
+  }
+  $("file").addEventListener("change", (e) => { const f = e.target.files[0]; if (f) f.text().then((t) => loadText(t, f.name)); });
+  $("paste").addEventListener("input", (e) => { const v = e.target.value.trim(); if (v.startsWith("{")) loadText(v, "pasted"); });
+  const drop = $("drop");
+  for (const ev of ["dragenter", "dragover"]) drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.add("over"); });
+  for (const ev of ["dragleave", "drop"]) drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.remove("over"); });
+  drop.addEventListener("drop", (e) => { const f = e.dataTransfer.files[0]; if (f) f.text().then((t) => loadText(t, f.name)); });
+
+  $("sample").addEventListener("change", (e) => { current = e.target.value; active = 0; compare = false; draw(); });
+  for (const id of ["depth", "labels", "seed"]) $(id).addEventListener("input", draw);
+  $("copy").addEventListener("click", async () => {
+    const svg = compare ? [...document.querySelectorAll("#canvas svg")].map((s) => s.outerHTML).join("\n") : $("canvas").innerHTML;
+    try { await navigator.clipboard.writeText(svg); $("status").textContent = "SVG copied to the clipboard."; }
+    catch { $("status").textContent = "Clipboard blocked here; use `uimodulay <url> --sketch out.svg` instead."; }
+  });
+  let raf = 0;
+  window.addEventListener("resize", () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(draw); });
+  draw();
+
+  // App mode: when served by `node src/serve.ts`, a URL bar appears and analyses run live.
+  const form = $("urlform");
+  fetch("/api/ping").then((r) => r.ok ? r.json() : Promise.reject()).then(() => {
+    form.hidden = false;
+    const p = new URLSearchParams(location.search);
+    if (p.get("widths")) for (const el of form.querySelectorAll("input[name=w]")) el.checked = p.get("widths").split(",").includes(el.value);
+    if (p.get("url")) { $("url").value = p.get("url"); analyze(); }
+  }).catch(() => {});
+  function chosenWidths() {
+    return [...form.querySelectorAll("input[name=w]:checked")].map((el) => Number(el.value));
+  }
+  async function analyze() {
+    const url = $("url").value.trim();
+    if (!url) return;
+    const widths = chosenWidths();
+    if (widths.length === 0) { $("status").textContent = "Pick at least one width."; return; }
+    form.classList.add("busy"); $("go").disabled = true;
+    const ai = $("ai").checked;
+    const t0 = performance.now();
+    $("status").textContent = `Rendering ${url} at ${widths.join(" / ")} px…${ai ? " then asking Claude to name the modules (≈15 s per width)" : ""}`;
+    try {
+      const r = await fetch("/api/analyze", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ url, widths, ai }) });
+      const data = await r.json();
+      if (!r.ok) throw new Error(data.error || r.statusText);
+      const host = new URL(data.url ?? data.source.url).host;
+      load(data, host + (ai ? " (ai)" : ""));
+      const s = Math.round((performance.now() - t0) / 100) / 10;
+      const set = pages.imported;
+      $("status").textContent = `${host}: ${widths.length > 1 ? set.changes.length + " modules rearrange across " + widths.join(" / ") + " px" : countNodes(set.variants[0].ast.root) + " nodes"} · ${s} s`;
+      history.replaceState(null, "", `?url=${encodeURIComponent(url)}&widths=${widths.join(",")}`);
+    } catch (e) {
+      $("status").textContent = "Could not analyze: " + e.message;
+    } finally {
+      form.classList.remove("busy"); $("go").disabled = false;
+    }
+  }
+  form.addEventListener("submit", (e) => { e.preventDefault(); analyze(); });
+</script>

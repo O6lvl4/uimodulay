@@ -1,0 +1,26 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+      - name: Install codopsy
+        run: |
+          curl -sSfL https://github.com/O6lvl4/codopsy/releases/latest/download/codopsy-x86_64-unknown-linux-gnu.tar.gz | tar xz
+          sudo mv codopsy /usr/local/bin/
+      - name: Quality gate (rank A, no warnings)
+        run: codopsy analyze ./src --fail-on-warning

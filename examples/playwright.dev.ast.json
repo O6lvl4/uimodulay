@@ -1,0 +1,2566 @@
+{
+  "format": "uimodulay/layout-ast",
+  "version": 1,
+  "source": {
+    "url": "https://playwright.dev/",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "height": 2848
+    },
+    "capturedAt": "2026-09-17T14:48:19.521Z",
+    "generator": "uimodulay 0.1.0"
+  },
+  "root": {
+    "id": 0,
+    "type": "Page",
+    "kind": "region",
+    "bounds": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 2848
+    },
+    "source": {
+      "tag": "body"
+    },
+    "children": [
+      {
+        "id": 1,
+        "type": "Header",
+        "kind": "region",
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 60
+        },
+        "source": {
+          "tag": "nav",
+          "hints": [
+            "nav"
+          ]
+        },
+        "children": [
+          {
+            "id": 2,
+            "type": "Group",
+            "kind": "container",
+            "bounds": {
+              "x": 16,
+              "y": 8,
+              "width": 1106,
+              "height": 44
+            },
+            "source": {
+              "tag": "div"
+            },
+            "children": [
+              {
+                "id": 3,
+                "type": "Group",
+                "kind": "container",
+                "bounds": {
+                  "x": 16,
+                  "y": 14,
+                  "width": 123,
+                  "height": 32
+                },
+                "source": {
+                  "tag": "a"
+                },
+                "children": [
+                  {
+                    "id": 4,
+                    "type": "Icon",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 16,
+                      "y": 14,
+                      "width": 32,
+                      "height": 32
+                    },
+                    "source": {
+                      "tag": "img"
+                    },
+                    "children": [],
+                    "content": "icon"
+                  },
+                  {
+                    "id": 5,
+                    "type": "Text",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 56,
+                      "y": 17,
+                      "width": 83,
+                      "height": 26
+                    },
+                    "source": {
+                      "tag": "b"
+                    },
+                    "children": [],
+                    "content": "text",
+                    "text": "Playwright"
+                  }
+                ],
+                "layout": {
+                  "mode": "split",
+                  "columns": 2,
+                  "rows": 1,
+                  "gap": 8,
+                  "padding": {
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 0,
+                    "left": 0
+                  }
+                }
+              },
+              {
+                "id": 6,
+                "type": "Link",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 155,
+                  "y": 13,
+                  "width": 62,
+                  "height": 34
+                },
+                "source": {
+                  "tag": "a"
+                },
+                "children": [],
+                "content": "link",
+                "text": "Docs"
+              },
+              {
+                "id": 7,
+                "type": "Link",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 217,
+                  "y": 13,
+                  "width": 59,
+                  "height": 34
+                },
+                "source": {
+                  "tag": "a"
+                },
+                "children": [],
+                "content": "link",
+                "text": "MCP"
+              },
+              {
+                "id": 8,
+                "type": "Link",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 276,
+                  "y": 13,
+                  "width": 48,
+                  "height": 34
+                },
+                "source": {
+                  "tag": "a"
+                },
+                "children": [],
+                "content": "link",
+                "text": "CLI"
+              },
+              {
+                "id": 9,
+                "type": "Link",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 325,
+                  "y": 13,
+                  "width": 49,
+                  "height": 34
+                },
+                "source": {
+                  "tag": "a"
+                },
+                "children": [],
+                "content": "link",
+                "text": "API"
+              },
+              {
+                "id": 10,
+                "type": "Link",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 374,
+                  "y": 13,
+                  "width": 97,
+                  "height": 34
+                },
+                "source": {
+                  "tag": "div"
+                },
+                "children": [],
+                "content": "link",
+                "text": "Node.js"
+              }
+            ],
+            "layout": {
+              "mode": "row",
+              "columns": 6,
+              "rows": 1,
+              "gap": 0,
+              "padding": {
+                "top": 5,
+                "right": 651,
+                "bottom": 5,
+                "left": 0
+              }
+            }
+          },
+          {
+            "id": 11,
+            "type": "Group",
+            "kind": "container",
+            "bounds": {
+              "x": 1122,
+              "y": 8,
+              "width": 302,
+              "height": 44
+            },
+            "source": {
+              "tag": "div"
+            },
+            "children": [
+              {
+                "id": 12,
+                "type": "Link",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 1122,
+                  "y": 14,
+                  "width": 48,
+                  "height": 32
+                },
+                "source": {
+                  "tag": "a"
+                },
+                "children": [],
+                "content": "link"
+              },
+              {
+                "id": 13,
+                "type": "Link",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 1170,
+                  "y": 17,
+                  "width": 48,
+                  "height": 27
+                },
+                "source": {
+                  "tag": "a"
+                },
+                "children": [],
+                "content": "link"
+              },
+              {
+                "id": 14,
+                "type": "Button",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 1218,
+                  "y": 14,
+                  "width": 32,
+                  "height": 32
+                },
+                "source": {
+                  "tag": "button"
+                },
+                "children": [],
+                "content": "button"
+              },
+              {
+                "id": 15,
+                "type": "Group",
+                "kind": "container",
+                "bounds": {
+                  "x": 1250,
+                  "y": 11,
+                  "width": 174,
+                  "height": 38
+                },
+                "source": {
+                  "tag": "button"
+                },
+                "children": [
+                  {
+                    "id": 16,
+                    "type": "Text",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 1271,
+                      "y": 12,
+                      "width": 91,
+                      "height": 36
+                    },
+                    "source": {
+                      "tag": "span"
+                    },
+                    "children": [],
+                    "content": "text",
+                    "text": "Search"
+                  },
+                  {
+                    "id": 17,
+                    "type": "TextBlock",
+                    "kind": "container",
+                    "bounds": {
+                      "x": 1361,
+                      "y": 18,
+                      "width": 54,
+                      "height": 24
+                    },
+                    "source": {
+                      "tag": "span"
+                    },
+                    "children": [
+                      {
+                        "id": 18,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 1361,
+                          "y": 18,
+                          "width": 24,
+                          "height": 24
+                        },
+                        "source": {
+                          "tag": "kbd"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "⌘"
+                      },
+                      {
+                        "id": 19,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 1391,
+                          "y": 18,
+                          "width": 24,
+                          "height": 24
+                        },
+                        "source": {
+                          "tag": "kbd"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "K"
+                      }
+                    ],
+                    "layout": {
+                      "mode": "split",
+                      "columns": 2,
+                      "rows": 1,
+                      "gap": 6,
+                      "padding": {
+                        "top": 0,
+                        "right": 0,
+                        "bottom": 0,
+                        "left": 0
+                      }
+                    }
+                  }
+                ],
+                "layout": {
+                  "mode": "split",
+                  "columns": 2,
+                  "rows": 1,
+                  "gap": 0,
+                  "padding": {
+                    "top": 1,
+                    "right": 9,
+                    "bottom": 1,
+                    "left": 21
+                  }
+                }
+              }
+            ],
+            "layout": {
+              "mode": "row",
+              "columns": 4,
+              "rows": 1,
+              "gap": 0,
+              "padding": {
+                "top": 3,
+                "right": 0,
+                "bottom": 3,
+                "left": 0
+              }
+            }
+          }
+        ],
+        "role": "banner",
+        "layout": {
+          "mode": "row",
+          "columns": 2,
+          "rows": 1,
+          "gap": 0,
+          "padding": {
+            "top": 8,
+            "right": 16,
+            "bottom": 8,
+            "left": 16
+          }
+        }
+      },
+      {
+        "id": 20,
+        "type": "Hero",
+        "kind": "region",
+        "bounds": {
+          "x": 0,
+          "y": 60,
+          "width": 1440,
+          "height": 492
+        },
+        "source": {
+          "tag": "header"
+        },
+        "children": [
+          {
+            "id": 21,
+            "type": "Heading",
+            "kind": "leaf",
+            "bounds": {
+              "x": 76,
+              "y": 140,
+              "width": 1288,
+              "height": 150
+            },
+            "source": {
+              "tag": "h1"
+            },
+            "children": [],
+            "content": "heading",
+            "text": "enables reliable web automation for testing, scripting, and AI agents."
+          },
+          {
+            "id": 22,
+            "type": "Paragraph",
+            "kind": "leaf",
+            "bounds": {
+              "x": 76,
+              "y": 306,
+              "width": 700,
+              "height": 66
+            },
+            "source": {
+              "tag": "p"
+            },
+            "children": [],
+            "content": "paragraph",
+            "text": "One API to drive Chromium, Firefox, and WebKit — in your tests, your scripts, an"
+          },
+          {
+            "id": 23,
+            "type": "Section",
+            "kind": "region",
+            "bounds": {
+              "x": 76,
+              "y": 396,
+              "width": 1288,
+              "height": 76
+            },
+            "source": {
+              "tag": "div"
+            },
+            "children": [
+              {
+                "id": 24,
+                "type": "ImageLink",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 76,
+                  "y": 412,
+                  "width": 134,
+                  "height": 44
+                },
+                "source": {
+                  "tag": "a"
+                },
+                "children": [],
+                "content": "image",
+                "text": "Get started"
+              },
+              {
+                "id": 25,
+                "type": "Group",
+                "kind": "container",
+                "bounds": {
+                  "x": 230,
+                  "y": 419,
+                  "width": 143,
+                  "height": 30
+                },
+                "source": {
+                  "tag": "span"
+                },
+                "children": [
+                  {
+                    "id": 26,
+                    "type": "ImageLink",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 230,
+                      "y": 419,
+                      "width": 77,
+                      "height": 30
+                    },
+                    "source": {
+                      "tag": "a"
+                    },
+                    "children": [],
+                    "content": "image",
+                    "text": "Star"
+                  },
+                  {
+                    "id": 27,
+                    "type": "Link",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 312,
+                      "y": 419,
+                      "width": 60,
+                      "height": 30
+                    },
+                    "source": {
+                      "tag": "a"
+                    },
+                    "children": [],
+                    "content": "link",
+                    "text": "96k+"
+                  }
+                ],
+                "layout": {
+                  "mode": "split",
+                  "columns": 2,
+                  "rows": 1,
+                  "gap": 5,
+                  "padding": {
+                    "top": 0,
+                    "right": 1,
+                    "bottom": 0,
+                    "left": 0
+                  }
+                }
+              }
+            ],
+            "role": "region",
+            "layout": {
+              "mode": "row",
+              "columns": 2,
+              "rows": 1,
+              "gap": 20,
+              "padding": {
+                "top": 16,
+                "right": 991,
+                "bottom": 16,
+                "left": 0
+              }
+            }
+          }
+        ],
+        "role": "region",
+        "layout": {
+          "mode": "stack",
+          "rows": 3,
+          "gap": 24,
+          "padding": {
+            "top": 80,
+            "right": 76,
+            "bottom": 80,
+            "left": 76
+          }
+        }
+      },
+      {
+        "id": 28,
+        "type": "Main",
+        "kind": "region",
+        "bounds": {
+          "x": 0,
+          "y": 552,
+          "width": 1440,
+          "height": 1994
+        },
+        "source": {
+          "tag": "main"
+        },
+        "children": [
+          {
+            "id": 29,
+            "type": "Section",
+            "kind": "region",
+            "bounds": {
+              "x": 0,
+              "y": 552,
+              "width": 1440,
+              "height": 352
+            },
+            "source": {
+              "tag": "section",
+              "hints": [
+                "section"
+              ]
+            },
+            "children": [
+              {
+                "id": 30,
+                "type": "Group",
+                "kind": "container",
+                "bounds": {
+                  "x": 60,
+                  "y": 600,
+                  "width": 440,
+                  "height": 224
+                },
+                "source": {
+                  "tag": "div"
+                },
+                "children": [
+                  {
+                    "id": 31,
+                    "type": "Heading",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 76,
+                      "y": 600,
+                      "width": 408,
+                      "height": 25
+                    },
+                    "source": {
+                      "tag": "h3"
+                    },
+                    "children": [],
+                    "content": "heading",
+                    "text": "Playwright Test"
+                  },
+                  {
+                    "id": 32,
+                    "type": "Text",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 76,
+                      "y": 633,
+                      "width": 408,
+                      "height": 79
+                    },
+                    "source": {
+                      "tag": "p"
+                    },
+                    "children": [],
+                    "content": "text",
+                    "text": "Full-featured test runner with auto-waiting, assertions, tracing, and parallelis"
+                  },
+                  {
+                    "id": 33,
+                    "type": "Text",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 76,
+                      "y": 732,
+                      "width": 408,
+                      "height": 41
+                    },
+                    "source": {
+                      "tag": "code"
+                    },
+                    "children": [],
+                    "content": "text",
+                    "text": "npm init playwright@latest"
+                  },
+                  {
+                    "id": 34,
+                    "type": "Link",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 76,
+                      "y": 797,
+                      "width": 408,
+                      "height": 26
+                    },
+                    "source": {
+                      "tag": "div"
+                    },
+                    "children": [],
+                    "content": "link",
+                    "text": "Testing documentation"
+                  }
+                ],
+                "layout": {
+                  "mode": "stack",
+                  "rows": 4,
+                  "gap": 20,
+                  "padding": {
+                    "top": 0,
+                    "right": 16,
+                    "bottom": 1,
+                    "left": 16
+                  }
+                }
+              },
+              {
+                "id": 35,
+                "type": "Group",
+                "kind": "container",
+                "bounds": {
+                  "x": 500,
+                  "y": 600,
+                  "width": 440,
+                  "height": 224
+                },
+                "source": {
+                  "tag": "div"
+                },
+                "children": [
+                  {
+                    "id": 36,
+                    "type": "Heading",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 516,
+                      "y": 600,
+                      "width": 408,
+                      "height": 25
+                    },
+                    "source": {
+                      "tag": "h3"
+                    },
+                    "children": [],
+                    "content": "heading",
+                    "text": "Playwright CLI"
+                  },
+                  {
+                    "id": 37,
+                    "type": "Paragraph",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 516,
+                      "y": 633,
+                      "width": 408,
+                      "height": 79
+                    },
+                    "source": {
+                      "tag": "p"
+                    },
+                    "children": [],
+                    "content": "paragraph",
+                    "text": "Token-efficient browser automation for coding agents like Claude Code and GitHub"
+                  },
+                  {
+                    "id": 38,
+                    "type": "Text",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 516,
+                      "y": 732,
+                      "width": 408,
+                      "height": 41
+                    },
+                    "source": {
+                      "tag": "code"
+                    },
+                    "children": [],
+                    "content": "text",
+                    "text": "npm i -g @playwright/cli@latest"
+                  },
+                  {
+                    "id": 39,
+                    "type": "Link",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 516,
+                      "y": 797,
+                      "width": 408,
+                      "height": 26
+                    },
+                    "source": {
+                      "tag": "div"
+                    },
+                    "children": [],
+                    "content": "link",
+                    "text": "CLI documentation"
+                  }
+                ],
+                "layout": {
+                  "mode": "stack",
+                  "rows": 4,
+                  "gap": 20,
+                  "padding": {
+                    "top": 0,
+                    "right": 16,
+                    "bottom": 1,
+                    "left": 16
+                  }
+                }
+              },
+              {
+                "id": 40,
+                "type": "Group",
+                "kind": "container",
+                "bounds": {
+                  "x": 940,
+                  "y": 600,
+                  "width": 440,
+                  "height": 224
+                },
+                "source": {
+                  "tag": "div"
+                },
+                "children": [
+                  {
+                    "id": 41,
+                    "type": "Heading",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 956,
+                      "y": 600,
+                      "width": 408,
+                      "height": 25
+                    },
+                    "source": {
+                      "tag": "h3"
+                    },
+                    "children": [],
+                    "content": "heading",
+                    "text": "Playwright MCP"
+                  },
+                  {
+                    "id": 42,
+                    "type": "Text",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 956,
+                      "y": 633,
+                      "width": 408,
+                      "height": 79
+                    },
+                    "source": {
+                      "tag": "p"
+                    },
+                    "children": [],
+                    "content": "text",
+                    "text": "Model Context Protocol server that gives AI agents full browser control through "
+                  },
+                  {
+                    "id": 43,
+                    "type": "Text",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 956,
+                      "y": 732,
+                      "width": 408,
+                      "height": 41
+                    },
+                    "source": {
+                      "tag": "code"
+                    },
+                    "children": [],
+                    "content": "text",
+                    "text": "npx @playwright/mcp@latest"
+                  },
+                  {
+                    "id": 44,
+                    "type": "Link",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 956,
+                      "y": 797,
+                      "width": 408,
+                      "height": 26
+                    },
+                    "source": {
+                      "tag": "div"
+                    },
+                    "children": [],
+                    "content": "link",
+                    "text": "MCP documentation"
+                  }
+                ],
+                "layout": {
+                  "mode": "stack",
+                  "rows": 4,
+                  "gap": 20,
+                  "padding": {
+                    "top": 0,
+                    "right": 16,
+                    "bottom": 1,
+                    "left": 16
+                  }
+                }
+              }
+            ],
+            "role": "region",
+            "layout": {
+              "mode": "row",
+              "columns": 3,
+              "rows": 1,
+              "gap": 0,
+              "padding": {
+                "top": 48,
+                "right": 60,
+                "bottom": 80,
+                "left": 60
+              }
+            }
+          },
+          {
+            "id": 45,
+            "type": "Section",
+            "kind": "region",
+            "bounds": {
+              "x": 0,
+              "y": 904,
+              "width": 1440,
+              "height": 383
+            },
+            "source": {
+              "tag": "section",
+              "hints": [
+                "section"
+              ]
+            },
+            "children": [
+              {
+                "id": 46,
+                "type": "Heading",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 76,
+                  "y": 952,
+                  "width": 1288,
+                  "height": 35
+                },
+                "source": {
+                  "tag": "h2"
+                },
+                "children": [],
+                "content": "heading",
+                "text": "Built for testing"
+              },
+              {
+                "id": 47,
+                "type": "Feature",
+                "kind": "region",
+                "bounds": {
+                  "x": 76,
+                  "y": 1019,
+                  "width": 1288,
+                  "height": 220
+                },
+                "source": {
+                  "tag": "div"
+                },
+                "children": [
+                  {
+                    "id": 48,
+                    "type": "Group",
+                    "kind": "container",
+                    "bounds": {
+                      "x": 60,
+                      "y": 1019,
+                      "width": 660,
+                      "height": 220
+                    },
+                    "source": {
+                      "tag": "div"
+                    },
+                    "children": [
+                      {
+                        "id": 49,
+                        "type": "Heading",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 76,
+                          "y": 1019,
+                          "width": 628,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "h4"
+                        },
+                        "children": [],
+                        "content": "heading",
+                        "text": "Auto-wait and web-first assertions"
+                      },
+                      {
+                        "id": 50,
+                        "type": "Paragraph",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 76,
+                          "y": 1043,
+                          "width": 628,
+                          "height": 53
+                        },
+                        "source": {
+                          "tag": "p"
+                        },
+                        "children": [],
+                        "content": "paragraph",
+                        "text": "Playwright waits for elements to be actionable before performing actions. Assert"
+                      },
+                      {
+                        "id": 51,
+                        "type": "Heading",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 76,
+                          "y": 1115,
+                          "width": 628,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "h4"
+                        },
+                        "children": [],
+                        "content": "heading",
+                        "text": "Test isolation"
+                      },
+                      {
+                        "id": 52,
+                        "type": "Paragraph",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 76,
+                          "y": 1139,
+                          "width": 628,
+                          "height": 79
+                        },
+                        "source": {
+                          "tag": "p"
+                        },
+                        "children": [],
+                        "content": "paragraph",
+                        "text": "Each test gets a fresh browser context — equivalent to a brand new browser profi"
+                      }
+                    ],
+                    "layout": {
+                      "mode": "stack",
+                      "rows": 4,
+                      "gap": 4,
+                      "padding": {
+                        "top": 0,
+                        "right": 16,
+                        "bottom": 21,
+                        "left": 16
+                      }
+                    }
+                  },
+                  {
+                    "id": 53,
+                    "type": "Group",
+                    "kind": "container",
+                    "bounds": {
+                      "x": 720,
+                      "y": 1019,
+                      "width": 660,
+                      "height": 220
+                    },
+                    "source": {
+                      "tag": "div"
+                    },
+                    "children": [
+                      {
+                        "id": 54,
+                        "type": "Heading",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 736,
+                          "y": 1019,
+                          "width": 628,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "h4"
+                        },
+                        "children": [],
+                        "content": "heading",
+                        "text": "Resilient locators"
+                      },
+                      {
+                        "id": 55,
+                        "type": "Paragraph",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 736,
+                          "y": 1043,
+                          "width": 628,
+                          "height": 55
+                        },
+                        "source": {
+                          "tag": "p"
+                        },
+                        "children": [],
+                        "content": "paragraph",
+                        "text": "Find elements with selectors that mirror how users see the page: , , , . No brit"
+                      },
+                      {
+                        "id": 56,
+                        "type": "Heading",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 736,
+                          "y": 1117,
+                          "width": 628,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "h4"
+                        },
+                        "children": [],
+                        "content": "heading",
+                        "text": "Parallelism and sharding"
+                      },
+                      {
+                        "id": 57,
+                        "type": "Paragraph",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 736,
+                          "y": 1141,
+                          "width": 628,
+                          "height": 53
+                        },
+                        "source": {
+                          "tag": "p"
+                        },
+                        "children": [],
+                        "content": "paragraph",
+                        "text": "Tests run in parallel by default across all configured browsers. Shard across mu"
+                      }
+                    ],
+                    "layout": {
+                      "mode": "stack",
+                      "rows": 4,
+                      "gap": 4,
+                      "padding": {
+                        "top": 0,
+                        "right": 16,
+                        "bottom": 45,
+                        "left": 16
+                      }
+                    }
+                  }
+                ],
+                "role": "region",
+                "layout": {
+                  "mode": "split",
+                  "columns": 2,
+                  "rows": 1,
+                  "gap": 0,
+                  "padding": {
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 0,
+                    "left": 0
+                  }
+                }
+              }
+            ],
+            "role": "region",
+            "layout": {
+              "mode": "stack",
+              "rows": 2,
+              "gap": 32,
+              "padding": {
+                "top": 48,
+                "right": 76,
+                "bottom": 48,
+                "left": 76
+              }
+            }
+          },
+          {
+            "id": 58,
+            "type": "Section",
+            "kind": "region",
+            "bounds": {
+              "x": 0,
+              "y": 1287,
+              "width": 1440,
+              "height": 383
+            },
+            "source": {
+              "tag": "section",
+              "hints": [
+                "section"
+              ]
+            },
+            "children": [
+              {
+                "id": 59,
+                "type": "Heading",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 76,
+                  "y": 1335,
+                  "width": 1288,
+                  "height": 35
+                },
+                "source": {
+                  "tag": "h2"
+                },
+                "children": [],
+                "content": "heading",
+                "text": "Built for AI agents"
+              },
+              {
+                "id": 60,
+                "type": "Feature",
+                "kind": "region",
+                "bounds": {
+                  "x": 76,
+                  "y": 1402,
+                  "width": 1288,
+                  "height": 220
+                },
+                "source": {
+                  "tag": "div"
+                },
+                "children": [
+                  {
+                    "id": 61,
+                    "type": "Group",
+                    "kind": "container",
+                    "bounds": {
+                      "x": 60,
+                      "y": 1402,
+                      "width": 660,
+                      "height": 220
+                    },
+                    "source": {
+                      "tag": "div"
+                    },
+                    "children": [
+                      {
+                        "id": 62,
+                        "type": "Heading",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 76,
+                          "y": 1402,
+                          "width": 628,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "h4"
+                        },
+                        "children": [],
+                        "content": "heading",
+                        "text": "Accessibility snapshots, not screenshots"
+                      },
+                      {
+                        "id": 63,
+                        "type": "Paragraph",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 76,
+                          "y": 1426,
+                          "width": 628,
+                          "height": 53
+                        },
+                        "source": {
+                          "tag": "p"
+                        },
+                        "children": [],
+                        "content": "paragraph",
+                        "text": "Agents interact with pages through structured accessibility trees — element role"
+                      },
+                      {
+                        "id": 64,
+                        "type": "Heading",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 76,
+                          "y": 1498,
+                          "width": 628,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "h4"
+                        },
+                        "children": [],
+                        "content": "heading",
+                        "text": "MCP server"
+                      },
+                      {
+                        "id": 65,
+                        "type": "Paragraph",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 76,
+                          "y": 1522,
+                          "width": 628,
+                          "height": 53
+                        },
+                        "source": {
+                          "tag": "p"
+                        },
+                        "children": [],
+                        "content": "paragraph",
+                        "text": "Drop-in server for VS Code, Cursor, Claude Desktop, Windsurf, and any MCP client"
+                      }
+                    ],
+                    "layout": {
+                      "mode": "stack",
+                      "rows": 4,
+                      "gap": 4,
+                      "padding": {
+                        "top": 0,
+                        "right": 16,
+                        "bottom": 47,
+                        "left": 16
+                      }
+                    }
+                  },
+                  {
+                    "id": 66,
+                    "type": "Group",
+                    "kind": "container",
+                    "bounds": {
+                      "x": 720,
+                      "y": 1402,
+                      "width": 660,
+                      "height": 220
+                    },
+                    "source": {
+                      "tag": "div"
+                    },
+                    "children": [
+                      {
+                        "id": 67,
+                        "type": "Heading",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 736,
+                          "y": 1402,
+                          "width": 628,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "h4"
+                        },
+                        "children": [],
+                        "content": "heading",
+                        "text": "CLI for coding agents"
+                      },
+                      {
+                        "id": 68,
+                        "type": "Paragraph",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 736,
+                          "y": 1426,
+                          "width": 628,
+                          "height": 79
+                        },
+                        "source": {
+                          "tag": "p"
+                        },
+                        "children": [],
+                        "content": "paragraph",
+                        "text": "Token-efficient command-line interface with installable skills. Purpose-built fo"
+                      },
+                      {
+                        "id": 69,
+                        "type": "Heading",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 736,
+                          "y": 1525,
+                          "width": 628,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "h4"
+                        },
+                        "children": [],
+                        "content": "heading",
+                        "text": "Session monitoring"
+                      },
+                      {
+                        "id": 70,
+                        "type": "Text",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 736,
+                          "y": 1549,
+                          "width": 628,
+                          "height": 53
+                        },
+                        "source": {
+                          "tag": "p"
+                        },
+                        "children": [],
+                        "content": "text",
+                        "text": "Visual dashboard with live screencast previews of all running browser sessions. "
+                      }
+                    ],
+                    "layout": {
+                      "mode": "stack",
+                      "rows": 4,
+                      "gap": 4,
+                      "padding": {
+                        "top": 0,
+                        "right": 16,
+                        "bottom": 20,
+                        "left": 16
+                      }
+                    }
+                  }
+                ],
+                "role": "region",
+                "layout": {
+                  "mode": "split",
+                  "columns": 2,
+                  "rows": 1,
+                  "gap": 0,
+                  "padding": {
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 0,
+                    "left": 0
+                  }
+                }
+              }
+            ],
+            "role": "region",
+            "layout": {
+              "mode": "stack",
+              "rows": 2,
+              "gap": 32,
+              "padding": {
+                "top": 48,
+                "right": 76,
+                "bottom": 48,
+                "left": 76
+              }
+            }
+          },
+          {
+            "id": 71,
+            "type": "Section",
+            "kind": "region",
+            "bounds": {
+              "x": 0,
+              "y": 1670,
+              "width": 1440,
+              "height": 286
+            },
+            "source": {
+              "tag": "section",
+              "hints": [
+                "section"
+              ]
+            },
+            "children": [
+              {
+                "id": 72,
+                "type": "Heading",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 76,
+                  "y": 1718,
+                  "width": 1288,
+                  "height": 35
+                },
+                "source": {
+                  "tag": "h2"
+                },
+                "children": [],
+                "content": "heading",
+                "text": "Powerful tooling"
+              },
+              {
+                "id": 73,
+                "type": "Section",
+                "kind": "region",
+                "bounds": {
+                  "x": 76,
+                  "y": 1785,
+                  "width": 1288,
+                  "height": 123
+                },
+                "source": {
+                  "tag": "div"
+                },
+                "children": [
+                  {
+                    "id": 74,
+                    "type": "Group",
+                    "kind": "container",
+                    "bounds": {
+                      "x": 60,
+                      "y": 1785,
+                      "width": 440,
+                      "height": 123
+                    },
+                    "source": {
+                      "tag": "div"
+                    },
+                    "children": [
+                      {
+                        "id": 75,
+                        "type": "Heading",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 76,
+                          "y": 1785,
+                          "width": 408,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "h4"
+                        },
+                        "children": [],
+                        "content": "heading",
+                        "text": "Test generator"
+                      },
+                      {
+                        "id": 76,
+                        "type": "Paragraph",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 76,
+                          "y": 1809,
+                          "width": 408,
+                          "height": 79
+                        },
+                        "source": {
+                          "tag": "p"
+                        },
+                        "children": [],
+                        "content": "paragraph",
+                        "text": "Record your actions in the browser and Playwright writes the test code. Generate"
+                      }
+                    ],
+                    "layout": {
+                      "mode": "stack",
+                      "rows": 2,
+                      "gap": 4,
+                      "padding": {
+                        "top": 0,
+                        "right": 16,
+                        "bottom": 20,
+                        "left": 16
+                      }
+                    }
+                  },
+                  {
+                    "id": 77,
+                    "type": "Group",
+                    "kind": "container",
+                    "bounds": {
+                      "x": 500,
+                      "y": 1785,
+                      "width": 440,
+                      "height": 123
+                    },
+                    "source": {
+                      "tag": "div"
+                    },
+                    "children": [
+                      {
+                        "id": 78,
+                        "type": "Heading",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 516,
+                          "y": 1785,
+                          "width": 408,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "h4"
+                        },
+                        "children": [],
+                        "content": "heading",
+                        "text": "Trace Viewer"
+                      },
+                      {
+                        "id": 79,
+                        "type": "Paragraph",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 516,
+                          "y": 1809,
+                          "width": 408,
+                          "height": 79
+                        },
+                        "source": {
+                          "tag": "p"
+                        },
+                        "children": [],
+                        "content": "paragraph",
+                        "text": "Full timeline of test execution with DOM snapshots, network requests, console lo"
+                      }
+                    ],
+                    "layout": {
+                      "mode": "stack",
+                      "rows": 2,
+                      "gap": 4,
+                      "padding": {
+                        "top": 0,
+                        "right": 16,
+                        "bottom": 20,
+                        "left": 16
+                      }
+                    }
+                  },
+                  {
+                    "id": 80,
+                    "type": "Group",
+                    "kind": "container",
+                    "bounds": {
+                      "x": 940,
+                      "y": 1785,
+                      "width": 440,
+                      "height": 123
+                    },
+                    "source": {
+                      "tag": "div"
+                    },
+                    "children": [
+                      {
+                        "id": 81,
+                        "type": "Heading",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 956,
+                          "y": 1785,
+                          "width": 408,
+                          "height": 20
+                        },
+                        "source": {
+                          "tag": "h4"
+                        },
+                        "children": [],
+                        "content": "heading",
+                        "text": "VS Code extension"
+                      },
+                      {
+                        "id": 82,
+                        "type": "Paragraph",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 956,
+                          "y": 1809,
+                          "width": 408,
+                          "height": 79
+                        },
+                        "source": {
+                          "tag": "p"
+                        },
+                        "children": [],
+                        "content": "paragraph",
+                        "text": "Run, debug, and generate tests directly in the editor. Set breakpoints, live-ins"
+                      }
+                    ],
+                    "layout": {
+                      "mode": "stack",
+                      "rows": 2,
+                      "gap": 4,
+                      "padding": {
+                        "top": 0,
+                        "right": 16,
+                        "bottom": 20,
+                        "left": 16
+                      }
+                    }
+                  }
+                ],
+                "role": "region",
+                "layout": {
+                  "mode": "row",
+                  "columns": 3,
+                  "rows": 1,
+                  "gap": 0,
+                  "padding": {
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 0,
+                    "left": 0
+                  }
+                }
+              }
+            ],
+            "role": "region",
+            "layout": {
+              "mode": "stack",
+              "rows": 2,
+              "gap": 32,
+              "padding": {
+                "top": 48,
+                "right": 76,
+                "bottom": 48,
+                "left": 76
+              }
+            }
+          },
+          {
+            "id": 83,
+            "type": "Section",
+            "kind": "region",
+            "bounds": {
+              "x": 0,
+              "y": 1956,
+              "width": 1440,
+              "height": 267
+            },
+            "source": {
+              "tag": "section",
+              "hints": [
+                "section"
+              ]
+            },
+            "children": [
+              {
+                "id": 84,
+                "type": "Image",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 527,
+                  "y": 2004,
+                  "width": 386,
+                  "height": 94
+                },
+                "source": {
+                  "tag": "img"
+                },
+                "children": [],
+                "content": "image"
+              },
+              {
+                "id": 85,
+                "type": "Paragraph",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 420,
+                  "y": 2122,
+                  "width": 600,
+                  "height": 53
+                },
+                "source": {
+                  "tag": "p"
+                },
+                "children": [],
+                "content": "paragraph",
+                "text": "Chromium, Firefox, and WebKit on Linux, macOS, and Windows. Headless and headed."
+              }
+            ],
+            "role": "region",
+            "layout": {
+              "mode": "stack",
+              "rows": 2,
+              "gap": 24,
+              "padding": {
+                "top": 48,
+                "right": 420,
+                "bottom": 48,
+                "left": 420
+              }
+            }
+          },
+          {
+            "id": 86,
+            "type": "Section",
+            "kind": "region",
+            "bounds": {
+              "x": 0,
+              "y": 2222,
+              "width": 1440,
+              "height": 323
+            },
+            "source": {
+              "tag": "section",
+              "hints": [
+                "section"
+              ]
+            },
+            "children": [
+              {
+                "id": 87,
+                "type": "Heading",
+                "kind": "leaf",
+                "bounds": {
+                  "x": 76,
+                  "y": 2303,
+                  "width": 1288,
+                  "height": 30
+                },
+                "source": {
+                  "tag": "h2"
+                },
+                "children": [],
+                "content": "heading",
+                "text": "Chosen by companies and open source projects"
+              },
+              {
+                "id": 88,
+                "type": "Nav",
+                "kind": "region",
+                "bounds": {
+                  "x": 76,
+                  "y": 2373,
+                  "width": 1288,
+                  "height": 72
+                },
+                "source": {
+                  "tag": "ul"
+                },
+                "children": [
+                  {
+                    "id": 89,
+                    "type": "ImageLink",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 266,
+                      "y": 2373,
+                      "width": 65,
+                      "height": 72
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [],
+                    "content": "image"
+                  },
+                  {
+                    "id": 90,
+                    "type": "ImageLink",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 371,
+                      "y": 2373,
+                      "width": 65,
+                      "height": 72
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [],
+                    "content": "image"
+                  },
+                  {
+                    "id": 91,
+                    "type": "ImageLink",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 476,
+                      "y": 2373,
+                      "width": 70,
+                      "height": 72
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [],
+                    "content": "image"
+                  },
+                  {
+                    "id": 92,
+                    "type": "ImageLink",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 585,
+                      "y": 2373,
+                      "width": 65,
+                      "height": 72
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [],
+                    "content": "image"
+                  },
+                  {
+                    "id": 93,
+                    "type": "ImageLink",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 690,
+                      "y": 2373,
+                      "width": 82,
+                      "height": 72
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [],
+                    "content": "image"
+                  },
+                  {
+                    "id": 94,
+                    "type": "ImageLink",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 812,
+                      "y": 2373,
+                      "width": 65,
+                      "height": 72
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [],
+                    "content": "image"
+                  },
+                  {
+                    "id": 95,
+                    "type": "ImageLink",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 917,
+                      "y": 2373,
+                      "width": 47,
+                      "height": 72
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [],
+                    "content": "image"
+                  },
+                  {
+                    "id": 96,
+                    "type": "ImageLink",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 1004,
+                      "y": 2373,
+                      "width": 65,
+                      "height": 72
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [],
+                    "content": "image"
+                  },
+                  {
+                    "id": 97,
+                    "type": "ImageLink",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 1109,
+                      "y": 2373,
+                      "width": 65,
+                      "height": 72
+                    },
+                    "source": {
+                      "tag": "li",
+                      "hints": [
+                        "li"
+                      ]
+                    },
+                    "children": [],
+                    "content": "image"
+                  }
+                ],
+                "role": "navigation",
+                "layout": {
+                  "mode": "row",
+                  "columns": 9,
+                  "rows": 1,
+                  "gap": 40,
+                  "padding": {
+                    "top": 0,
+                    "right": 190,
+                    "bottom": 0,
+                    "left": 190
+                  }
+                }
+              }
+            ],
+            "role": "region",
+            "layout": {
+              "mode": "stack",
+              "rows": 2,
+              "gap": 40,
+              "padding": {
+                "top": 81,
+                "right": 76,
+                "bottom": 100,
+                "left": 76
+              }
+            }
+          }
+        ],
+        "role": "main",
+        "layout": {
+          "mode": "stack",
+          "rows": 6,
+          "gap": 0,
+          "padding": {
+            "top": 0,
+            "right": 0,
+            "bottom": 1,
+            "left": 0
+          }
+        }
+      },
+      {
+        "id": 98,
+        "type": "Footer",
+        "kind": "region",
+        "bounds": {
+          "x": 0,
+          "y": 2546,
+          "width": 1440,
+          "height": 302
+        },
+        "source": {
+          "tag": "footer",
+          "hints": [
+            "footer"
+          ]
+        },
+        "children": [
+          {
+            "id": 99,
+            "type": "Section",
+            "kind": "region",
+            "bounds": {
+              "x": 60,
+              "y": 2578,
+              "width": 1320,
+              "height": 196
+            },
+            "source": {
+              "tag": "div"
+            },
+            "children": [
+              {
+                "id": 100,
+                "type": "Group",
+                "kind": "container",
+                "bounds": {
+                  "x": 60,
+                  "y": 2578,
+                  "width": 440,
+                  "height": 196
+                },
+                "source": {
+                  "tag": "div"
+                },
+                "children": [
+                  {
+                    "id": 101,
+                    "type": "Text",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 76,
+                      "y": 2578,
+                      "width": 408,
+                      "height": 20
+                    },
+                    "source": {
+                      "tag": "div"
+                    },
+                    "children": [],
+                    "content": "text",
+                    "text": "Learn"
+                  },
+                  {
+                    "id": 102,
+                    "type": "Nav",
+                    "kind": "region",
+                    "bounds": {
+                      "x": 76,
+                      "y": 2614,
+                      "width": 408,
+                      "height": 128
+                    },
+                    "source": {
+                      "tag": "ul"
+                    },
+                    "children": [
+                      {
+                        "id": 103,
+                        "type": "Link",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 76,
+                          "y": 2614,
+                          "width": 408,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "li"
+                        },
+                        "children": [],
+                        "content": "link",
+                        "text": "Getting started"
+                      },
+                      {
+                        "id": 104,
+                        "type": "Link",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 76,
+                          "y": 2646,
+                          "width": 408,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "li"
+                        },
+                        "children": [],
+                        "content": "link",
+                        "text": "Playwright Training"
+                      },
+                      {
+                        "id": 105,
+                        "type": "Link",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 76,
+                          "y": 2678,
+                          "width": 408,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "li"
+                        },
+                        "children": [],
+                        "content": "link",
+                        "text": "Learn Videos"
+                      },
+                      {
+                        "id": 106,
+                        "type": "Link",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 76,
+                          "y": 2710,
+                          "width": 408,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "li"
+                        },
+                        "children": [],
+                        "content": "link",
+                        "text": "Feature Videos"
+                      }
+                    ],
+                    "role": "navigation",
+                    "layout": {
+                      "mode": "stack",
+                      "rows": 4,
+                      "gap": 0,
+                      "padding": {
+                        "top": 0,
+                        "right": 0,
+                        "bottom": 0,
+                        "left": 0
+                      }
+                    }
+                  }
+                ],
+                "layout": {
+                  "mode": "stack",
+                  "rows": 2,
+                  "gap": 16,
+                  "padding": {
+                    "top": 0,
+                    "right": 16,
+                    "bottom": 32,
+                    "left": 16
+                  }
+                }
+              },
+              {
+                "id": 107,
+                "type": "Group",
+                "kind": "container",
+                "bounds": {
+                  "x": 500,
+                  "y": 2578,
+                  "width": 440,
+                  "height": 196
+                },
+                "source": {
+                  "tag": "div"
+                },
+                "children": [
+                  {
+                    "id": 108,
+                    "type": "Text",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 516,
+                      "y": 2578,
+                      "width": 408,
+                      "height": 20
+                    },
+                    "source": {
+                      "tag": "div"
+                    },
+                    "children": [],
+                    "content": "text",
+                    "text": "Community"
+                  },
+                  {
+                    "id": 109,
+                    "type": "Nav",
+                    "kind": "region",
+                    "bounds": {
+                      "x": 516,
+                      "y": 2614,
+                      "width": 408,
+                      "height": 128
+                    },
+                    "source": {
+                      "tag": "ul"
+                    },
+                    "children": [
+                      {
+                        "id": 110,
+                        "type": "Link",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 516,
+                          "y": 2614,
+                          "width": 408,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "li"
+                        },
+                        "children": [],
+                        "content": "link",
+                        "text": "Stack Overflow"
+                      },
+                      {
+                        "id": 111,
+                        "type": "Link",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 516,
+                          "y": 2646,
+                          "width": 408,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "li"
+                        },
+                        "children": [],
+                        "content": "link",
+                        "text": "Discord"
+                      },
+                      {
+                        "id": 112,
+                        "type": "Link",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 516,
+                          "y": 2678,
+                          "width": 408,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "li"
+                        },
+                        "children": [],
+                        "content": "link",
+                        "text": "X"
+                      },
+                      {
+                        "id": 113,
+                        "type": "Link",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 516,
+                          "y": 2710,
+                          "width": 408,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "li"
+                        },
+                        "children": [],
+                        "content": "link",
+                        "text": "LinkedIn"
+                      }
+                    ],
+                    "role": "navigation",
+                    "layout": {
+                      "mode": "stack",
+                      "rows": 4,
+                      "gap": 0,
+                      "padding": {
+                        "top": 0,
+                        "right": 0,
+                        "bottom": 0,
+                        "left": 0
+                      }
+                    }
+                  }
+                ],
+                "layout": {
+                  "mode": "stack",
+                  "rows": 2,
+                  "gap": 16,
+                  "padding": {
+                    "top": 0,
+                    "right": 16,
+                    "bottom": 32,
+                    "left": 16
+                  }
+                }
+              },
+              {
+                "id": 114,
+                "type": "Group",
+                "kind": "container",
+                "bounds": {
+                  "x": 940,
+                  "y": 2578,
+                  "width": 440,
+                  "height": 196
+                },
+                "source": {
+                  "tag": "div"
+                },
+                "children": [
+                  {
+                    "id": 115,
+                    "type": "Text",
+                    "kind": "leaf",
+                    "bounds": {
+                      "x": 956,
+                      "y": 2578,
+                      "width": 408,
+                      "height": 20
+                    },
+                    "source": {
+                      "tag": "div"
+                    },
+                    "children": [],
+                    "content": "text",
+                    "text": "More"
+                  },
+                  {
+                    "id": 116,
+                    "type": "Nav",
+                    "kind": "region",
+                    "bounds": {
+                      "x": 956,
+                      "y": 2614,
+                      "width": 408,
+                      "height": 160
+                    },
+                    "source": {
+                      "tag": "ul"
+                    },
+                    "children": [
+                      {
+                        "id": 117,
+                        "type": "Link",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 956,
+                          "y": 2614,
+                          "width": 408,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "li"
+                        },
+                        "children": [],
+                        "content": "link",
+                        "text": "GitHub"
+                      },
+                      {
+                        "id": 118,
+                        "type": "Link",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 956,
+                          "y": 2646,
+                          "width": 408,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "li"
+                        },
+                        "children": [],
+                        "content": "link",
+                        "text": "YouTube"
+                      },
+                      {
+                        "id": 119,
+                        "type": "Link",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 956,
+                          "y": 2678,
+                          "width": 408,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "li"
+                        },
+                        "children": [],
+                        "content": "link",
+                        "text": "Blog"
+                      },
+                      {
+                        "id": 120,
+                        "type": "Link",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 956,
+                          "y": 2710,
+                          "width": 408,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "li"
+                        },
+                        "children": [],
+                        "content": "link",
+                        "text": "Ambassadors"
+                      },
+                      {
+                        "id": 121,
+                        "type": "Link",
+                        "kind": "leaf",
+                        "bounds": {
+                          "x": 956,
+                          "y": 2742,
+                          "width": 408,
+                          "height": 32
+                        },
+                        "source": {
+                          "tag": "li"
+                        },
+                        "children": [],
+                        "content": "link",
+                        "text": "Microsoft Privacy Statement"
+                      }
+                    ],
+                    "role": "navigation",
+                    "layout": {
+                      "mode": "stack",
+                      "rows": 5,
+                      "gap": 0,
+                      "padding": {
+                        "top": 0,
+                        "right": 0,
+                        "bottom": 0,
+                        "left": 0
+                      }
+                    }
+                  }
+                ],
+                "layout": {
+                  "mode": "stack",
+                  "rows": 2,
+                  "gap": 16,
+                  "padding": {
+                    "top": 0,
+                    "right": 16,
+                    "bottom": 0,
+                    "left": 16
+                  }
+                }
+              }
+            ],
+            "role": "region",
+            "layout": {
+              "mode": "row",
+              "columns": 3,
+              "rows": 1,
+              "gap": 0,
+              "padding": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              }
+            }
+          },
+          {
+            "id": 122,
+            "type": "Text",
+            "kind": "leaf",
+            "bounds": {
+              "x": 76,
+              "y": 2790,
+              "width": 1288,
+              "height": 26
+            },
+            "source": {
+              "tag": "div"
+            },
+            "children": [],
+            "content": "text",
+            "text": "Copyright © 2026 Microsoft"
+          }
+        ],
+        "role": "contentinfo",
+        "layout": {
+          "mode": "stack",
+          "rows": 2,
+          "gap": 16,
+          "padding": {
+            "top": 32,
+            "right": 60,
+            "bottom": 32,
+            "left": 60
+          }
+        }
+      }
+    ],
+    "role": "document",
+    "layout": {
+      "mode": "stack",
+      "padding": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    }
+  }
+}

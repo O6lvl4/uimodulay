@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/O6lvl4/uimodulay/docs/layout-ast.schema.json",
+  "title": "uimodulay Layout AST v1",
+  "description": "One rendered web page as a tree of modules (layout-ast), or the same page at several widths (layout-ast-set). See LAYOUT-AST.md.",
+  "oneOf": [
+    { "$ref": "#/$defs/document" },
+    { "$ref": "#/$defs/set" }
+  ],
+  "$defs": {
+    "document": {
+      "type": "object",
+      "required": ["format", "version", "source", "root"],
+      "properties": {
+        "format": { "const": "uimodulay/layout-ast" },
+        "version": { "const": 1 },
+        "source": {
+          "type": "object",
+          "required": ["url", "viewport", "document", "capturedAt", "generator"],
+          "properties": {
+            "url": { "type": "string" },
+            "viewport": {
+              "type": "object",
+              "required": ["width", "height"],
+              "properties": { "width": { "type": "integer", "minimum": 1 }, "height": { "type": "integer", "minimum": 1 } }
+            },
+            "document": { "type": "object", "required": ["height"], "properties": { "height": { "type": "integer", "minimum": 0 } } },
+            "capturedAt": { "type": "string" },
+            "generator": { "type": "string" }
+          }
+        },
+        "root": { "$ref": "#/$defs/node" },
+        "ai": {
+          "type": "object",
+          "properties": {
+            "relabeled": { "type": "integer", "minimum": 0 },
+            "costUsd": { "type": "number", "minimum": 0 },
+            "durationMs": { "type": "integer", "minimum": 0 },
+            "notes": { "type": "string" }
+          }
+        }
+      }
+    },
+    "node": {
+      "type": "object",
+      "required": ["id", "type", "kind", "bounds", "source", "children"],
+      "properties": {
+        "id": { "type": "integer", "minimum": 0 },
+        "type": { "type": "string", "pattern": "^[A-Z][A-Za-z]{1,30}$" },
+        "kind": { "enum": ["region", "container", "leaf"] },
+        "role": {
+          "enum": ["document", "banner", "navigation", "main", "contentinfo", "complementary", "form", "search", "dialog", "article", "region", "list", "listitem", "table", "figure"]
+        },
+        "content": {
+          "enum": ["heading", "text", "paragraph", "image", "icon", "logo", "link", "button", "input", "divider", "panel", "block", "backdrop"]
+        },
+        "bounds": {
+          "type": "object",
+          "required": ["x", "y", "width", "height"],
+          "properties": {
+            "x": { "type": "integer" },
+            "y": { "type": "integer" },
+            "width": { "type": "integer", "minimum": 0 },
+            "height": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "layout": {
+          "type": "object",
+          "required": ["mode"],
+          "properties": {
+            "mode": { "enum": ["stack", "row", "split", "grid", "flow"] },
+            "columns": { "type": "integer", "minimum": 1 },
+            "rows": { "type": "integer", "minimum": 1 },
+            "gap": { "type": "number", "minimum": 0 },
+            "rowGap": { "type": "number", "minimum": 0 },
+            "padding": {
+              "type": "object",
+              "required": ["top", "right", "bottom", "left"],
+              "properties": {
+                "top": { "type": "number", "minimum": 0 },
+                "right": { "type": "number", "minimum": 0 },
+                "bottom": { "type": "number", "minimum": 0 },
+                "left": { "type": "number", "minimum": 0 }
+              }
+            }
+          }
+        },
+        "text": { "type": "string" },
+        "source": {
+          "type": "object",
+          "required": ["tag"],
+          "properties": {
+            "tag": { "type": "string" },
+            "hints": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "children": { "type": "array", "items": { "$ref": "#/$defs/node" } }
+      }
+    },
+    "set": {
+      "type": "object",
+      "required": ["format", "version", "url", "widths", "variants", "changes"],
+      "properties": {
+        "format": { "const": "uimodulay/layout-ast-set" },
+        "version": { "const": 1 },
+        "url": { "type": "string" },
+        "widths": { "type": "array", "items": { "type": "integer", "minimum": 1 } },
+        "variants": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["width", "ast"],
+            "properties": { "width": { "type": "integer", "minimum": 1 }, "ast": { "$ref": "#/$defs/document" } }
+          }
+        },
+        "changes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["path", "type", "arrangement", "presence"],
+            "properties": {
+              "path": { "type": "string" },
+              "type": { "type": "string" },
+              "arrangement": { "type": "array", "items": { "type": "string" } },
+              "presence": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    }
+  }
+}
