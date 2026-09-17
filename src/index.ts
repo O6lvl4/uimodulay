@@ -26,6 +26,8 @@ export { detectLayout, groupRows } from "./layout.ts";
 export { fromAst, renderAst, renderTree } from "./render.ts";
 export { compare, renderChanges } from "./responsive.ts";
 export { sketchSvg } from "./sketch.ts";
+export { emitTailwind } from "./emit.ts";
+export type { CopyDeck, EmitOptions } from "./emit.ts";
 export { VERSION } from "./version.ts";
 
 export interface AnalyzeOptions extends CaptureOptions {

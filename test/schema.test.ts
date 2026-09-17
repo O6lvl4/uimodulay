@@ -57,7 +57,7 @@ function checkObject(s: Schema, v: unknown, path: string, errors: string[]): voi
   }
 }
 
-for (const file of readdirSync(new URL("examples/", root)).filter((f) => f.endsWith(".json"))) {
+for (const file of readdirSync(new URL("examples/", root)).filter((f) => f.endsWith(".ast.json") || f.endsWith(".set.json"))) {
   test(`examples/${file} matches the Layout AST schema`, () => {
     const doc = JSON.parse(readFileSync(new URL("examples/" + file, root), "utf8")) as unknown;
     const errors: string[] = [];

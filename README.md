@@ -162,3 +162,15 @@ CI runs the same gate with [codopsy](https://github.com/O6lvl4/codopsy).
 ## License
 
 MIT
+
+## Structure back out: Tailwind
+
+```
+uimodulay <url> --tailwind page.html --copy deck.json
+```
+
+Turns the AST back into an HTML page with Tailwind classes: regions become `header` / `main` /
+`section` / `footer`, `layout.mode` becomes flex or grid with the measured `gap` and `padding`, and
+leaves become headings, paragraphs, buttons and image placeholders. A **copy deck** (see
+`examples/petshop.copy.json`) supplies the words, cycled per role, so one page's structure can carry
+another business's content. `examples/petshop.html` is playwright.dev's skeleton as a pet shop.

@@ -1,0 +1,38 @@
+{
+  "brand": "Pawprint",
+  "nav": ["Shop", "Grooming", "Adopt", "Vet care", "Stores"],
+  "hero": {
+    "heading": "Everything your best friend needs, from one shop that actually knows them",
+    "text": "Food, toys, beds and check-ups for dogs, cats and the small ones too. Same-day pickup at 12 stores, or delivered before dinner.",
+    "button": "Shop now",
+    "link": "Find a store"
+  },
+  "sections": [
+    { "heading": "Built for dogs", "text": "Breed-matched food plans, chew-tested toys and beds sized from dachshund to Great Dane." },
+    { "heading": "Built for cats", "text": "Litter that stays put, trees that survive claws, and a grooming room with the door shut." },
+    { "heading": "Vets on site", "text": "Walk-in vaccinations, dental cleaning and nail trims. Book online, wait time shown live." },
+    { "heading": "Supported by people who own pets", "text": "Every Pawprint store is run by a team that goes home to at least one animal. Ask them anything." },
+    { "heading": "Chosen by shelters and breeders across the country" },
+    { "heading": "Rescue Sundays", "text": "Every Sunday a local shelter brings adoptable animals to the store. Bring treats, leave with a friend." }
+  ],
+  "cards": [
+    { "heading": "Dog food", "text": "Dry, wet and fresh-frozen, sorted by age and size. Subscribe and never run out.", "link": "Browse dog food" },
+    { "heading": "Cat trees", "text": "Sisal posts, hideouts and window perches. Ships flat, assembles without tools.", "link": "See cat trees" },
+    { "heading": "Grooming", "text": "Bath, trim and de-shed in under an hour. Nervous pets get the quiet room.", "link": "Book grooming" },
+    { "heading": "Aquarium starter kit", "text": "Tank, filter, heater and the first month of food. Fish not included, advice is.", "link": "Start an aquarium" },
+    { "heading": "Small animals", "text": "Rabbits, guinea pigs, hamsters: hay, hutches and the vet who knows them.", "link": "Small animal care" },
+    { "heading": "Adoption", "text": "Partner shelters list their animals here. Meet them at Rescue Sunday.", "link": "Meet the animals" }
+  ],
+  "footer": {
+    "links": ["Shop", "Grooming", "Vet care", "Adopt", "Stores", "Careers", "Help", "Returns", "Privacy"],
+    "text": "© 2026 Pawprint Pet Shop. Open every day, 9 to 8."
+  },
+  "buttons": ["Shop now", "Book a visit", "Find a store"],
+  "links": ["Learn more", "See all", "Read the guide", "How it works"],
+  "texts": [
+    "Free delivery over $40, or pick up in store within the hour.",
+    "Nutrition plans reviewed by our in-house vets.",
+    "Toys tested by a labrador named Bruno. If it survives him, it ships.",
+    "Loyalty points on every purchase, doubled on adoption supplies."
+  ]
+}

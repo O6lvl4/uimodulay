@@ -3,6 +3,7 @@
 
 import { readFile, writeFile } from "node:fs/promises";
 import { toAst, type LayoutAst } from "./ast.ts";
+import { emitTailwind, type CopyDeck } from "./emit.ts";
 import { capture } from "./capture.ts";
 import { analyzeResponsive, analyzeSnapshot, crawl, finish, PRESET_WIDTHS, renderChanges, renderSiteTree } from "./index.ts";
 import { renderAst, renderTree, type RenderOptions } from "./render.ts";
@@ -31,11 +32,12 @@ Options
   --model NAME    model for --ai (default: your claude default)
   --save FILE     save the raw snapshot (boxes) for offline re-analysis
   --sketch FILE   write a hand-drawn monochrome wireframe as SVG (--sketch-width N; one file per width)
+  --tailwind FILE write the structure back as a Tailwind HTML page (--copy deck.json for the words)
   --raw           print the raw snapshot JSON instead of the tree
   --no-scroll     do not scroll through the page before capturing
 `;
 
-const VALUE_FLAGS = ["width", "widths", "height", "depth", "model", "save", "from", "sketch", "sketch-width", "crawl", "crawl-depth"];
+const VALUE_FLAGS = ["width", "widths", "height", "depth", "model", "save", "from", "sketch", "sketch-width", "crawl", "crawl-depth", "tailwind", "copy"];
 
 interface Args {
   url?: string;
@@ -87,6 +89,14 @@ async function writeSketch(a: Args, ast: LayoutAst, file: string): Promise<void>
   note(`sketch: wrote ${file}`);
 }
 
+/** Tailwind skeleton of the page, with words from a copy deck when one is given. */
+async function writeTailwind(a: Args, ast: LayoutAst, file: string): Promise<void> {
+  const deckFile = a.values.get("copy");
+  const copy = deckFile ? (JSON.parse(await readFile(deckFile, "utf8")) as CopyDeck) : undefined;
+  await writeFile(file, emitTailwind(ast, { copy }));
+  note(`tailwind: wrote ${file}`);
+}
+
 /** Responsive run: one tree per width, then the table of arrangement changes. */
 async function runResponsive(a: Args, widths: number[]): Promise<void> {
   const set: ResponsiveSet = await analyzeResponsive(normalizeUrl(a.url), widths, { ai: aiOpts(a), scroll: !a.flags.has("no-scroll") }, `uimodulay ${VERSION}`);
@@ -130,6 +140,8 @@ async function runSingle(a: Args): Promise<void> {
   const ast = toAst(result.tree, snapshot, `uimodulay ${VERSION}${result.ai ? "+ai" : ""}`);
   const sketch = a.values.get("sketch");
   if (sketch) await writeSketch(a, ast, sketch);
+  const html = a.values.get("tailwind");
+  if (html) await writeTailwind(a, ast, html);
   if (a.flags.has("json")) print(JSON.stringify(ast, null, 2));
   else print(renderTree(result.tree, renderOpts(a)));
 }
