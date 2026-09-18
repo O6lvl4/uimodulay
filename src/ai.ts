@@ -40,15 +40,20 @@ Answer with ONLY a JSON object: {"labels": {"<id>": "<Type>", ...}, "notes": "<o
 
 const TYPE_NAME = /^[A-Z][A-Za-z]{1,30}$/;
 
+/**
+ * One answer, no tools: `tools: []` removes every built-in tool, so the model cannot spend its
+ * turn on a tool call (plan mode used to invite ExitPlanMode, which ended runs with
+ * error_max_turns). Renaming is light work, so thinking effort is low.
+ */
 function sdkOptions(opts: AiOptions): Options {
   return {
     pathToClaudeCodeExecutable: opts.claudeBin ?? join(homedir(), ".local/bin/claude"),
     model: opts.model,
     systemPrompt: SYSTEM,
-    allowedTools: [],
-    disallowedTools: ["Bash", "Read", "Write", "Edit", "WebFetch", "WebSearch", "Agent", "Glob", "Grep"],
-    permissionMode: "plan",
-    maxTurns: 1,
+    tools: [],
+    permissionMode: "default",
+    effort: "low",
+    maxTurns: 2,
     settingSources: [],
     stderr: () => undefined,
   };
