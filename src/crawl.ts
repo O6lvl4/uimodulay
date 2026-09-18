@@ -2,8 +2,7 @@
 // reached. The result is a URL tree (who linked to whom first) plus one snapshot per width per page.
 
 import { chromium, type Browser } from "playwright";
-import { openContext, preparePage, PRESET_WIDTHS, type CaptureOptions } from "./capture.ts";
-import { probe } from "./probe.ts";
+import { openContext, preparePage, probePage, PRESET_WIDTHS, type CaptureOptions } from "./capture.ts";
 import type { Snapshot } from "./types.ts";
 
 export interface CrawlOptions extends CaptureOptions {
@@ -130,7 +129,7 @@ async function loadAt(browser: Browser, url: string, width: number, opts: CrawlO
     await preparePage(page, url, opts);
     const links = await page.evaluate(() => Array.from(document.querySelectorAll("a[href]"), (a) => (a as HTMLAnchorElement).href));
     const title = await page.title();
-    return { snapshot: await page.evaluate(probe), links, title, finalUrl: page.url() };
+    return { snapshot: await probePage(page), links, title, finalUrl: page.url() };
   } finally {
     await context.close();
   }

@@ -90,12 +90,26 @@ export async function preparePage(page: Page, url: string, opts: CaptureOptions)
   if (opts.scroll !== false) await scrollThrough(page);
 }
 
+/**
+ * Run the probe; if the page navigated underneath it (accepting cookies can reload the page),
+ * wait for the new page to settle and probe once more.
+ */
+export async function probePage(page: Page): Promise<Snapshot> {
+  try {
+    return await page.evaluate(probe);
+  } catch {
+    await page.waitForLoadState("load").catch(ignore);
+    await page.waitForLoadState("networkidle", { timeout: NETWORK_IDLE_MS }).catch(ignore);
+    return page.evaluate(probe);
+  }
+}
+
 async function captureAt(browser: Browser, url: string, width: number, opts: CaptureOptions): Promise<Snapshot> {
   const context = await openContext(browser, width, opts.height);
   try {
     const page = await context.newPage();
     await preparePage(page, url, opts);
-    return await page.evaluate(probe);
+    return await probePage(page);
   } finally {
     await context.close();
   }
