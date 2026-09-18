@@ -89,26 +89,43 @@ export function probe(): Snapshot {
     return w > 0 && h > 0 ? { x, y, w, h } : null;
   }
 
-  function clips(cs: CSSStyleDeclaration): boolean {
-    return cs.overflowX !== "visible" || cs.overflowY !== "visible";
+  const vh = window.innerHeight;
+
+  /**
+   * Does this box cut off what overflows it? Not body or html (their overflow moves to the
+   * viewport), and not a page-level scroller (a smooth-scroll wrapper or an overflow:auto page):
+   * everything inside one of those is reachable by scrolling, so it is part of the page.
+   */
+  function clips(el: Element, cs: CSSStyleDeclaration): boolean {
+    if (cs.overflowX === "visible" && cs.overflowY === "visible") return false;
+    if (el === document.body || el === document.documentElement) return false;
+    const pageScroller = el.clientHeight >= vh * 0.8 && el.scrollHeight > el.clientHeight * 1.2;
+    return !pageScroller;
   }
 
-  /** Marked as not there: hidden attribute, aria-hidden, inert, or a screen-reader-only clip. */
-  function hiddenByAuthor(el: Element, cs: CSSStyleDeclaration): boolean {
-    if (el.hasAttribute("hidden") || el.getAttribute("aria-hidden") === "true" || el.hasAttribute("inert")) return true;
-    return cs.clip.startsWith("rect(0px, 0px, 0px, 0px)") || cs.clipPath.includes("inset(100%)");
+  /**
+   * Marked as not there: the hidden attribute, a screen-reader-only clip, or aria-hidden / inert
+   * on something smaller than half the screen. A larger aria-hidden region is the page behind an
+   * open popup, which is still the page.
+   */
+  function hiddenByAuthor(el: Element, cs: CSSStyleDeclaration, r: { w: number; h: number }): boolean {
+    if (el.hasAttribute("hidden")) return true;
+    if (cs.clip.startsWith("rect(0px, 0px, 0px, 0px)") || cs.clipPath.includes("inset(100%)")) return true;
+    const muted = el.getAttribute("aria-hidden") === "true" || el.hasAttribute("inert");
+    return muted && r.w * r.h < vw * vh * 0.5;
   }
 
   /** Emit this element if it is visible inside its scope; return the scope for its children (or null to stop). */
   function emit(el: Element, scope: Scope): Scope | null {
     const cs = getComputedStyle(el);
-    if (!rendered(cs) || hiddenByAuthor(el, cs)) return null;
+    if (!rendered(cs)) return null;
     const r = rectOf(el);
+    if (hiddenByAuthor(el, cs, r)) return null;
+    const cuts = clips(el, cs);
     const shown = scope.clip ? intersect(r, scope.clip) : r;
-    if (!shown || !onPage(shown)) return clips(cs) ? null : scope; // clipped away: children of a clipping box are gone too
+    if (!shown || !onPage(shown)) return cuts ? null : scope; // clipped away: children of a clipping box are gone too
     boxes.push(boxFor(el, cs, r, scope.parent));
-    const clip = clips(cs) ? shown : scope.clip;
-    return { parent: boxes.length - 1, clip };
+    return { parent: boxes.length - 1, clip: cuts ? shown : scope.clip };
   }
 
   // parent index is the nearest *emitted* ancestor, so hidden/skipped wrappers vanish.

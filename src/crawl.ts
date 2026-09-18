@@ -1,8 +1,8 @@
 // Site crawl: from a start URL, follow same-origin links breadth-first, and capture every page
 // reached. The result is a URL tree (who linked to whom first) plus one snapshot per width per page.
 
-import { chromium, type Browser, type BrowserContext, type Page } from "playwright";
-import { PRESET_WIDTHS, type CaptureOptions } from "./capture.ts";
+import { chromium, type Browser } from "playwright";
+import { openContext, preparePage, PRESET_WIDTHS, type CaptureOptions } from "./capture.ts";
 import { probe } from "./probe.ts";
 import type { Snapshot } from "./types.ts";
 
@@ -54,9 +54,6 @@ export interface SiteTree {
 }
 
 const ASSET = /\.(pdf|zip|gz|tar|dmg|exe|png|jpe?g|gif|svg|webp|avif|mp4|mp3|webm|css|js|json|xml|rss|ics)$/i;
-const PHONE_MAX_WIDTH = 600;
-const PHONE_UA = "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1";
-const NETWORK_IDLE_MS = 8000;
 
 /** Canonical form for de-duplication: no hash, no trailing slash except the root, no default ports. */
 export function normalizeUrl(href: string, base?: string): string | undefined {
@@ -124,43 +121,13 @@ function disallowed(url: string, rules: string[]): boolean {
 
 // ── page loading ──────────────────────────────────────────────────────────
 
-function ignore(): undefined {
-  return undefined;
-}
-
-async function scrollThrough(page: Page): Promise<void> {
-  await page.evaluate(async () => {
-    const step = window.innerHeight;
-    const max = (): number => Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
-    for (let y = 0; y < max() && y < 20000; y += step) {
-      window.scrollTo(0, y);
-      await new Promise((r) => setTimeout(r, 120));
-    }
-    window.scrollTo(0, 0);
-    await new Promise((r) => setTimeout(r, 250));
-  });
-}
-
-async function contextFor(browser: Browser, width: number, opts: CrawlOptions): Promise<BrowserContext> {
-  const phone = width < PHONE_MAX_WIDTH;
-  return browser.newContext({
-    viewport: { width, height: opts.height ?? 900 },
-    deviceScaleFactor: 1,
-    isMobile: phone,
-    hasTouch: phone,
-    userAgent: phone ? PHONE_UA : undefined,
-  });
-}
-
 interface Loaded { snapshot: Snapshot; links: string[]; title: string; finalUrl: string }
 
 async function loadAt(browser: Browser, url: string, width: number, opts: CrawlOptions): Promise<Loaded> {
-  const context = await contextFor(browser, width, opts);
+  const context = await openContext(browser, width, opts.height);
   try {
     const page = await context.newPage();
-    await page.goto(url, { waitUntil: "load", timeout: opts.timeoutMs ?? 30000 });
-    await page.waitForLoadState("networkidle", { timeout: NETWORK_IDLE_MS }).catch(ignore);
-    if (opts.scroll !== false) await scrollThrough(page);
+    await preparePage(page, url, opts);
     const links = await page.evaluate(() => Array.from(document.querySelectorAll("a[href]"), (a) => (a as HTMLAnchorElement).href));
     const title = await page.title();
     return { snapshot: await page.evaluate(probe), links, title, finalUrl: page.url() };
