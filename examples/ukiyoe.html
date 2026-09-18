@@ -2,247 +2,216 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+</head>
+<body>
 <title>潮見藍斎 版画作品目録</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap">
 <style>
-  /* One visual world on purpose: prints read on washi, so the page stays on paper in both themes. */
+  /* One visual world on purpose: prints are shown on paper, so the page stays on washi in both themes. */
   :root {
-    --washi: #f3eee3;
-    --washi-2: #e9e1cf;
-    --sumi: #1d1a17;
-    --sumi-2: #6a6358;
-    --line: #d8cebb;
-    --ai: #1f3b64;
-    --shu: #c3432d;
+    --washi: #f1ece1;
+    --washi-2: #e6dfcf;
+    --mount: #f8f5ee;
+    --sumi: #1b1916;
+    --sumi-2: #6b6459;
+    --line: #d7cdb9;
+    --shu: #bf3f2a;
     --mincho: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
     --gothic: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+    --latin: "Cormorant Garamond", "Shippori Mincho", Georgia, serif;
     color-scheme: light;
   }
   html { background: var(--washi); }
-  body { background: var(--washi); color: var(--sumi); font-family: var(--gothic); font-size: 14px; line-height: 1.7; }
+  body { background: var(--washi); color: var(--sumi); font-family: var(--gothic); font-size: 14px; line-height: 1.75; }
   a { color: inherit; text-decoration: none; }
-  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
-  :focus-visible { outline: 2px solid var(--ai); outline-offset: 2px; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; }
+  :focus-visible { outline: 2px solid var(--sumi); outline-offset: 3px; }
 
-  /* Nav [row 2] 1440×116 — brand left, language right */
-  .topbar { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; padding: 41px 38px 13px 42px; }
-  .brand { display: flex; align-items: center; gap: 18px; min-width: 0; }
-  .seal { flex: none; width: 46px; height: 46px; background: var(--shu); color: var(--washi); font-family: var(--mincho); font-weight: 700; font-size: 17px; line-height: 1.05; display: grid; place-items: center; writing-mode: vertical-rl; letter-spacing: .05em; border-radius: 3px; box-shadow: inset 0 0 0 2px var(--shu), inset 0 0 0 3.5px var(--washi); }
-  .brand-name { font-family: var(--mincho); font-weight: 700; font-size: clamp(26px, 3.6vw, 48px); letter-spacing: .06em; line-height: 1; white-space: nowrap; }
-  .brand-name small { font-weight: 500; font-size: .5em; letter-spacing: .08em; margin-left: .6em; color: var(--sumi-2); }
-  .lang { display: flex; gap: 10px; font-size: 13px; letter-spacing: .08em; padding-bottom: 6px; }
-  .lang button { padding: 2px 0; color: var(--sumi-2); border-bottom: 1px solid transparent; }
-  .lang button[aria-pressed="true"] { color: var(--sumi); border-bottom-color: var(--sumi); }
+  /* ── header ─────────────────────────────────────────────────────────── */
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 16px 28px; flex-wrap: wrap; padding: 22px 36px 0; }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .seal { width: 38px; height: 38px; flex: none; background: var(--shu); color: var(--mount); font-family: var(--mincho); font-weight: 700; font-size: 14px; line-height: 1.05; display: grid; place-items: center; writing-mode: vertical-rl; border-radius: 2px; box-shadow: inset 0 0 0 2px var(--shu), inset 0 0 0 3px var(--mount); }
+  .name { font-family: var(--mincho); font-weight: 500; font-size: 18px; letter-spacing: .32em; }
+  .name span { display: block; font-family: var(--latin); font-size: 12px; letter-spacing: .28em; color: var(--sumi-2); margin-top: 1px; }
+  .menu { display: flex; align-items: center; gap: 4px 24px; flex-wrap: wrap; font-size: 13px; letter-spacing: .14em; }
+  .menu a { color: var(--sumi-2); padding: 4px 0; border-bottom: 1px solid transparent; }
+  .menu a:hover { color: var(--sumi); border-bottom-color: var(--sumi); }
+  .lang { display: flex; gap: 8px; font-family: var(--latin); font-size: 14px; letter-spacing: .1em; margin-left: 8px; }
+  .lang button { color: var(--sumi-2); }
+  .lang button[aria-pressed="true"] { color: var(--sumi); text-decoration: underline; text-underline-offset: 4px; }
 
-  /* Nav [row 5] 1440×51 — the five sections */
-  .sections { display: flex; gap: 0; padding: 0 30px 2px; border-bottom: 1px solid var(--line); overflow-x: auto; scrollbar-width: none; }
-  .sections a { flex: none; padding: 12px 18px 12px 12px; font-size: 15px; letter-spacing: .06em; color: var(--sumi-2); border-bottom: 2px solid transparent; margin-bottom: -1px; }
-  .sections a[aria-current="page"] { color: var(--sumi); border-bottom-color: var(--sumi); }
-  .sections a:hover { color: var(--sumi); }
+  /* ── stage: one print at a time, cross-faded ────────────────────────── */
+  .stage { --stage: clamp(500px, calc(100vh - 272px), 860px); position: relative; height: var(--stage); display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; padding: 16px 36px 0; }
+  .frame { grid-column: 2; position: relative; height: 100%; display: grid; place-items: center; }
+  .slot { grid-area: 1 / 1; display: flex; align-items: center; justify-content: center; gap: 44px; height: 100%; opacity: 0; transition: opacity .9s ease, transform .9s ease; transform: translateX(12px); pointer-events: none; }
+  .slot.on { opacity: 1; transform: none; pointer-events: auto; }
+  .slot.back { transform: translateX(-12px); }
+  .mat { background: var(--mount); padding: clamp(14px, 2.4vw, 34px); box-shadow: 0 1px 1px rgba(27,25,22,.08), 0 30px 60px -34px rgba(27,25,22,.55); }
+  .mat svg { display: block; height: auto; }
+  .slot[data-format="tate"] .mat svg    { height: min(calc(var(--stage) - 96px), 700px); width: auto; }
+  .slot[data-format="yoko"] .mat svg    { width: min(58vw, calc((var(--stage) - 96px) * 1.47), 860px); }
+  .slot[data-format="tanzaku"] .mat svg { height: min(calc(var(--stage) - 96px), 700px); width: auto; }
+  .caption { writing-mode: vertical-rl; display: flex; flex-direction: column; gap: 14px; max-height: 88%; font-family: var(--mincho); }
+  .caption .series { font-size: 14px; letter-spacing: .3em; color: var(--sumi-2); }
+  .caption .title { font-size: clamp(24px, 2.6vw, 34px); font-weight: 500; letter-spacing: .14em; line-height: 1.3; }
+  /* English captions run horizontally: series above, title, number below */
+  html[lang="en"] .caption { writing-mode: horizontal-tb; gap: 6px; max-width: 15em; }
+  html[lang="en"] .caption .series { font-family: var(--latin); font-style: italic; font-size: 16px; letter-spacing: .04em; }
+  html[lang="en"] .caption .title { font-family: var(--latin); font-size: clamp(26px, 2.6vw, 36px); letter-spacing: .01em; line-height: 1.15; text-wrap: balance; }
+  html[lang="en"] .tabs { order: 3; flex-basis: 100%; justify-content: flex-start; font-family: var(--latin); font-size: 16px; letter-spacing: .02em; }
+  html[lang="en"] .read h2 { letter-spacing: .14em; }
+  html[lang="en"] .read h2 span { font-family: var(--mincho); font-style: normal; letter-spacing: .3em; font-size: 13px; }
+  .caption .no { writing-mode: horizontal-tb; font-family: var(--latin); font-size: 14px; letter-spacing: .12em; color: var(--sumi-2); white-space: nowrap; transform-origin: left top; }
+  .hit { position: absolute; top: 0; bottom: 0; width: 34%; z-index: 1; }
+  .hit.prev { left: 0; cursor: w-resize; }
+  .hit.next { right: 0; cursor: e-resize; }
 
-  /* Main — padding-top 50, bottom 112 */
-  main { padding: 50px 0 112px; min-height: 60vh; }
-  .view[hidden] { display: none; }
+  .bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 24px; padding: 12px 36px 4px; font-size: 13px; }
+  .count { min-width: 5.5em; font-family: var(--latin); font-size: 18px; letter-spacing: .08em; font-variant-numeric: tabular-nums lining-nums; }
+  .count b { font-weight: 500; }
+  .count span { color: var(--sumi-2); }
+  .controls { display: flex; align-items: center; gap: 6px; }
+  .controls button { height: 36px; min-width: 36px; padding: 0 12px; border: 1px solid var(--line); border-radius: 18px; font-size: 13px; letter-spacing: .08em; color: var(--sumi); }
+  .controls button:hover { border-color: var(--sumi); }
+  .about { font-family: var(--mincho); letter-spacing: .12em; }
 
-  /* Gallery [grid 7] — column gap 0, row gap 24, side padding 18, cells ≈ 201×177 */
-  .catalogue-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; padding: 0 30px 22px; }
-  .catalogue-head h1 { font-family: var(--mincho); font-weight: 500; font-size: 20px; letter-spacing: .08em; margin: 0; }
-  .catalogue-head p { margin: 0; color: var(--sumi-2); font-size: 13px; }
-  .gallery { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); column-gap: 0; row-gap: 24px; padding: 0 18px 24px; margin: 0; list-style: none; }
-  .gallery li { margin: 0; }
-  .print { position: relative; width: 100%; aspect-ratio: 201 / 177; display: grid; place-items: center; padding: 10px 12px 22px; }
-  .print svg { max-width: 100%; max-height: 100%; width: auto; height: 100%; display: block; box-shadow: 0 1px 0 rgba(29,26,23,.08), 0 8px 16px -12px rgba(29,26,23,.45); transition: transform .25s ease; }
-  .print[data-format="yoko"] svg { width: 100%; height: auto; }
-  .print .cap { position: absolute; left: 12px; right: 12px; bottom: 0; font-size: 11px; line-height: 1.4; color: var(--sumi-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; opacity: 0; transition: opacity .2s; font-variant-numeric: tabular-nums; }
-  .print:hover .cap, .print:focus-visible .cap { opacity: 1; }
-  .print:hover svg { transform: translateY(-2px); }
-  .gallery li[hidden] { display: none; }
+  /* notes on the current print */
+  .notes { margin: 8px 36px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px 32px; padding: 18px 0 10px; }
+  .notes[hidden] { display: none; }
+  .notes div { display: flex; flex-direction: column; gap: 2px; }
+  .notes dt { color: var(--sumi-2); font-size: 11.5px; letter-spacing: .14em; }
+  .notes dd { margin: 0; font-family: var(--mincho); font-size: 14.5px; font-variant-numeric: lining-nums; }
 
-  /* Icon 68×68 — fixed, right; opens the series filter */
-  .fab { position: fixed; right: 30px; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); width: 68px; height: 68px; border-radius: 50%; background: var(--sumi); color: var(--washi); font-family: var(--mincho); font-size: 15px; letter-spacing: .1em; box-shadow: 0 10px 24px -10px rgba(29,26,23,.6); z-index: 5; }
-  .fab[aria-expanded="true"] { background: var(--ai); }
-  .filter { position: fixed; right: 30px; bottom: calc(104px + env(safe-area-inset-bottom, 0px)); width: min(320px, calc(100vw - 32px)); background: var(--washi); border: 1px solid var(--line); box-shadow: 0 18px 40px -20px rgba(29,26,23,.5); padding: 14px 8px 8px; z-index: 5; }
-  .filter h2 { font-family: var(--mincho); font-weight: 500; font-size: 14px; letter-spacing: .1em; margin: 0 10px 8px; }
-  .filter button { display: flex; justify-content: space-between; width: 100%; padding: 8px 10px; text-align: left; font-size: 14px; border-radius: 2px; }
-  .filter button:hover { background: var(--washi-2); }
-  .filter button[aria-pressed="true"] { background: var(--sumi); color: var(--washi); }
-  .filter .n { font-variant-numeric: tabular-nums; opacity: .7; }
+  /* ── filmstrip: the index ────────────────────────────────────────────── */
+  .strip { padding: 0; }
+  .tabs { flex: 1 1 auto; display: flex; justify-content: center; gap: 6px 22px; flex-wrap: wrap; font-family: var(--mincho); font-size: 14px; letter-spacing: .12em; }
+  .tabs button { color: var(--sumi-2); padding: 2px 0; border-bottom: 1px solid transparent; }
+  .tabs button[aria-pressed="true"] { color: var(--sumi); border-bottom-color: var(--sumi); }
+  .tabs .n { font-family: var(--latin); font-size: 13px; margin-left: 4px; }
+  .reel { display: flex; align-items: flex-end; gap: 10px; overflow-x: auto; padding: 10px 36px 18px; scroll-snap-type: x proximity; scrollbar-width: thin; }
+  .reel button { flex: none; scroll-snap-align: center; opacity: .55; transition: opacity .25s, transform .25s; padding-bottom: 8px; border-bottom: 2px solid transparent; }
+  .reel button:hover { opacity: .9; }
+  .reel button[aria-current="true"] { opacity: 1; border-bottom-color: var(--sumi); transform: translateY(-3px); }
+  .reel svg { display: block; height: 74px; width: auto; box-shadow: 0 6px 12px -8px rgba(27,25,22,.5); }
+  .reel .gap { flex: none; width: 18px; }
 
-  /* Other sections share one reading column */
-  .page { max-width: 900px; padding: 0 30px; }
-  .page h1 { font-family: var(--mincho); font-weight: 500; font-size: 26px; letter-spacing: .08em; margin: 0 0 28px; }
-  .rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
-  .rows li { display: grid; grid-template-columns: 5.5em 1fr; gap: 4px 20px; padding: 14px 0; border-bottom: 1px solid var(--line); }
-  .rows .y { font-variant-numeric: tabular-nums; color: var(--sumi-2); }
-  .rows .t { font-family: var(--mincho); font-size: 16px; }
-  .rows .v { grid-column: 2; color: var(--sumi-2); font-size: 13px; }
-  .guide dt { font-family: var(--mincho); font-size: 16px; margin-top: 22px; }
-  .guide dd { margin: 4px 0 0; color: var(--sumi-2); max-width: 62ch; }
-  .guide dd em { font-style: normal; color: var(--sumi); }
+  /* ── reading sections ────────────────────────────────────────────────── */
+  .read { display: grid; grid-template-columns: repeat(2, minmax(0, 620px)); gap: 64px 72px; padding: 72px 36px 40px; border-top: 1px solid var(--line); margin-top: 24px; }
+  .read h2 { font-family: var(--mincho); font-weight: 500; font-size: 15px; letter-spacing: .4em; margin: 0 0 18px; }
+  .read h2 span { font-family: var(--latin); font-style: italic; letter-spacing: .06em; color: var(--sumi-2); margin-left: 12px; font-size: 16px; }
+  .rows { list-style: none; margin: 0; padding: 0; }
+  .rows li { display: grid; grid-template-columns: 4.8em 1fr; gap: 2px 18px; padding: 10px 0; border-top: 1px solid var(--line); }
+  .rows .y { font-family: var(--latin); font-size: 16px; color: var(--sumi-2); font-variant-numeric: lining-nums; }
+  .rows .t { font-family: var(--mincho); font-size: 15px; }
+  .rows .v { grid-column: 2; color: var(--sumi-2); font-size: 12.5px; }
+  .guide { margin: 0; }
+  .guide dt { font-family: var(--mincho); font-size: 15px; padding-top: 12px; border-top: 1px solid var(--line); }
+  .guide dd { margin: 2px 0 12px; color: var(--sumi-2); font-size: 13px; max-width: 60ch; }
+  .guide em { font-style: normal; color: var(--sumi); }
 
-  /* Footer [stack] — centered 900 column, gap 61, padding 40/270/100 */
-  footer { border-top: 1px solid var(--line); padding: 40px 16px 100px; }
-  .foot { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
-  .foot nav { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 13px; letter-spacing: .06em; }
-  .foot .links { display: flex; flex-direction: column; gap: 12px; }
-  .foot .ext { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 13px; }
-  .foot .ext a::after { content: " ↗"; color: var(--sumi-2); }
-  .foot .legal { display: flex; flex-direction: column; gap: 18px; font-size: 12px; color: var(--sumi-2); max-width: 70ch; }
-  .foot .legal p { margin: 0; }
-  .foot .sample { border-left: 2px solid var(--shu); padding-left: 12px; }
-  .foot a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  footer { padding: 36px 36px 64px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 40px; font-size: 12px; color: var(--sumi-2); border-top: 1px solid var(--line); }
+  footer p { margin: 0; max-width: 70ch; }
+  footer .sample { color: var(--sumi); border-left: 2px solid var(--shu); padding-left: 12px; }
 
-  /* Entry dialog */
-  dialog { border: 0; padding: 0; background: var(--washi); color: var(--sumi); width: min(1100px, calc(100vw - 32px)); max-height: calc(100vh - 32px); box-shadow: 0 30px 80px -30px rgba(0,0,0,.6); }
-  dialog::backdrop { background: rgba(29,26,23,.55); }
-  .entry { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); min-height: 0; }
-  .entry .plate { background: var(--washi-2); display: grid; place-items: center; padding: 32px; min-height: 0; }
-  .entry .plate svg { max-width: 100%; max-height: min(72vh, 640px); width: auto; height: auto; box-shadow: 0 16px 36px -20px rgba(29,26,23,.7); }
-  .entry .meta { padding: 28px 30px 24px; display: flex; flex-direction: column; gap: 16px; overflow: auto; max-height: calc(100vh - 32px); }
-  .entry .no { font-variant-numeric: tabular-nums; letter-spacing: .08em; color: var(--sumi-2); font-size: 13px; }
-  .entry h2 { font-family: var(--mincho); font-weight: 500; font-size: 24px; line-height: 1.4; margin: 0; }
-  .entry h2 small { display: block; font-size: 14px; color: var(--sumi-2); margin-bottom: 4px; letter-spacing: .06em; }
-  .entry dl { display: grid; grid-template-columns: 6.5em 1fr; gap: 8px 16px; margin: 0; font-size: 13px; border-top: 1px solid var(--line); padding-top: 14px; }
-  .entry dt { color: var(--sumi-2); }
-  .entry dd { margin: 0; font-variant-numeric: tabular-nums; }
-  .entry .nav { margin-top: auto; display: flex; justify-content: space-between; gap: 8px; border-top: 1px solid var(--line); padding-top: 14px; }
-  .entry .nav button { padding: 6px 10px; font-size: 13px; letter-spacing: .06em; }
-  .entry .nav button:hover { background: var(--washi-2); }
-  .close { position: absolute; top: 10px; right: 12px; width: 36px; height: 36px; font-size: 22px; line-height: 1; color: var(--sumi-2); }
-
-  @media (max-width: 1200px) { .gallery { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
-  @media (max-width: 960px)  { .gallery { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
-  @media (max-width: 720px)  {
-    .gallery { grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 0 10px 24px; }
-    .entry { grid-template-columns: 1fr; }
-    .entry .plate { padding: 20px; }
-    .topbar { padding: 24px 16px 10px; }
-    .sections { padding: 0 8px 2px; }
-    .catalogue-head, .page { padding-left: 16px; padding-right: 16px; }
-    .fab { right: 16px; }
-    .filter { right: 16px; }
+  @media (max-width: 1180px) {
+    .tabs { order: 3; flex-basis: 100%; justify-content: flex-start; }
   }
-  @media (max-width: 520px)  { .gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); } .brand-name small { display: none; } .seal { width: 38px; height: 38px; font-size: 14px; } }
-  @media (prefers-reduced-motion: reduce) { .print svg, .print .cap { transition: none; } .print:hover svg { transform: none; } }
+  @media (max-width: 860px) {
+    .top { padding: 16px 16px 0; }
+    .menu { gap: 4px 16px; }
+    .stage { height: auto; grid-template-columns: 1fr; padding: 18px 16px 0; }
+    .frame { grid-column: 1; height: auto; }
+    .slot { flex-direction: column; gap: 16px; height: auto; }
+    .slot:not(.on) { position: absolute; inset: 0; }
+    .slot[data-format="tate"] .mat svg, .slot[data-format="tanzaku"] .mat svg { height: 62vh; }
+    .slot[data-format="yoko"] .mat svg { width: calc(100vw - 32px - 28px); }
+    .caption { writing-mode: horizontal-tb; flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+    .bar, .reel { padding-left: 16px; padding-right: 16px; }
+    .tabs, html[lang="en"] .tabs { flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; scrollbar-width: none; padding-bottom: 4px; }
+    .name span { letter-spacing: .14em; }
+    .notes { margin: 0 16px; }
+    .read { grid-template-columns: 1fr; padding: 48px 16px 32px; gap: 44px; }
+    footer { padding: 28px 16px 48px; }
+    .hit { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { .slot, .reel button { transition: none; transform: none; } }
 </style>
-</head>
-<body>
 
-<!-- Structure: yoshitomonara.org/ja at 1440px, as analyzed by uimodulay. data-module names the AST node each block stands for.
-     Everything on this page (the artist, the prints, exhibitions, venues, publications) is fictional. -->
+<!-- Everything on this page (the artist, the prints, exhibitions, venues, publications) is fictional.
+     Layout: one work at a time on a cross-fading stage, as on taubaauerbach.com, chiharu-shiota.com and
+     jamesturrell.com in the uimodulay corpus; the section list follows yoshitomonara.org. -->
 
-<nav class="topbar" data-module="Nav [row 2]">
-  <a href="#catalogue" class="brand" data-module="Brand" aria-label="Shiomi Aisai, The Prints">
+<header class="top">
+  <a class="brand" href="#top" id="top" aria-label="Shiomi Aisai">
     <span class="seal" aria-hidden="true">藍斎</span>
-    <span class="brand-name">SHIOMI AISAI<small>The Prints</small></span>
+    <span class="name">潮見藍斎<span>SHIOMI AISAI · WOODBLOCK PRINTS</span></span>
   </a>
-  <div class="lang" role="group" aria-label="Language">
-    <button type="button" data-lang="ja" aria-pressed="true">JA</button>
-    <button type="button" data-lang="en" aria-pressed="false">EN</button>
-  </div>
-</nav>
+  <nav class="menu" aria-label="Sections">
+    <a href="#works" data-i18n="nav.works">作品</a>
+    <a href="#exhibitions" data-i18n="nav.exhibitions">展覧会</a>
+    <a href="#biography" data-i18n="nav.biography">略歴</a>
+    <a href="#library" data-i18n="nav.library">文献</a>
+    <a href="#guide" data-i18n="nav.guide">凡例</a>
+    <span class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="ja" aria-pressed="true">JA</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </span>
+  </nav>
+</header>
 
-<nav class="sections" data-module="Nav [row 5]" aria-label="Sections">
-  <a href="#catalogue" data-view="catalogue" data-i18n="nav.catalogue">作品目録</a>
-  <a href="#exhibitions" data-view="exhibitions" data-i18n="nav.exhibitions">展覧会</a>
-  <a href="#biography" data-view="biography" data-i18n="nav.biography">略歴</a>
-  <a href="#library" data-view="library" data-i18n="nav.library">文献</a>
-  <a href="#guide" data-view="guide" data-i18n="nav.guide">凡例</a>
-</nav>
-
-<main data-module="Main">
-  <section class="view" id="view-catalogue" data-module="Gallery [grid 7]" aria-labelledby="cat-title">
-    <div class="catalogue-head">
-      <h1 id="cat-title" data-i18n="cat.title">版画作品目録 2016–2025</h1>
-      <p id="cat-count"></p>
+<main id="works">
+  <section class="stage" id="stage" aria-roledescription="carousel" aria-label="Prints">
+    <button class="hit prev" type="button" id="hit-prev" aria-label="Previous print" tabindex="-1"></button>
+    <div class="frame" id="frame" aria-live="polite">
+      <div class="slot on" id="slot-a"></div>
+      <div class="slot" id="slot-b"></div>
     </div>
-    <ul class="gallery" id="gallery"></ul>
+    <button class="hit next" type="button" id="hit-next" aria-label="Next print" tabindex="-1"></button>
   </section>
 
-  <section class="view page" id="view-exhibitions" hidden>
-    <h1 data-i18n="nav.exhibitions">展覧会</h1>
-    <ul class="rows" id="exhibitions"></ul>
+  <div class="bar">
+    <div class="count" id="count"></div>
+    <div class="tabs" id="tabs" role="group" aria-label="Series"></div>
+    <div class="controls">
+      <button type="button" class="about" id="about" aria-expanded="false" aria-controls="notes" data-i18n="about">作品解説</button>
+      <button type="button" id="play" aria-pressed="true"></button>
+      <button type="button" id="prev" aria-label="Previous print">←</button>
+      <button type="button" id="next" aria-label="Next print">→</button>
+    </div>
+  </div>
+  <dl class="notes" id="notes" hidden></dl>
+
+  <section class="strip" aria-label="Index">
+    <div class="reel" id="reel"></div>
   </section>
 
-  <section class="view page" id="view-biography" hidden>
-    <h1 data-i18n="nav.biography">略歴</h1>
-    <ul class="rows" id="biography"></ul>
-  </section>
-
-  <section class="view page" id="view-library" hidden>
-    <h1 data-i18n="nav.library">文献</h1>
-    <ul class="rows" id="library"></ul>
-  </section>
-
-  <section class="view page" id="view-guide" hidden>
-    <h1 data-i18n="nav.guide">凡例</h1>
-    <dl class="guide" id="guide"></dl>
-  </section>
+  <div class="read">
+    <section id="exhibitions"><h2><b data-i18n="nav.exhibitions">展覧会</b><span data-i18n-alt="nav.exhibitions">Exhibitions</span></h2><ul class="rows" id="ex"></ul></section>
+    <section id="biography"><h2><b data-i18n="nav.biography">略歴</b><span data-i18n-alt="nav.biography">Biography</span></h2><ul class="rows" id="bio"></ul></section>
+    <section id="library"><h2><b data-i18n="nav.library">文献</b><span data-i18n-alt="nav.library">Library</span></h2><ul class="rows" id="lib"></ul></section>
+    <section id="guide"><h2><b data-i18n="nav.guide">凡例</b><span data-i18n-alt="nav.guide">Guide to Entries</span></h2><dl class="guide" id="gd"></dl></section>
+  </div>
 </main>
 
-<button class="fab" id="fab" type="button" data-module="Icon" aria-expanded="false" aria-controls="filter" data-i18n="fab">揃物</button>
-<div class="filter" id="filter" hidden>
-  <h2 data-i18n="filter.title">揃物で絞り込む</h2>
-  <div id="filter-list"></div>
-</div>
-
-<footer data-module="Footer [stack]">
-  <div class="foot">
-    <div class="links" data-module="Section [stack]">
-      <nav data-module="Nav [row 3]" aria-label="Footer">
-        <a href="#catalogue" data-i18n="nav.catalogue">作品目録</a>
-        <a href="#exhibitions" data-i18n="nav.exhibitions">展覧会</a>
-        <a href="#biography" data-i18n="nav.biography">略歴</a>
-      </nav>
-      <nav data-module="Nav [row 4]" aria-label="Footer, more">
-        <a href="#library" data-i18n="nav.library">文献</a>
-        <a href="#guide" data-i18n="nav.guide">凡例</a>
-        <a href="#catalogue" data-i18n="foot.contact">お問い合わせ</a>
-        <a href="#catalogue" data-i18n="foot.letter">工房だより</a>
-      </nav>
-    </div>
-    <div class="ext" data-module="Nav [split 2]">
-      <a href="#catalogue" data-i18n="foot.studio">藍斎工房</a>
-      <a href="#catalogue" data-i18n="foot.shop">摺物の頒布について</a>
-    </div>
-    <div class="legal" data-module="TextBlock">
-      <p>© 2016–2026 藍斎工房 Aisai Studio. All rights reserved.</p>
-      <p data-i18n="foot.rights">本サイト上の作品図版その他一切の無断複写・転載・改変を禁じます。図版は色校正を経ていないため、実物の摺色とは異なります。</p>
-      <p class="sample" data-i18n="foot.sample">これは架空の作家による見本ページです。作家、作品、展覧会、会場、刊行物はすべて創作です。ページの構造は、uimodulay で解析した yoshitomonara.org のトップページ（1440px）に基づいています。</p>
-    </div>
-  </div>
+<footer>
+  <p>© 2016–2026 藍斎工房 Aisai Studio</p>
+  <p class="sample" data-i18n="sample">これは架空の作家による見本ページです。作家、作品、展覧会、会場、刊行物はすべて創作です。</p>
 </footer>
-
-<dialog id="entry" aria-labelledby="entry-title">
-  <button class="close" type="button" id="close" aria-label="Close">×</button>
-  <div class="entry">
-    <div class="plate" id="entry-plate"></div>
-    <div class="meta">
-      <div class="no" id="entry-no"></div>
-      <h2 id="entry-title"></h2>
-      <dl id="entry-dl"></dl>
-      <div class="nav">
-        <button type="button" id="prev" data-i18n="entry.prev">← 前の作品</button>
-        <button type="button" id="next" data-i18n="entry.next">次の作品 →</button>
-      </div>
-    </div>
-  </div>
-</dialog>
 
 <script>
 (() => {
-  // ── palette: traditional pigments ─────────────────────────────────────────
-  const PAPER = "#efe6d2", SUMI = "#2a2521", BENI = "#c2413b", KI = "#d9a441", KUSA = "#6f8a55";
-  const AI = ["#e3e8e4", "#a9c0cc", "#6f93ad", "#3f6488", "#1f3b64", "#152845"];
-
+  // ── pigments ──────────────────────────────────────────────────────────────
+  const PAPER = "#eee3cc", SUMI = "#27231f", BENI = "#bd3b33", KI = "#d7a13f", KUSA = "#6c8752";
+  const AI = ["#e1e7e3", "#a7bfcb", "#6a90ab", "#3c6186", "#1e3a62", "#132744"];
   const FORMAT = {
     tate:    { w: 265, h: 390, ja: "大判錦絵　39.0 × 26.5 cm", en: "Ōban, 39.0 × 26.5 cm" },
     yoko:    { w: 390, h: 265, ja: "横大判　26.5 × 39.0 cm",   en: "Ōban, horizontal, 26.5 × 39.0 cm" },
     tanzaku: { w: 130, h: 380, ja: "中短冊　38.0 × 13.0 cm",   en: "Chū-tanzaku, 38.0 × 13.0 cm" },
   };
 
-  // ── the six series (揃物) ─────────────────────────────────────────────────
+  // ── series (揃物) ─────────────────────────────────────────────────────────
   const SERIES = [
     { id: "shiosai", ja: "潮騒十二景", en: "Twelve Views of the Tide", format: "yoko", years: [2016, 2018], tag: KI, ed: 100,
       tech: ["木版多色摺", "Woodblock, colors on paper"],
@@ -255,18 +224,18 @@
     { id: "kacho", ja: "花鳥短冊", en: "Birds and Flowers", format: "tanzaku", years: [2019, 2021], tag: KI, ed: 80,
       tech: ["木版多色摺", "Woodblock, colors on paper"],
       items: [
-        ["梅に鶯","Plum and Bush Warbler",       { fl: "#f7f2ea", core: BENI, kind: "blossom", bird: "#7c8a4a", belly: "#b9b27a" }],
-        ["椿に目白","Camellia and White-eye",    { fl: "#b8322a", core: KI, kind: "blossom", big: true, bird: "#8fa84e", belly: "#d9d27a", ring: true }],
-        ["桜に雀","Cherry and Sparrow",          { fl: "#f2c6cf", core: BENI, kind: "blossom", bird: "#8a5a3b", belly: "#e6d8bf" }],
-        ["藤に燕","Wisteria and Swallow",        { fl: "#9b7fc0", kind: "hang", bird: "#1f2d4d", belly: "#f3ede0" }],
-        ["菖蒲に翡翠","Iris and Kingfisher",      { fl: "#5b3f8f", kind: "iris", bird: "#2f7fa6", belly: "#d9803a" }],
-        ["紫陽花に蛍","Hydrangea and Fireflies",   { fl: "#7f9fd1", kind: "ball", creature: "firefly" }],
-        ["朝顔に蜻蛉","Morning Glory and Dragonfly",{ fl: "#3f62b5", core: "#f3ede0", kind: "blossom", big: true, creature: "dragonfly" }],
-        ["萩に鶉","Bush Clover and Quail",        { fl: "#b5629a", kind: "small", bird: "#8a6a45", belly: "#c9ab7c" }],
-        ["芒に雁","Pampas Grass and Geese",       { fl: "#d8c9a3", kind: "grass", creature: "geese" }],
-        ["紅葉に鵯","Maple and Bulbul",           { fl: "#c8452f", kind: "small", bird: "#6b6f75", belly: "#b8a68e" }],
-        ["柿に烏","Persimmon and Crow",           { fl: "#e07b2e", kind: "fruit", bird: "#1c1c1f", belly: "#34343a" }],
-        ["南天に鷺","Nandina and Egret",          { fl: "#c0392b", kind: "berry", bird: "#f7f5ef", belly: "#e4dfd3" }]],
+        ["梅に鶯","Plum and Bush Warbler",        { fl: "#f7f2ea", core: BENI, kind: "blossom", bird: "#7c8a4a", belly: "#b9b27a" }],
+        ["椿に目白","Camellia and White-eye",     { fl: "#b8322a", core: KI, kind: "blossom", big: true, bird: "#8fa84e", belly: "#d9d27a", ring: true }],
+        ["桜に雀","Cherry and Sparrow",           { fl: "#f2c6cf", core: BENI, kind: "blossom", bird: "#8a5a3b", belly: "#e6d8bf" }],
+        ["藤に燕","Wisteria and Swallow",         { fl: "#9b7fc0", kind: "hang", bird: "#1f2d4d", belly: "#f3ede0" }],
+        ["菖蒲に翡翠","Iris and Kingfisher",       { fl: "#5b3f8f", kind: "iris", bird: "#2f7fa6", belly: "#d9803a" }],
+        ["紫陽花に蛍","Hydrangea and Fireflies",    { fl: "#7f9fd1", kind: "ball", creature: "firefly" }],
+        ["朝顔に蜻蛉","Morning Glory and Dragonfly", { fl: "#3f62b5", core: "#f3ede0", kind: "blossom", big: true, creature: "dragonfly" }],
+        ["萩に鶉","Bush Clover and Quail",         { fl: "#b5629a", kind: "small", bird: "#8a6a45", belly: "#c9ab7c" }],
+        ["芒に雁","Pampas Grass and Geese",        { fl: "#d8c9a3", kind: "grass", creature: "geese" }],
+        ["紅葉に鵯","Maple and Bulbul",            { fl: "#c8452f", kind: "small", bird: "#6b6f75", belly: "#b8a68e" }],
+        ["柿に烏","Persimmon and Crow",            { fl: "#e07b2e", kind: "fruit", bird: "#1c1c1f", belly: "#34343a" }],
+        ["南天に鷺","Nandina and Egret",           { fl: "#c0392b", kind: "berry", bird: "#f7f5ef", belly: "#e4dfd3" }]],
       title: (p) => [p[0], p[1]] },
     { id: "tsuki", ja: "月百景抄", en: "One Hundred Moons, a Selection", format: "tate", years: [2020, 2024], tag: "#cfd3d6", ed: 100,
       tech: ["木版多色摺・雲母摺", "Woodblock with mica ground (kirazuri)"],
@@ -282,157 +251,150 @@
       title: (p) => ["夜の" + p[0], p[1] + " at Night"] },
   ];
 
-  // ── deterministic randomness, so every visit shows the same prints ────────
   function rng(seed) {
     let a = (seed * 2654435761) >>> 0;
     return () => { a = (a + 0x6d2b79f5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
   }
   const f = (n) => Math.round(n * 10) / 10;
   const pick = (r, xs) => xs[Math.floor(r() * xs.length)];
+  const KEY = `stroke="${SUMI}" stroke-width=".8" stroke-linejoin="round"`; // the key block: every shape gets its ink outline
 
-  // ── print parts ───────────────────────────────────────────────────────────
+  // ── parts ─────────────────────────────────────────────────────────────────
   function sky(id, top, stop = .5, bottom = PAPER) {
     return `<linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${top}"/><stop offset="${stop}" stop-color="${bottom}" stop-opacity="0"/></linearGradient>`;
   }
-  function band(id, w, h) { return `<rect width="${w}" height="${h}" fill="url(#${id})"/>`; }
+  const band = (id, w, h) => `<rect width="${w}" height="${h}" fill="url(#${id})"/>`;
+  /** Ichimonji bokashi: the dark band printed along the top edge. */
+  const ichimonji = (id, w, h, color) => `<linearGradient id="${id}i" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${color}"/><stop offset="1" stop-color="${color}" stop-opacity="0"/></linearGradient><rect width="${w}" height="${f(h * 0.1)}" fill="url(#${id}i)"/>`;
 
-  /** Scalloped wave band: arcs between baseline points, foam dots on the crests. */
   function waves(r, w, h, y, amp, seg, color, foam) {
-    let d = `M0 ${h} L0 ${f(y)}`;
-    let dots = "";
+    let d = `M0 ${h} L0 ${f(y)}`, dots = "", claws = "";
     const off = -r() * seg;
     for (let x = off; x < w + seg; x += seg) {
       const a = amp * (0.7 + r() * 0.6);
       d += ` Q${f(x + seg / 2)} ${f(y - a * 2)} ${f(x + seg)} ${f(y)}`;
-      if (foam) for (let k = 0; k < 3; k++) dots += `<circle cx="${f(x + seg * (0.3 + k * 0.2))}" cy="${f(y - a * (0.75 + (k === 1 ? 0.2 : 0)))}" r="${f(1 + r() * 1.2)}" fill="#f7f3ea"/>`;
+      if (foam) {
+        for (let k = 0; k < 4; k++) dots += `<circle cx="${f(x + seg * (0.28 + k * 0.15))}" cy="${f(y - a * (0.7 + (k % 2) * 0.25))}" r="${f(0.9 + r() * 1.1)}" fill="#f7f3ea"/>`;
+        claws += `<path d="M${f(x + seg * 0.2)} ${f(y - a * 0.6)} Q${f(x + seg / 2)} ${f(y - a * 1.35)} ${f(x + seg * 0.8)} ${f(y - a * 0.6)}" fill="none" stroke="#f7f3ea" stroke-width="1.1" opacity=".85"/>`;
+      }
     }
-    return `<path d="${d} L${w} ${h} Z" fill="${color}"/>${dots}`;
+    return `<path d="${d} L${w} ${h} Z" fill="${color}" ${KEY}/>${claws}${dots}`;
   }
-
   function fuji(x, base, peak, width, color) {
     const s = width / 2;
-    return `<path d="M${x - s} ${base} Q${x - s * 0.35} ${peak + 12} ${x - 8} ${peak} L${x + 8} ${peak} Q${x + s * 0.35} ${peak + 12} ${x + s} ${base} Z" fill="${color}"/>` +
-      `<path d="M${x - 16} ${peak + 14} L${x - 8} ${peak} L${x + 8} ${peak} L${x + 16} ${peak + 14} L${x + 9} ${peak + 10} L${x + 3} ${peak + 17} L${x - 4} ${peak + 10} L${x - 10} ${peak + 17} Z" fill="#f7f3ea"/>`;
+    return `<path d="M${x - s} ${base} Q${x - s * 0.35} ${peak + 12} ${x - 8} ${peak} L${x + 8} ${peak} Q${x + s * 0.35} ${peak + 12} ${x + s} ${base} Z" fill="${color}" ${KEY}/>` +
+      `<path d="M${x - 16} ${peak + 14} L${x - 8} ${peak} L${x + 8} ${peak} L${x + 16} ${peak + 14} L${x + 9} ${peak + 10} L${x + 3} ${peak + 17} L${x - 4} ${peak + 10} L${x - 10} ${peak + 17} Z" fill="#f7f3ea" ${KEY}/>`;
+  }
+  const boat = (x, y, s, color = SUMI) => `<path d="M${f(x)} ${f(y)} q${f(s / 2)} ${f(s * 0.28)} ${f(s)} 0 l-${f(s * 0.12)} ${f(s * 0.16)} h-${f(s * 0.76)} z" fill="${color}"/><line x1="${f(x + s * 0.45)}" y1="${f(y)}" x2="${f(x + s * 0.45)}" y2="${f(y - s * 0.55)}" stroke="${color}" stroke-width="1.2"/><path d="M${f(x + s * 0.47)} ${f(y - s * 0.5)} l${f(s * 0.3)} ${f(s * 0.38)} h-${f(s * 0.3)} z" fill="#e9e1cc" ${KEY}/>`;
+  const vtext = (x, y, text, size, color = SUMI) => `<text x="${f(x)}" y="${f(y)}" font-family="Shippori Mincho, serif" font-size="${f(size)}" fill="${color}" style="writing-mode: vertical-rl" letter-spacing="1">${text}</text>`;
+
+  /** "藍斎画" stacked above the red seal in the lower left. */
+  function signature(h, fs, night) {
+    const size = fs * 0.8, seal = fs * 0.95, sealY = h - 12 - seal, top = sealY - 5 - 3 * (size + 1);
+    return vtext(18, top, "藍斎画", size, night ? "#e9e1cc" : SUMI) + `<rect x="${f(18 - seal / 2)}" y="${f(sealY)}" width="${f(seal)}" height="${f(seal)}" fill="${BENI}"/>`;
   }
 
-  function boat(x, y, s, color = SUMI) {
-    return `<path d="M${x} ${y} q${s / 2} ${s * 0.28} ${s} 0 l-${s * 0.12} ${s * 0.16} h-${s * 0.76} z" fill="${color}"/><line x1="${x + s * 0.45}" y1="${y}" x2="${x + s * 0.45}" y2="${y - s * 0.55}" stroke="${color}" stroke-width="1.2"/>`;
-  }
-
-  function vtext(x, y, text, size, color = SUMI) {
-    return `<text x="${x}" y="${y}" font-family="Shippori Mincho, serif" font-size="${size}" fill="${color}" style="writing-mode: vertical-rl" letter-spacing="1">${text}</text>`;
-  }
-
-  /** Title cartouche (series + subject), top right; signature and seal, bottom left. */
-  function furniture(w, h, series, subject) {
+  /** Cartouches, signature and seal. Titles shrink to fit their cartouche; on night prints the signature is cut in light ink. */
+  function furniture(w, h, series, subject, night) {
     const cw = Math.max(16, Math.round(w * 0.075)), ch = Math.round(h * 0.34);
-    const x = w - cw - 12, y = 12;
-    const fs = cw * 0.6;
-    const small = Math.round(ch * 0.62);
-    return `<rect x="${x}" y="${y}" width="${cw}" height="${ch}" fill="${series.tag}" stroke="${SUMI}" stroke-width=".8"/>` +
-      vtext(x + cw / 2, y + 5, series.ja, fs) +
-      `<rect x="${x - cw - 3}" y="${y}" width="${cw}" height="${small}" fill="#f7f3ea" stroke="${SUMI}" stroke-width=".8"/>` +
-      vtext(x - cw / 2 - 3, y + 5, subject, fs * 0.9) +
-      vtext(18, h - 64, "藍斎画", fs * 0.8) +
-      `<rect x="${18 - fs * 0.45}" y="${h - 24}" width="${fs * 0.95}" height="${fs * 0.95}" fill="${BENI}"/>` +
-      `<rect x="3" y="3" width="${w - 6}" height="${h - 6}" fill="none" stroke="${SUMI}" stroke-width=".9"/>`;
+    const x = w - cw - 12, y = 12, fs = cw * 0.6;
+    const fit = (text, room, max) => Math.min(max, (room - 10) / [...text].length - 1);
+    const small = Math.round(Math.max(ch * 0.62, Math.min(ch, [...subject].length * fs * 0.9 + 12)));
+    return `<rect x="${x}" y="${y}" width="${cw}" height="${ch}" fill="${series.tag}" ${KEY}/>` + vtext(x + cw / 2, y + 5, series.ja, fit(series.ja, ch, fs)) +
+      `<rect x="${x - cw - 3}" y="${y}" width="${cw}" height="${small}" fill="#f5efe1" ${KEY}/>` + vtext(x - cw / 2 - 3, y + 5, subject, fit(subject, small, fs * 0.9)) +
+      signature(h, fs, night) +
+      `<rect x="3" y="3" width="${w - 6}" height="${h - 6}" fill="none" stroke="${SUMI}" stroke-width="1"/>`;
   }
 
-  // ── one drawing per series ────────────────────────────────────────────────
+  // ── drawings ──────────────────────────────────────────────────────────────
   const DRAW = {
     shiosai(r, w, h, id, i) {
-      const mood = i % 4; // 0 noon, 1 dawn, 2 high sea, 3 night
-      const top = [AI[3], "#d98f5a", "#5f6b73", AI[5]][mood];
+      const mood = i % 4, deep = mood === 3 ? 1 : 0;
       let s = mood === 3 ? `<rect width="${w}" height="${h}" fill="${AI[3]}"/>` : "";
-      s = `<defs>${sky(id + "s", top, mood === 3 ? 0.9 : 0.45, mood === 3 ? AI[3] : PAPER)}</defs>` + s + band(id + "s", w, h);
+      s = `<defs>${sky(id + "s", [AI[3], "#d98f5a", "#5f6b73", AI[5]][mood], mood === 3 ? 0.9 : 0.45, mood === 3 ? AI[3] : PAPER)}</defs>` + s + band(id + "s", w, h);
       if (mood === 3) {
         for (let k = 0; k < 30; k++) s += `<circle cx="${f(r() * w)}" cy="${f(r() * h * 0.45)}" r="${f(0.4 + r() * 0.8)}" fill="#f4ecd4" opacity=".8"/>`;
-        s += `<circle cx="${f(w * (0.25 + r() * 0.3))}" cy="${f(h * 0.2)}" r="15" fill="#f4ecd4"/>`;
-      } else if (mood !== 2) s += `<circle cx="${f(w * (0.2 + r() * 0.4))}" cy="${f(h * (mood === 1 ? 0.42 : 0.2))}" r="${f(14 + r() * 8)}" fill="${BENI}" opacity=".9"/>`;
+        s += `<circle cx="${f(w * (0.25 + r() * 0.3))}" cy="${f(h * 0.2)}" r="15" fill="#f4ecd4" ${KEY}/>`;
+      } else if (mood !== 2) s += `<circle cx="${f(w * (0.2 + r() * 0.4))}" cy="${f(h * (mood === 1 ? 0.42 : 0.2))}" r="${f(14 + r() * 8)}" fill="${BENI}"/>`;
       if (i % 3 === 0) s += fuji(w * (0.45 + r() * 0.25), h * 0.58, h * (mood === 2 ? 0.4 : 0.3), w * (mood === 2 ? 0.22 : 0.34), mood === 3 ? AI[4] : AI[3]);
-      else s += `<path d="M${f(w * (0.45 + r() * 0.2))} ${f(h * 0.6)} q${f(w * 0.08)} -${f(h * 0.2)} ${f(w * 0.2)} -${f(h * 0.08)} q${f(w * 0.06)} ${f(h * 0.04)} ${f(w * 0.12)} ${f(h * 0.08)} z" fill="${mood === 3 ? "#1d2a24" : KUSA}"/>`;
-      const deep = mood === 3 ? 1 : 0;
+      else s += `<path d="M${f(w * (0.45 + r() * 0.2))} ${f(h * 0.6)} q${f(w * 0.08)} -${f(h * 0.2)} ${f(w * 0.2)} -${f(h * 0.08)} q${f(w * 0.06)} ${f(h * 0.04)} ${f(w * 0.12)} ${f(h * 0.08)} z" fill="${mood === 3 ? "#1d2a24" : KUSA}" ${KEY}/>`;
       s += waves(r, w, h, h * 0.6, 4, 26, AI[1 + deep], false);
       s += waves(r, w, h, h * 0.7, 7, 40, AI[2 + deep], true);
       for (let k = 0; k < (mood === 2 ? 3 : 1); k++) s += boat(w * (0.1 + r() * 0.6), h * (0.72 + k * 0.03), 22 + r() * 8);
       s += waves(r, w, h, h * 0.82, mood === 2 ? 22 : 12, mood === 2 ? 90 : 60, AI[3 + deep], true);
       s += waves(r, w, h, h * 0.95, mood === 2 ? 30 : 16, mood === 2 ? 130 : 88, AI[4 + deep], true);
-      return s;
+      return s + `<defs></defs>` + ichimonji(id, w, h, mood === 3 ? AI[5] : AI[4]);
     },
     hashi(r, w, h, id, i) {
-      const mood = i % 3; // 0 day, 1 rain, 2 dusk
-      const top = mood === 1 ? "#6b7280" : mood === 2 ? "#d9774a" : AI[2];
-      let s = `<defs>${sky(id + "s", top, 0.55)}</defs>${band(id + "s", w, h)}`;
-      s += `<rect y="${f(h * 0.5)}" width="${w}" height="${f(h * 0.06)}" fill="${mood === 1 ? "#7d8a73" : KUSA}"/>`;
-      for (let k = 0; k < 6; k++) s += `<rect x="${f(r() * w)}" y="${f(h * 0.47)}" width="${f(10 + r() * 16)}" height="${f(h * 0.05)}" fill="${SUMI}" opacity=".75"/>`;
-      s += `<rect y="${f(h * 0.56)}" width="${w}" height="${f(h * 0.44)}" fill="${AI[3]}"/>`;
-      for (let k = 0; k < 14; k++) { const y = h * (0.6 + r() * 0.38); s += `<line x1="${f(r() * w)}" y1="${f(y)}" x2="${f(r() * w)}" y2="${f(y)}" stroke="${AI[1]}" stroke-width=".8" opacity=".7"/>`; }
+      const mood = i % 3;
+      let s = `<defs>${sky(id + "s", [AI[2], "#6b7280", "#d9774a"][mood], 0.55)}</defs>${band(id + "s", w, h)}`;
+      s += `<rect y="${f(h * 0.5)}" width="${w}" height="${f(h * 0.06)}" fill="${mood === 1 ? "#7d8a73" : KUSA}" ${KEY}/>`;
+      for (let k = 0; k < 7; k++) { const bx = r() * w, bw = 10 + r() * 16; s += `<path d="M${f(bx)} ${f(h * 0.5)} l${f(bw * 0.15)} -${f(h * 0.03)} h${f(bw * 0.7)} l${f(bw * 0.15)} ${f(h * 0.03)} z" fill="#3a332c" ${KEY}/>`; }
+      s += `<rect y="${f(h * 0.56)}" width="${w}" height="${f(h * 0.44)}" fill="${AI[3]}" ${KEY}/>`;
+      for (let k = 0; k < 16; k++) { const y = h * (0.6 + r() * 0.38), x = r() * w; s += `<line x1="${f(x)}" y1="${f(y)}" x2="${f(x + 20 + r() * 60)}" y2="${f(y)}" stroke="${AI[1]}" stroke-width="1.4" stroke-linecap="round" opacity=".75"/>`; }
       const y0 = h * 0.62, rise = h * (0.14 + r() * 0.08), x1 = -10, x2 = w + 10, mid = w / 2;
-      const deck = `M${x1} ${f(y0)} Q${mid} ${f(y0 - rise * 2)} ${x2} ${f(y0)}`;
       const at = (t) => { const u = 1 - t; return [u * u * x1 + 2 * u * t * mid + t * t * x2, u * u * y0 + 2 * u * t * (y0 - rise * 2) + t * t * y0]; };
-      for (let t = 0.12; t < 0.9; t += 0.13) { const [px, py] = at(t); s += `<line x1="${f(px)}" y1="${f(py)}" x2="${f(px)}" y2="${h}" stroke="${SUMI}" stroke-width="3"/>`; }
-      s += `<path d="${deck}" fill="none" stroke="${mood === 2 ? "#5a3b28" : "#6b4a2f"}" stroke-width="10"/>`;
+      for (let t = 0.12; t < 0.9; t += 0.13) { const [px, py] = at(t); s += `<line x1="${f(px)}" y1="${f(py)}" x2="${f(px)}" y2="${h}" stroke="${SUMI}" stroke-width="3.2"/>`; }
+      s += `<path d="M${x1} ${f(y0)} Q${mid} ${f(y0 - rise * 2)} ${x2} ${f(y0)}" fill="none" stroke="${SUMI}" stroke-width="12"/><path d="M${x1} ${f(y0)} Q${mid} ${f(y0 - rise * 2)} ${x2} ${f(y0)}" fill="none" stroke="${mood === 2 ? "#5a3b28" : "#7a5534"}" stroke-width="10"/>`;
       s += `<path d="M${x1} ${f(y0 - 9)} Q${mid} ${f(y0 - rise * 2 - 9)} ${x2} ${f(y0 - 9)}" fill="none" stroke="${SUMI}" stroke-width="1.6"/>`;
       for (let t = 0.05; t < 1; t += 0.05) { const [px, py] = at(t); s += `<line x1="${f(px)}" y1="${f(py - 9)}" x2="${f(px)}" y2="${f(py - 3)}" stroke="${SUMI}" stroke-width="1"/>`; }
       for (let k = 0; k < 5; k++) {
         const [px, py] = at(0.2 + r() * 0.6);
-        s += `<circle cx="${f(px)}" cy="${f(py - 17)}" r="2.2" fill="${SUMI}"/><path d="M${f(px - 4)} ${f(py - 6)} L${f(px)} ${f(py - 15)} L${f(px + 4)} ${f(py - 6)} Z" fill="${pick(r, [AI[4], BENI, "#5b4a3a"])}"/>`;
-        if (mood === 1) s += `<path d="M${f(px - 8)} ${f(py - 18)} Q${f(px)} ${f(py - 30)} ${f(px + 8)} ${f(py - 18)} Z" fill="${pick(r, [KI, "#3a3a3a", BENI])}"/>`;
+        s += `<circle cx="${f(px)}" cy="${f(py - 17)}" r="2.2" fill="${SUMI}"/><path d="M${f(px - 4)} ${f(py - 6)} L${f(px)} ${f(py - 15)} L${f(px + 4)} ${f(py - 6)} Z" fill="${pick(r, [AI[4], BENI, "#5b4a3a"])}" ${KEY}/>`;
+        if (mood === 1) s += `<path d="M${f(px - 8)} ${f(py - 18)} Q${f(px)} ${f(py - 30)} ${f(px + 8)} ${f(py - 18)} Z" fill="${pick(r, [KI, "#3a3a3a", BENI])}" ${KEY}/>`;
       }
       s += boat(w * (0.1 + r() * 0.3), h * 0.86, 30);
-      if (mood === 1) for (let k = 0; k < 160; k++) { const x = r() * w * 1.1, y = r() * h; s += `<line x1="${f(x)}" y1="${f(y)}" x2="${f(x - 5)}" y2="${f(y + 30)}" stroke="${SUMI}" stroke-width=".55" opacity=".45"/>`; }
-      return s;
+      if (mood === 1) for (let k = 0; k < 180; k++) { const x = r() * w * 1.1, y = r() * h; s += `<line x1="${f(x)}" y1="${f(y)}" x2="${f(x - 5)}" y2="${f(y + 30)}" stroke="${SUMI}" stroke-width=".55" opacity=".5"/>`; }
+      return s + ichimonji(id, w, h, mood === 1 ? "#3d4450" : AI[4]);
     },
     kacho(r, w, h, id, i, item) {
       const o = item[2];
       let s = `<defs>${sky(id + "s", pick(r, [AI[0], "#dfe3cf", "#e9dcc8"]), 0.6)}</defs>${band(id + "s", w, h)}`;
       if (o.kind === "iris" || o.kind === "grass") {
         for (let k = 0; k < 9; k++) { const x = w * (0.1 + r() * 0.8); s += `<path d="M${f(x)} ${h} Q${f(x + (r() - .5) * 40)} ${f(h * 0.6)} ${f(x + (r() - .5) * 60)} ${f(h * (0.25 + r() * 0.3))}" fill="none" stroke="${o.kind === "grass" ? "#a89a6c" : KUSA}" stroke-width="${o.kind === "grass" ? 1.4 : 3}"/>`; }
-        if (o.kind === "iris") for (let k = 0; k < 4; k++) { const x = w * (0.2 + r() * 0.6), y = h * (0.35 + r() * 0.3); s += `<path d="M${f(x)} ${f(y)} q-8 -14 0 -22 q8 8 0 22 q-12 -2 -14 8 q8 2 14 -8 q12 -2 14 8 q-8 2 -14 -8z" fill="${o.fl}"/>`; }
+        if (o.kind === "iris") for (let k = 0; k < 4; k++) { const x = w * (0.2 + r() * 0.6), y = h * (0.35 + r() * 0.3); s += `<path d="M${f(x)} ${f(y)} q-8 -14 0 -22 q8 8 0 22 q-12 -2 -14 8 q8 2 14 -8 q12 -2 14 8 q-8 2 -14 -8z" fill="${o.fl}" ${KEY}/>`; }
         if (o.kind === "grass") for (let k = 0; k < 6; k++) { const x = w * (0.1 + r() * 0.8), y = h * (0.25 + r() * 0.3); s += `<path d="M${f(x)} ${f(y)} q6 10 2 24" fill="none" stroke="#e8dcc0" stroke-width="3" stroke-linecap="round"/>`; }
       } else {
-        const bx = w * 0.12, by = h * 0.97, ex = w * 0.92, ey = h * 0.12;
-        s += `<path d="M${f(bx)} ${f(by)} C${f(w * 0.9)} ${f(h * 0.75)} ${f(w * 0.05)} ${f(h * 0.4)} ${f(ex)} ${f(ey)}" fill="none" stroke="#4a3527" stroke-width="5" stroke-linecap="round"/>`;
+        s += `<path d="M${f(w * 0.12)} ${f(h * 0.97)} C${f(w * 0.9)} ${f(h * 0.75)} ${f(w * 0.05)} ${f(h * 0.4)} ${f(w * 0.92)} ${f(h * 0.12)}" fill="none" stroke="${SUMI}" stroke-width="6.5" stroke-linecap="round"/><path d="M${f(w * 0.12)} ${f(h * 0.97)} C${f(w * 0.9)} ${f(h * 0.75)} ${f(w * 0.05)} ${f(h * 0.4)} ${f(w * 0.92)} ${f(h * 0.12)}" fill="none" stroke="#5a4131" stroke-width="4.5" stroke-linecap="round"/>`;
         s += `<path d="M${f(w * 0.5)} ${f(h * 0.55)} q${f(w * 0.3)} -${f(h * 0.05)} ${f(w * 0.4)} -${f(h * 0.14)}" fill="none" stroke="#4a3527" stroke-width="2.5" stroke-linecap="round"/>`;
         const n = o.kind === "small" || o.kind === "berry" ? 26 : 14;
         for (let k = 0; k < n; k++) {
-          const t = r(), x = w * (0.15 + r() * 0.75), y = h * (0.12 + t * 0.7);
-          if (o.kind === "hang") { for (let j = 0; j < 6; j++) s += `<circle cx="${f(x + (r() - .5) * 4)}" cy="${f(y + j * 5)}" r="${f(3.2 - j * 0.35)}" fill="${o.fl}"/>`; }
-          else if (o.kind === "ball") { for (let j = 0; j < 9; j++) s += `<circle cx="${f(x + (r() - .5) * 16)}" cy="${f(y + (r() - .5) * 14)}" r="3" fill="${o.fl}" opacity=".9"/>`; }
-          else if (o.kind === "fruit") s += `<circle cx="${f(x)}" cy="${f(y)}" r="7" fill="${o.fl}"/><path d="M${f(x - 3)} ${f(y - 7)} l3 2 l3 -2" fill="none" stroke="${KUSA}" stroke-width="1.5"/>`;
-          else if (o.kind === "berry") s += `<circle cx="${f(x)}" cy="${f(y)}" r="2.6" fill="${o.fl}"/>`;
+          const x = w * (0.15 + r() * 0.75), y = h * (0.12 + r() * 0.7);
+          if (o.kind === "hang") { for (let j = 0; j < 6; j++) s += `<circle cx="${f(x + (r() - .5) * 4)}" cy="${f(y + j * 5)}" r="${f(3.2 - j * 0.35)}" fill="${o.fl}" ${KEY}/>`; }
+          else if (o.kind === "ball") { for (let j = 0; j < 9; j++) s += `<circle cx="${f(x + (r() - .5) * 16)}" cy="${f(y + (r() - .5) * 14)}" r="3" fill="${o.fl}" ${KEY}/>`; }
+          else if (o.kind === "fruit") s += `<circle cx="${f(x)}" cy="${f(y)}" r="7" fill="${o.fl}" ${KEY}/><path d="M${f(x - 3)} ${f(y - 7)} l3 2 l3 -2" fill="none" stroke="${KUSA}" stroke-width="1.5"/>`;
+          else if (o.kind === "berry") s += `<circle cx="${f(x)}" cy="${f(y)}" r="2.6" fill="${o.fl}" ${KEY}/>`;
           else if (o.kind === "small") s += `<circle cx="${f(x)}" cy="${f(y)}" r="2.2" fill="${o.fl}"/>`;
-          else { const rr = o.big ? 8 : 5.5; s += `<circle cx="${f(x)}" cy="${f(y)}" r="${rr}" fill="${o.fl}" stroke="${SUMI}" stroke-width=".4"/>` + (o.core ? `<circle cx="${f(x)}" cy="${f(y)}" r="${f(rr * 0.3)}" fill="${o.core}"/>` : ""); }
-          if (k % 3 === 0) s += `<ellipse cx="${f(x + 6)}" cy="${f(y + 5)}" rx="5" ry="2.4" fill="${KUSA}" transform="rotate(${f(r() * 90 - 45)} ${f(x + 6)} ${f(y + 5)})"/>`;
+          else {
+            const rr = o.big ? 8 : 5.5, turn = r() * 72;
+            for (let p = 0; p < 5; p++) { const a = (turn + p * 72) * Math.PI / 180; s += `<circle cx="${f(x + Math.cos(a) * rr * 0.55)}" cy="${f(y + Math.sin(a) * rr * 0.55)}" r="${f(rr * 0.52)}" fill="${o.fl}" ${KEY}/>`; }
+            if (o.core) s += `<circle cx="${f(x)}" cy="${f(y)}" r="${f(rr * 0.24)}" fill="${o.core}"/>`;
+          }
+          if (k % 3 === 0) s += `<ellipse cx="${f(x + 6)}" cy="${f(y + 5)}" rx="5" ry="2.4" fill="${KUSA}" ${KEY} transform="rotate(${f(r() * 90 - 45)} ${f(x + 6)} ${f(y + 5)})"/>`;
         }
       }
       if (o.bird) {
-        const x = w * 0.48, y = h * 0.45, big = o.bird === "#f7f5ef" ? 1.5 : 1;
-        s += `<g transform="translate(${f(x)} ${f(y)}) scale(${big})">` +
-          `<path d="M10 2 L26 10 L10 8 Z" fill="${o.bird}" stroke="${SUMI}" stroke-width=".5"/>` +
-          `<ellipse cx="0" cy="0" rx="13" ry="8" fill="${o.bird}" stroke="${SUMI}" stroke-width=".6"/>` +
-          `<ellipse cx="-2" cy="3" rx="9" ry="4.5" fill="${o.belly}"/>` +
-          `<circle cx="-12" cy="-5" r="6" fill="${o.bird}" stroke="${SUMI}" stroke-width=".6"/>` +
-          (o.ring ? `<circle cx="-13.5" cy="-6" r="2.2" fill="#f7f3ea"/>` : "") +
-          `<circle cx="-13.5" cy="-6" r="1.1" fill="${SUMI}"/><path d="M-17.5 -5 l-5 1.5 l5 1z" fill="${SUMI}"/>` +
-          `<path d="M-2 -5 q8 -8 16 -2" fill="none" stroke="${SUMI}" stroke-width=".8"/></g>`;
+        const big = o.bird === "#f7f5ef" ? 1.5 : 1;
+        s += `<g transform="translate(${f(w * 0.48)} ${f(h * 0.45)}) scale(${big})"><path d="M10 2 L26 10 L10 8 Z" fill="${o.bird}" ${KEY}/><ellipse cx="0" cy="0" rx="13" ry="8" fill="${o.bird}" ${KEY}/><ellipse cx="-2" cy="3" rx="9" ry="4.5" fill="${o.belly}"/><circle cx="-12" cy="-5" r="6" fill="${o.bird}" ${KEY}/>` +
+          (o.ring ? `<circle cx="-13.5" cy="-6" r="2.2" fill="#f7f3ea"/>` : "") + `<circle cx="-13.5" cy="-6" r="1.1" fill="${SUMI}"/><path d="M-17.5 -5 l-5 1.5 l5 1z" fill="${SUMI}"/><path d="M-2 -5 q8 -8 16 -2" fill="none" stroke="${SUMI}" stroke-width=".8"/></g>`;
       }
-      if (o.creature === "firefly") for (let k = 0; k < 14; k++) s += `<circle cx="${f(r() * w)}" cy="${f(r() * h * 0.8)}" r="1.6" fill="#f1e27a" opacity=".95"/>`;
-      if (o.creature === "dragonfly") { const x = w * 0.55, y = h * 0.28; s += `<line x1="${x}" y1="${y}" x2="${x + 26}" y2="${y + 4}" stroke="${BENI}" stroke-width="2.2"/><ellipse cx="${x + 5}" cy="${y - 6}" rx="9" ry="3" fill="#f7f3ea" opacity=".8" stroke="${SUMI}" stroke-width=".4"/><ellipse cx="${x + 5}" cy="${y + 6}" rx="9" ry="3" fill="#f7f3ea" opacity=".8" stroke="${SUMI}" stroke-width=".4"/>`; }
+      if (o.creature === "firefly") for (let k = 0; k < 14; k++) s += `<circle cx="${f(r() * w)}" cy="${f(r() * h * 0.8)}" r="1.6" fill="#f1e27a"/>`;
+      if (o.creature === "dragonfly") { const x = w * 0.55, y = h * 0.28; s += `<line x1="${x}" y1="${y}" x2="${x + 26}" y2="${y + 4}" stroke="${BENI}" stroke-width="2.2"/><ellipse cx="${x + 5}" cy="${y - 6}" rx="9" ry="3" fill="#f7f3ea" ${KEY}/><ellipse cx="${x + 5}" cy="${y + 6}" rx="9" ry="3" fill="#f7f3ea" ${KEY}/>`; }
       if (o.creature === "geese") for (let k = 0; k < 5; k++) { const x = w * (0.2 + k * 0.12), y = h * (0.12 + k * 0.035); s += `<path d="M${f(x - 6)} ${f(y - 3)} L${f(x)} ${f(y)} L${f(x + 6)} ${f(y - 3)}" fill="none" stroke="${SUMI}" stroke-width="1.3"/>`; }
-      return s;
+      return s + ichimonji(id, w, h, "#9aa58a");
     },
     tsuki(r, w, h, id, i) {
-      let s = `<defs>${sky(id + "s", AI[5], 0.75, AI[1])}<radialGradient id="${id}m"><stop offset=".6" stop-color="#f6eed6"/><stop offset="1" stop-color="#f6eed6" stop-opacity="0"/></radialGradient></defs>`;
+      let s = `<defs>${sky(id + "s", AI[5], 0.75, AI[1])}<radialGradient id="${id}m"><stop offset=".55" stop-color="#f6eed6"/><stop offset="1" stop-color="#f6eed6" stop-opacity="0"/></radialGradient></defs>`;
       s += `<rect width="${w}" height="${h}" fill="${AI[1]}"/>${band(id + "s", w, h)}`;
+      for (let k = 0; k < 60; k++) s += `<circle cx="${f(r() * w)}" cy="${f(r() * h * 0.7)}" r=".5" fill="#fbf7ea" opacity="${f(0.25 + r() * 0.4)}"/>`; // mica
       const cx = w * (0.3 + r() * 0.35), cy = h * (0.2 + r() * 0.12), rad = w * (0.13 + r() * 0.06);
-      s += `<circle cx="${f(cx)}" cy="${f(cy)}" r="${f(rad * 1.6)}" fill="url(#${id}m)" opacity=".35"/><circle cx="${f(cx)}" cy="${f(cy)}" r="${f(rad)}" fill="#f4ecd4"/>`;
+      s += `<circle cx="${f(cx)}" cy="${f(cy)}" r="${f(rad * 1.7)}" fill="url(#${id}m)" opacity=".35"/><circle cx="${f(cx)}" cy="${f(cy)}" r="${f(rad)}" fill="#f4ecd4" ${KEY}/>`;
       if (i % 2 === 0) {
-        s += `<rect y="${f(h * 0.72)}" width="${w}" height="${f(h * 0.28)}" fill="${AI[4]}"/>`;
-        for (let k = 0; k < 9; k++) { const y = h * (0.75 + k * 0.025), half = rad * (1 - k * 0.08); s += `<line x1="${f(cx - half * (0.4 + r() * 0.5))}" y1="${f(y)}" x2="${f(cx + half * (0.3 + r() * 0.5))}" y2="${f(y)}" stroke="#f4ecd4" stroke-width="1.4" opacity=".7"/>`; }
-        let d = `M0 ${f(h * 0.72)}`; for (let x = 0; x <= w; x += 20) d += ` L${x} ${f(h * (0.66 + r() * 0.05))}`; s += `<path d="${d} L${w} ${f(h * 0.72)} Z" fill="${SUMI}" opacity=".85"/>`;
+        s += `<rect y="${f(h * 0.72)}" width="${w}" height="${f(h * 0.28)}" fill="${AI[4]}" ${KEY}/>`;
+        for (let k = 0; k < 9; k++) { const y = h * (0.75 + k * 0.025), half = rad * (1 - k * 0.08); s += `<line x1="${f(cx - half * (0.4 + r() * 0.5))}" y1="${f(y)}" x2="${f(cx + half * (0.3 + r() * 0.5))}" y2="${f(y)}" stroke="#f4ecd4" stroke-width="1.4" opacity=".75"/>`; }
+        let d = `M0 ${f(h * 0.72)}`; for (let x = 0; x <= w; x += 20) d += ` L${x} ${f(h * (0.66 + r() * 0.05))}`; s += `<path d="${d} L${w} ${f(h * 0.72)} Z" fill="${SUMI}" ${KEY}/>`;
       } else {
-        let d = `M0 ${h}`; for (let x = 0; x <= w; x += 24) d += ` L${x} ${f(h * (0.62 + r() * 0.12))}`; s += `<path d="${d} L${w} ${h} Z" fill="${AI[4]}"/>`;
+        let d = `M0 ${h}`; for (let x = 0; x <= w; x += 24) d += ` L${x} ${f(h * (0.62 + r() * 0.12))}`; s += `<path d="${d} L${w} ${h} Z" fill="${AI[4]}" ${KEY}/>`;
         s += `<path d="M${w} ${f(h * 0.3)} Q${f(w * 0.55)} ${f(h * 0.36)} ${f(w * 0.28)} ${f(h * 0.5)}" fill="none" stroke="${SUMI}" stroke-width="5" stroke-linecap="round"/>`;
         for (let k = 0; k < 6; k++) { const x = w * (0.35 + k * 0.1), y = h * (0.44 - k * 0.022); for (let j = -5; j <= 5; j++) { const a = (j * 11 - 90) * Math.PI / 180; s += `<line x1="${f(x)}" y1="${f(y)}" x2="${f(x + Math.cos(a) * 13)}" y2="${f(y + Math.sin(a) * 13)}" stroke="#1f2a1f" stroke-width="1"/>`; } }
       }
@@ -441,46 +403,60 @@
     },
     yuki(r, w, h, id) {
       let s = `<defs>${sky(id + "s", "#3d4556", 0.6, "#b9c0c8")}</defs><rect width="${w}" height="${h}" fill="#dfe2e3"/>${band(id + "s", w, h)}`;
-      s += `<path d="M0 ${f(h * 0.62)} Q${f(w * 0.4)} ${f(h * 0.55)} ${w} ${f(h * 0.6)} L${w} ${h} L0 ${h} Z" fill="#f4f3ee"/>`;
+      s += `<path d="M0 ${f(h * 0.62)} Q${f(w * 0.4)} ${f(h * 0.55)} ${w} ${f(h * 0.6)} L${w} ${h} L0 ${h} Z" fill="#f4f3ee" ${KEY}/>`;
       for (let k = 0; k < 4; k++) {
         const x = w * (0.08 + k * 0.23 + r() * 0.05), y = h * (0.56 + r() * 0.12), bw = w * (0.18 + r() * 0.08), rh = bw * 0.45;
-        s += `<rect x="${f(x + bw * 0.1)}" y="${f(y)}" width="${f(bw * 0.8)}" height="${f(rh * 0.9)}" fill="#5a4636"/>`;
-        s += `<rect x="${f(x + bw * 0.4)}" y="${f(y + rh * 0.3)}" width="${f(bw * 0.18)}" height="${f(rh * 0.3)}" fill="${KI}" opacity=".85"/>`;
-        s += `<path d="M${f(x - 4)} ${f(y + 2)} L${f(x + bw / 2)} ${f(y - rh)} L${f(x + bw + 4)} ${f(y + 2)} Z" fill="#f7f6f1" stroke="#9aa3ab" stroke-width=".6"/>`;
+        s += `<rect x="${f(x + bw * 0.1)}" y="${f(y)}" width="${f(bw * 0.8)}" height="${f(rh * 0.9)}" fill="#5a4636" ${KEY}/><rect x="${f(x + bw * 0.4)}" y="${f(y + rh * 0.3)}" width="${f(bw * 0.18)}" height="${f(rh * 0.3)}" fill="${KI}"/>`;
+        s += `<path d="M${f(x - 4)} ${f(y + 2)} L${f(x + bw / 2)} ${f(y - rh)} L${f(x + bw + 4)} ${f(y + 2)} Z" fill="#f7f6f1" ${KEY}/>`;
       }
-      for (let k = 0; k < 6; k++) { const x = w * r(), y = h * (0.45 + r() * 0.12), th = h * 0.09; s += `<path d="M${f(x)} ${f(y - th)} L${f(x + 11)} ${f(y)} L${f(x - 11)} ${f(y)} Z M${f(x)} ${f(y - th * 0.4)} L${f(x + 14)} ${f(y + th * 0.5)} L${f(x - 14)} ${f(y + th * 0.5)} Z" fill="#23362b"/><path d="M${f(x)} ${f(y - th)} L${f(x + 6)} ${f(y - th * 0.45)} L${f(x - 6)} ${f(y - th * 0.45)} Z" fill="#f7f6f1"/>`; }
+      for (let k = 0; k < 6; k++) { const x = w * r(), y = h * (0.45 + r() * 0.12), th = h * 0.09; s += `<path d="M${f(x)} ${f(y - th)} L${f(x + 11)} ${f(y)} L${f(x - 11)} ${f(y)} Z M${f(x)} ${f(y - th * 0.4)} L${f(x + 14)} ${f(y + th * 0.5)} L${f(x - 14)} ${f(y + th * 0.5)} Z" fill="#23362b" ${KEY}/><path d="M${f(x)} ${f(y - th)} L${f(x + 6)} ${f(y - th * 0.45)} L${f(x - 6)} ${f(y - th * 0.45)} Z" fill="#f7f6f1"/>`; }
       const fx = w * (0.45 + r() * 0.3), fy = h * 0.84;
-      s += `<path d="M${f(fx - 12)} ${f(fy - 8)} Q${f(fx)} ${f(fy - 22)} ${f(fx + 12)} ${f(fy - 8)} Z" fill="${BENI}"/><line x1="${f(fx)}" y1="${f(fy - 8)}" x2="${f(fx)}" y2="${f(fy + 8)}" stroke="${SUMI}" stroke-width="1"/><path d="M${f(fx - 5)} ${f(fy - 4)} L${f(fx)} ${f(fy + 12)} L${f(fx + 5)} ${f(fy - 4)} Z" fill="#6b5a45"/>`;
-      for (let k = 0; k < 170; k++) s += `<circle cx="${f(r() * w)}" cy="${f(r() * h)}" r="${f(0.7 + r() * 1.3)}" fill="#fbfaf6" opacity=".95"/>`;
-      return s;
+      s += `<path d="M${f(fx - 12)} ${f(fy - 8)} Q${f(fx)} ${f(fy - 22)} ${f(fx + 12)} ${f(fy - 8)} Z" fill="${BENI}" ${KEY}/><line x1="${f(fx)}" y1="${f(fy - 8)}" x2="${f(fx)}" y2="${f(fy + 8)}" stroke="${SUMI}" stroke-width="1"/><path d="M${f(fx - 5)} ${f(fy - 4)} L${f(fx)} ${f(fy + 12)} L${f(fx + 5)} ${f(fy - 4)} Z" fill="#6b5a45" ${KEY}/>`;
+      for (let k = 0; k < 190; k++) s += `<circle cx="${f(r() * w)}" cy="${f(r() * h)}" r="${f(0.7 + r() * 1.4)}" fill="#fbfaf6"/>`;
+      return s + ichimonji(id, w, h, "#2b313d");
     },
     minato(r, w, h, id, i) {
       let s = `<defs>${sky(id + "s", "#0b1322", 0.7, "#2b3f63")}</defs><rect width="${w}" height="${h}" fill="#2b3f63"/>${band(id + "s", w, h)}`;
       for (let k = 0; k < 40; k++) s += `<circle cx="${f(r() * w)}" cy="${f(r() * h * 0.35)}" r="${f(0.4 + r() * 0.7)}" fill="#f4ecd4" opacity=".8"/>`;
-      if (i % 2 === 0) s += `<circle cx="${f(w * (0.15 + r() * 0.2))}" cy="${f(h * 0.18)}" r="13" fill="#f4ecd4"/>`;
+      if (i % 2 === 0) s += `<circle cx="${f(w * (0.15 + r() * 0.2))}" cy="${f(h * 0.18)}" r="13" fill="#f4ecd4" ${KEY}/>`;
       const shore = h * 0.55;
       let lights = "";
       for (let x = 0; x < w; ) {
         const bw = 10 + r() * 26, bh = 8 + r() * (h * 0.18);
-        s += `<rect x="${f(x)}" y="${f(shore - bh)}" width="${f(bw)}" height="${f(bh)}" fill="#0c1322"/>`;
-        for (let k = 0; k < 3; k++) if (r() > 0.4) { const lx = x + 2 + r() * (bw - 4), ly = shore - bh + 3 + r() * (bh - 5); lights += `<rect x="${f(lx)}" y="${f(ly)}" width="1.6" height="1.6" fill="#f1c95a"/><line x1="${f(lx + 0.8)}" y1="${f(shore + 6 + r() * 20)}" x2="${f(lx + 0.8)}" y2="${f(shore + 20 + r() * 50)}" stroke="#f1c95a" stroke-width="1" stroke-dasharray="2 3" opacity=".7"/>`; }
+        s += `<rect x="${f(x)}" y="${f(shore - bh)}" width="${f(bw)}" height="${f(bh)}" fill="#0c1322" ${KEY}/>`;
+        for (let k = 0; k < 3; k++) if (r() > 0.4) { const lx = x + 2 + r() * (bw - 4), ly = shore - bh + 3 + r() * (bh - 5); lights += `<rect x="${f(lx)}" y="${f(ly)}" width="1.6" height="1.6" fill="#f1c95a"/><line x1="${f(lx + 0.8)}" y1="${f(shore + 6 + r() * 20)}" x2="${f(lx + 0.8)}" y2="${f(shore + 20 + r() * 50)}" stroke="#f1c95a" stroke-width="1" stroke-dasharray="2 3" opacity=".75"/>`; }
         x += bw + r() * 4;
       }
-      s += `<rect y="${f(shore)}" width="${w}" height="${f(h - shore)}" fill="#132340"/>` + lights;
-      if (i % 3 === 0) { const lx = w * 0.82; s += `<path d="M${f(lx)} ${f(shore - 40)} L${f(lx - 90)} ${f(shore - 60)} L${f(lx - 90)} ${f(shore - 20)} Z" fill="#f4ecd4" opacity=".18"/><rect x="${f(lx - 3)}" y="${f(shore - 42)}" width="6" height="42" fill="#e9e4d8"/><rect x="${f(lx - 4)}" y="${f(shore - 46)}" width="8" height="5" fill="${BENI}"/>`; }
+      s += `<rect y="${f(shore)}" width="${w}" height="${f(h - shore)}" fill="#132340" ${KEY}/>` + lights;
+      if (i % 3 === 0) { const lx = w * 0.82; s += `<path d="M${f(lx)} ${f(shore - 40)} L${f(lx - 90)} ${f(shore - 60)} L${f(lx - 90)} ${f(shore - 20)} Z" fill="#f4ecd4" opacity=".18"/><rect x="${f(lx - 3)}" y="${f(shore - 42)}" width="6" height="42" fill="#e9e4d8" ${KEY}/><rect x="${f(lx - 4)}" y="${f(shore - 46)}" width="8" height="5" fill="${BENI}"/>`; }
       for (let k = 0; k < 2; k++) { const x = w * (0.1 + r() * 0.6), y = h * (0.72 + k * 0.12), sz = 40 + r() * 30; s += `<path d="M${f(x)} ${f(y)} l${f(sz)} 0 l-${f(sz * 0.1)} ${f(sz * 0.18)} l-${f(sz * 0.8)} 0 z" fill="#0a0f1a"/><line x1="${f(x + sz * 0.5)}" y1="${f(y)}" x2="${f(x + sz * 0.5)}" y2="${f(y - sz * 0.6)}" stroke="#0a0f1a" stroke-width="1.5"/><circle cx="${f(x + sz * 0.5)}" cy="${f(y - sz * 0.6)}" r="1.5" fill="${BENI}"/>`; }
       return s;
     },
   };
 
+  /**
+   * The print as an SVG. `fine` adds what makes it read as a woodblock print at full size:
+   * rough block edges, the grain of the block, washi fibre and a little age at the margins.
+   */
+  function printSvg(e, prefix, fine) {
+    const fmt = FORMAT[e.series.format], r = rng(7 + e.k * 31), id = `${prefix}${e.k}`, w = fmt.w, h = fmt.h;
+    const night = e.series.id === "minato" || (e.series.id === "shiosai" && e.i % 4 === 3);
+    const art = DRAW[e.series.id](r, w, h, id, e.i, e.item) + furniture(w, h, e.series, e.item[0], night);
+    if (!fine) return `<svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="${w}" height="${h}" fill="${PAPER}"/>${art}</svg>`;
+    const defs = `<defs>
+      <filter id="${id}r" x="-2%" y="-2%" width="104%" height="104%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="1" seed="${e.k}" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.1"/></filter>
+      <filter id="${id}g" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".008 .32" numOctaves="3" seed="${e.k + 11}"/><feColorMatrix values="0 0 0 0 .12  0 0 0 0 .13  0 0 0 0 .2  0 0 0 .5 -.12"/></filter>
+      <filter id="${id}w" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="${e.k + 5}"/><feColorMatrix values="0 0 0 0 .45  0 0 0 0 .38  0 0 0 0 .26  0 0 0 .55 -.1"/></filter>
+      <radialGradient id="${id}a" cx=".5" cy=".5" r=".75"><stop offset=".6" stop-color="#7a5a2e" stop-opacity="0"/><stop offset="1" stop-color="#7a5a2e" stop-opacity=".2"/></radialGradient>
+    </defs>`;
+    return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">${defs}<rect width="${w}" height="${h}" fill="${PAPER}"/><g filter="url(#${id}r)">${art}</g><rect width="${w}" height="${h}" filter="url(#${id}g)" style="mix-blend-mode:multiply" opacity=".55"/><rect width="${w}" height="${h}" filter="url(#${id}w)" style="mix-blend-mode:multiply" opacity=".5"/><rect width="${w}" height="${h}" fill="url(#${id}a)"/></svg>`;
+  }
+
   // ── the catalogue ─────────────────────────────────────────────────────────
   const entries = [];
   SERIES.forEach((series) => {
-    const [y0, y1] = series.years, span = y1 - y0 + 1, per = Math.ceil(series.items.length / span);
-    series.items.forEach((item, i) => {
-      const [ja, en] = series.title(item, i);
-      entries.push({ series, item, i, year: y0 + Math.floor(i / per), ja, en });
-    });
+    const [y0, y1] = series.years, per = Math.ceil(series.items.length / (y1 - y0 + 1));
+    series.items.forEach((item, i) => { const [ja, en] = series.title(item, i); entries.push({ series, item, i, year: y0 + Math.floor(i / per), ja, en }); });
   });
   entries.sort((a, b) => a.year - b.year || SERIES.indexOf(a.series) - SERIES.indexOf(b.series) || a.i - b.i);
   const perYear = {};
@@ -488,177 +464,175 @@
     perYear[e.year] = (perYear[e.year] || 0) + 1;
     e.no = `AS ${e.year}-${String(perYear[e.year]).padStart(2, "0")}`;
     const r = rng(1000 + k);
-    e.blocks = 6 + Math.floor(r() * 6);
-    e.impressions = e.blocks + 6 + Math.floor(r() * 10);
-    e.owner = r() < 0.25 ? "artist" : "private";
-    e.k = k;
+    e.blocks = 6 + Math.floor(r() * 6); e.impressions = e.blocks + 6 + Math.floor(r() * 10); e.owner = r() < 0.25 ? "artist" : "private";
   });
-
-  function printSvg(e, prefix) {
-    const fmt = FORMAT[e.series.format], r = rng(7 + e.k * 31);
-    const id = `${prefix}${e.k}`;
-    const body = DRAW[e.series.id](r, fmt.w, fmt.h, id, e.i, e.item);
-    return `<svg viewBox="0 0 ${fmt.w} ${fmt.h}" width="${fmt.w}" height="${fmt.h}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="${fmt.w}" height="${fmt.h}" fill="${PAPER}"/>${body}${furniture(fmt.w, fmt.h, e.series, e.item[0])}</svg>`;
-  }
+  // Shown newest series first, each series in its own order, so the reel reads as runs of one series.
+  const SHOWN = [...SERIES].reverse();
+  entries.sort((a, b) => SHOWN.indexOf(a.series) - SHOWN.indexOf(b.series) || a.i - b.i);
+  entries.forEach((e, k) => { e.k = k; });
 
   // ── words ─────────────────────────────────────────────────────────────────
   const T = {
-    ja: {
-      "nav.catalogue": "作品目録", "nav.exhibitions": "展覧会", "nav.biography": "略歴", "nav.library": "文献", "nav.guide": "凡例",
-      "cat.title": "版画作品目録 2016–2025", count: (n, s) => `${n}点・揃物${s}件`, filtered: (n, name) => `${name}　${n}点`,
-      fab: "揃物", "filter.title": "揃物で絞り込む", all: "すべて",
-      "foot.contact": "お問い合わせ", "foot.letter": "工房だより", "foot.studio": "藍斎工房", "foot.shop": "摺物の頒布について",
-      "foot.rights": "本サイト上の作品図版その他一切の無断複写・転載・改変を禁じます。図版は色校正を経ていないため、実物の摺色とは異なります。",
-      "foot.sample": "これは架空の作家による見本ページです。作家、作品、展覧会、会場、刊行物はすべて創作です。ページの構造は、uimodulay で解析した yoshitomonara.org のトップページ（1440px）に基づいています。",
-      "entry.prev": "← 前の作品", "entry.next": "次の作品 →",
-      dl: { year: "制作年", series: "揃物", tech: "技法", format: "判型", blocks: "版", impr: "摺", carve: "彫・摺", ed: "部数", owner: "所蔵" },
-      blocks: (n) => `主版1・色版${n}`, impr: (n) => `${n}度摺`, carve: "自刻自摺", ed: (n) => `限定${n}部`, owner: { artist: "作家蔵", private: "個人蔵" },
-    },
-    en: {
-      "nav.catalogue": "Catalogue", "nav.exhibitions": "Exhibitions", "nav.biography": "Biography", "nav.library": "Library", "nav.guide": "Guide to Entries",
-      "cat.title": "Catalogue of Prints 2016–2025", count: (n, s) => `${n} prints in ${s} series`, filtered: (n, name) => `${name}, ${n} prints`,
-      fab: "Series", "filter.title": "Filter by series", all: "All",
-      "foot.contact": "Contact", "foot.letter": "Studio letter", "foot.studio": "Aisai Studio", "foot.shop": "About editions",
-      "foot.rights": "No image on this site may be copied, reproduced or altered without permission. Images are not color-proofed and differ from the printed colors.",
-      "foot.sample": "This is a sample page for a fictional artist. The artist, prints, exhibitions, venues and publications are all invented. The page structure follows yoshitomonara.org's top page at 1440 px, as analyzed by uimodulay.",
-      "entry.prev": "← Previous", "entry.next": "Next →",
-      dl: { year: "Year", series: "Series", tech: "Technique", format: "Format", blocks: "Blocks", impr: "Impressions", carve: "Carved, printed", ed: "Edition", owner: "Collection" },
-      blocks: (n) => `Key block and ${n} color blocks`, impr: (n) => `${n} impressions`, carve: "By the artist", ed: (n) => `Edition of ${n}`, owner: { artist: "The artist", private: "Private collection" },
-    },
+    ja: { "nav.works": "作品", "nav.exhibitions": "展覧会", "nav.biography": "略歴", "nav.library": "文献", "nav.guide": "凡例", about: "作品解説", all: "すべて",
+      play: "一時停止", paused: "再生", sample: "これは架空の作家による見本ページです。作家、作品、展覧会、会場、刊行物はすべて創作です。",
+      dl: { no: "作品番号", year: "制作年", tech: "技法", format: "判型", blocks: "版", impr: "摺", carve: "彫・摺", ed: "部数", owner: "所蔵" },
+      blocks: (n) => `主版1・色版${n}`, impr: (n) => `${n}度摺`, carve: "自刻自摺", ed: (n) => `限定${n}部`, owner: { artist: "作家蔵", private: "個人蔵" } },
+    en: { "nav.works": "Works", "nav.exhibitions": "Exhibitions", "nav.biography": "Biography", "nav.library": "Library", "nav.guide": "Guide", about: "About this print", all: "All",
+      play: "Pause", paused: "Play", sample: "This is a sample page for a fictional artist. The artist, prints, exhibitions, venues and publications are all invented.",
+      dl: { no: "Number", year: "Year", tech: "Technique", format: "Format", blocks: "Blocks", impr: "Impressions", carve: "Carved, printed", ed: "Edition", owner: "Collection" },
+      blocks: (n) => `Key block and ${n} color blocks`, impr: (n) => `${n} impressions`, carve: "By the artist", ed: (n) => `Edition of ${n}`, owner: { artist: "The artist", private: "Private collection" } },
   };
-
   const EXHIBITIONS = [
-    [2025, "夜の港十二題", "Twelve Night Harbors", "ギャラリー潮間（鎌倉）", "Gallery Chōkan, Kamakura", "個展"],
-    [2024, "月百景抄　二十景", "One Hundred Moons: Twenty So Far", "藍と紙の画廊（京都）", "Ai to Kami Gallery, Kyoto", "個展"],
-    [2023, "今日の木版", "Woodblock Today", "版の家（東京）", "Han no Ie, Tokyo", "グループ展"],
-    [2022, "雪国十二景", "Twelve Snow Views", "冬青画廊（金沢）", "Soyogo Gallery, Kanazawa", "個展"],
-    [2021, "花鳥短冊", "Birds and Flowers", "ギャラリー潮間（鎌倉）", "Gallery Chōkan, Kamakura", "個展"],
-    [2020, "東京橋尽", "Bridges of Tokyo", "版の家（東京）", "Han no Ie, Tokyo", "個展"],
-    [2018, "潮騒十二景", "Twelve Views of the Tide", "ギャラリー潮間（鎌倉）", "Gallery Chōkan, Kamakura", "初個展"],
+    [2025, "夜の港十二題", "Twelve Night Harbors", "ギャラリー潮間（鎌倉）", "Gallery Chōkan, Kamakura"],
+    [2024, "月百景抄　二十景", "One Hundred Moons: Twenty So Far", "藍と紙の画廊（京都）", "Ai to Kami Gallery, Kyoto"],
+    [2023, "今日の木版（グループ展）", "Woodblock Today (group)", "版の家（東京）", "Han no Ie, Tokyo"],
+    [2022, "雪国十二景", "Twelve Snow Views", "冬青画廊（金沢）", "Soyogo Gallery, Kanazawa"],
+    [2021, "花鳥短冊", "Birds and Flowers", "ギャラリー潮間（鎌倉）", "Gallery Chōkan, Kamakura"],
+    [2020, "東京橋尽", "Bridges of Tokyo", "版の家（東京）", "Han no Ie, Tokyo"],
+    [2018, "潮騒十二景（初個展）", "Twelve Views of the Tide (first solo)", "ギャラリー潮間（鎌倉）", "Gallery Chōkan, Kamakura"],
   ];
   const BIO = [
     ["1984", "静岡県沼津市に生まれる", "Born in Numazu, Shizuoka"],
     ["2007", "美術大学 版画専攻を卒業", "Graduates in printmaking from an art university"],
     ["2008–13", "京都の木版工房で彫と摺を学ぶ", "Trains in carving and printing at a woodblock workshop in Kyoto"],
     ["2014", "鎌倉に工房を構え、自刻自摺による制作を始める", "Opens a studio in Kamakura and begins carving and printing every block by hand"],
-    ["2016", "揃物「潮騒十二景」に着手", "Begins the series Twelve Views of the Tide"],
-    ["2020", "「月百景抄」に着手。百景を目標に年四景を摺る", "Begins One Hundred Moons, at four moons a year toward a hundred"],
+    ["2016", "揃物「潮騒十二景」に着手", "Begins Twelve Views of the Tide"],
+    ["2020", "「月百景抄」に着手。百景を目標に年四景を摺る", "Begins One Hundred Moons, four a year toward a hundred"],
     ["現在", "神奈川県鎌倉市在住", "Lives and works in Kamakura"],
   ];
   const LIBRARY = [
     ["2025", "『潮見藍斎 版画作品目録 2016–2025』", "Shiomi Aisai: Catalogue of Prints 2016–2025", "藍斎工房", "Aisai Studio"],
     ["2024", "『月百景抄』作品集", "One Hundred Moons, a Selection (plates)", "藍斎工房", "Aisai Studio"],
     ["2023", "「自刻自摺という選択」", "“Carving and Printing Alone”", "季刊『木と紙』第12号", "Ki to Kami quarterly, no. 12"],
-    ["2019", "「揃物を続けること」（インタビュー）", "“On Keeping a Series Going” (interview)", "季刊『木と紙』第4号", "Ki to Kami quarterly, no. 4"],
+    ["2019", "「揃物を続けること」", "“On Keeping a Series Going”", "季刊『木と紙』第4号", "Ki to Kami quarterly, no. 4"],
   ];
   const GUIDE = {
-    ja: [
-      ["作品番号", "<em>AS</em>、制作年、同年内の通し番号の順に記す。"],
-      ["題", "揃物名、画題の順に記す。画題は作家による。"],
-      ["判型", "紙の寸法を縦×横で記す。<em>大判</em> 39.0 × 26.5 cm、<em>横大判</em> はその横使い、<em>中短冊</em> 38.0 × 13.0 cm。"],
-      ["技法", "すべて木版多色摺。<em>雲母摺</em>（きらずり）は雲母の粉で地に光を出す摺、<em>空摺</em>（からずり）は絵具を付けずに紙に凹凸を出す摺、<em>正面摺</em>（しょうめんずり）は摺面を磨いて艶を出す摺。"],
-      ["版・摺", "主版（墨線の版）と色版の枚数、および版に絵具を置いて摺った回数（度数）。"],
-      ["部数", "限定部数。試摺と作家控えは含まない。"],
-      ["所蔵", "作家蔵、個人蔵の別のみを記す。"],
-    ],
-    en: [
-      ["Number", "<em>AS</em>, the year, and a running number within that year."],
-      ["Title", "Series title, then subject. Subjects are the artist's own."],
-      ["Format", "Sheet size, height × width. <em>Ōban</em> 39.0 × 26.5 cm, <em>horizontal ōban</em> turned sideways, <em>chū-tanzaku</em> 38.0 × 13.0 cm."],
-      ["Technique", "All woodblock, printed in colors. <em>Kirazuri</em> dusts the ground with mica, <em>karazuri</em> embosses the paper without pigment, <em>shōmenzuri</em> burnishes the printed surface to a gloss."],
-      ["Blocks, impressions", "The key block and the number of color blocks, and how many times pigment was laid and printed."],
-      ["Edition", "Limited edition size, not counting proofs and the artist's copies."],
-      ["Collection", "Only whether a print is with the artist or in a private collection."],
-    ],
+    ja: [["作品番号", "<em>AS</em>、制作年、同年内の通し番号の順。"], ["判型", "紙の寸法を縦×横で記す。<em>大判</em> 39.0 × 26.5 cm、<em>横大判</em>はその横使い、<em>中短冊</em> 38.0 × 13.0 cm。"],
+      ["技法", "すべて木版多色摺。<em>雲母摺</em>は雲母の粉で地に光を出す摺、<em>空摺</em>は絵具を付けずに紙に凹凸を出す摺、<em>正面摺</em>は摺面を磨いて艶を出す摺。"],
+      ["版・摺", "主版（墨線の版）と色版の枚数、および版に絵具を置いて摺った回数（度数）。"], ["部数", "限定部数。試摺と作家控えは含まない。"]],
+    en: [["Number", "<em>AS</em>, the year, and a running number within that year."], ["Format", "Sheet size, height × width. <em>Ōban</em> 39.0 × 26.5 cm, <em>horizontal ōban</em> turned sideways, <em>chū-tanzaku</em> 38.0 × 13.0 cm."],
+      ["Technique", "All woodblock, printed in colors. <em>Kirazuri</em> dusts the ground with mica, <em>karazuri</em> embosses without pigment, <em>shōmenzuri</em> burnishes the surface to a gloss."],
+      ["Blocks, impressions", "The key block and the number of color blocks, and how many times pigment was laid and printed."], ["Edition", "Limited edition size, not counting proofs and the artist's copies."]],
   };
 
-  // ── rendering ─────────────────────────────────────────────────────────────
+  // ── state ─────────────────────────────────────────────────────────────────
   const $ = (id) => document.getElementById(id);
-  let lang = "ja";
-  let filterId = "";
+  let lang = "ja", seriesId = "", cur = 0, front = "slot-a", playing = true, timer = 0;
   try { lang = localStorage.getItem("aisai-lang") || "ja"; } catch { /* storage may be blocked */ }
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce) playing = false;
+  const list = () => entries.filter((e) => !seriesId || e.series.id === seriesId);
 
-  function applyWords() {
+  // ── stage ─────────────────────────────────────────────────────────────────
+  function slotHtml(e) {
+    const L = lang === "ja";
+    return `<div class="mat">${printSvg(e, "s" + front.slice(-1), true)}</div>
+      <div class="caption"><span class="series">${L ? e.series.ja : e.series.en}</span><span class="title">${L ? e.ja : `<span class="en">${e.en}</span>`}</span><span class="no">${e.no}</span></div>`;
+  }
+  function show(k, dir = 1) {
+    const e = entries[k];
+    cur = k;
+    const back = front === "slot-a" ? "slot-b" : "slot-a";
+    front = back;
+    const next = $(back), prev = $(back === "slot-a" ? "slot-b" : "slot-a");
+    next.dataset.format = e.series.format;
+    next.innerHTML = slotHtml(e);
+    next.classList.toggle("back", dir < 0);
+    requestAnimationFrame(() => { prev.classList.remove("on"); next.classList.add("on"); });
+    const vis = list(), pos = vis.findIndex((x) => x.k === k) + 1;
+    $("count").innerHTML = `<b>${String(pos).padStart(2, "0")}</b> <span>/ ${String(vis.length).padStart(2, "0")}</span>`;
+    renderNotes();
+    const reel = $("reel");
+    for (const b of reel.querySelectorAll("button[data-k]")) {
+      const on = Number(b.dataset.k) === k;
+      b.setAttribute("aria-current", String(on));
+      // Scroll the reel sideways only; scrollIntoView would also move the window.
+      if (on) reel.scrollTo({ left: b.offsetLeft - reel.clientWidth / 2 + b.offsetWidth / 2, behavior: reduce ? "auto" : "smooth" });
+    }
+  }
+  function step(d) { const vis = list(); const i = vis.findIndex((x) => x.k === cur); show(vis[(i + d + vis.length) % vis.length].k, d); restart(); }
+
+  function renderNotes() {
+    const e = entries[cur], t = T[lang], L = lang === "ja";
+    const rows = [[t.dl.no, e.no], [t.dl.year, e.year], [t.dl.tech, e.series.tech[L ? 0 : 1]], [t.dl.format, FORMAT[e.series.format][L ? "ja" : "en"]],
+      [t.dl.blocks, t.blocks(e.blocks)], [t.dl.impr, t.impr(e.impressions)], [t.dl.carve, t.carve], [t.dl.ed, t.ed(e.series.ed)], [t.dl.owner, t.owner[e.owner]]];
+    $("notes").innerHTML = rows.map(([a, b]) => `<div><dt>${a}</dt><dd>${b}</dd></div>`).join("");
+  }
+
+  // ── autoplay, with a pause that always wins ───────────────────────────────
+  let holding = false; // pointer over the stage, or keyboard focus inside the controls
+  function restart() { clearInterval(timer); if (playing && !holding) timer = setInterval(() => { if (!document.hidden) step(1); }, 7000); }
+  function setPlaying(p) { playing = p; $("play").setAttribute("aria-pressed", String(p)); $("play").textContent = p ? "❚❚ " + T[lang].play : "▶ " + T[lang].paused; restart(); }
+
+  // ── index ─────────────────────────────────────────────────────────────────
+  function renderIndex() {
+    const L = lang === "ja";
+    $("tabs").innerHTML = [["", T[lang].all, entries.length], ...SHOWN.map((s) => [s.id, L ? s.ja : s.en, s.items.length])]
+      .map(([id, name, n]) => `<button type="button" data-s="${id}" aria-pressed="${id === seriesId}">${name}<span class="n">${n}</span></button>`).join("");
+    let html = "", last = "";
+    for (const e of list()) {
+      if (!seriesId && last && last !== e.series.id) html += `<span class="gap" aria-hidden="true"></span>`;
+      last = e.series.id;
+      html += `<button type="button" data-k="${e.k}" aria-label="${e.no} ${L ? e.ja : e.en}" aria-current="${e.k === cur}">${printSvg(e, "t", false)}</button>`;
+    }
+    $("reel").innerHTML = html;
+  }
+
+  function renderRead() {
+    const L = lang === "ja";
+    $("ex").innerHTML = EXHIBITIONS.map(([y, tj, te, vj, ve]) => `<li><span class="y">${y}</span><span class="t">${L ? "「" + tj.replace(/（.*）/, "") + "」" + (tj.match(/（.*）/)?.[0] ?? "") : te}</span><span class="v">${L ? vj : ve}</span></li>`).join("");
+    $("bio").innerHTML = BIO.map(([y, j, en]) => `<li><span class="y">${!L && y === "現在" ? "Now" : y}</span><span class="t">${L ? j : en}</span></li>`).join("");
+    $("lib").innerHTML = LIBRARY.map(([y, tj, te, pj, pe]) => `<li><span class="y">${y}</span><span class="t">${L ? tj : te}</span><span class="v">${L ? pj : pe}</span></li>`).join("");
+    $("gd").innerHTML = GUIDE[lang].map(([t, d]) => `<dt>${t}</dt><dd>${d}</dd>`).join("");
+  }
+
+  function applyLang() {
     document.documentElement.lang = lang;
     for (const el of document.querySelectorAll("[data-i18n]")) { const v = T[lang][el.dataset.i18n]; if (typeof v === "string") el.textContent = v; }
+    // Section headings carry the other language as a subtitle.
+    for (const el of document.querySelectorAll("[data-i18n-alt]")) el.textContent = T[lang === "ja" ? "en" : "ja"][el.dataset.i18nAlt];
     for (const b of document.querySelectorAll(".lang button")) b.setAttribute("aria-pressed", String(b.dataset.lang === lang));
-  }
-
-  function renderGallery() {
-    $("gallery").innerHTML = entries.map((e) => `<li data-series="${e.series.id}"><button class="print" type="button" data-k="${e.k}" data-format="${e.series.format}" aria-label="${e.no} ${lang === "ja" ? e.series.ja + "　" + e.ja : e.series.en + ": " + e.en}">${printSvg(e, "p")}<span class="cap">${e.no}　${lang === "ja" ? e.ja : e.en}</span></button></li>`).join("");
-    applyFilter();
-  }
-
-  function applyFilter() {
-    let n = 0;
-    for (const li of $("gallery").children) { const show = !filterId || li.dataset.series === filterId; li.hidden = !show; if (show) n += 1; }
-    const s = SERIES.find((x) => x.id === filterId);
-    $("cat-count").textContent = s ? T[lang].filtered(n, lang === "ja" ? s.ja : s.en) : T[lang].count(entries.length, SERIES.length);
-    $("filter-list").innerHTML = [["", T[lang].all, entries.length], ...SERIES.map((x) => [x.id, lang === "ja" ? x.ja : x.en, x.items.length])]
-      .map(([id, name, count]) => `<button type="button" data-f="${id}" aria-pressed="${id === filterId}"><span>${name}</span><span class="n">${count}</span></button>`).join("");
-  }
-
-  function renderPages() {
-    const L = lang === "ja";
-    $("exhibitions").innerHTML = EXHIBITIONS.map(([y, tj, te, vj, ve, kind]) => `<li><span class="y">${y}</span><span class="t">${L ? "「" + tj + "」" : te}</span><span class="v">${L ? vj + "　" + kind : ve + (kind === "グループ展" ? ", group exhibition" : kind === "初個展" ? ", first solo exhibition" : ", solo exhibition")}</span></li>`).join("");
-    $("biography").innerHTML = BIO.map(([y, j, e]) => `<li><span class="y">${L || y !== "現在" ? y : "Now"}</span><span class="t">${L ? j : e}</span></li>`).join("");
-    $("library").innerHTML = LIBRARY.map(([y, tj, te, pj, pe]) => `<li><span class="y">${y}</span><span class="t">${L ? tj : te}</span><span class="v">${L ? pj : pe}</span></li>`).join("");
-    $("guide").innerHTML = GUIDE[lang].map(([t, d]) => `<dt>${t}</dt><dd>${d}</dd>`).join("");
-  }
-
-  function renderAll() { applyWords(); renderGallery(); renderPages(); }
-
-  // ── entry dialog ──────────────────────────────────────────────────────────
-  let current = 0;
-  function visible() { return entries.filter((e) => !filterId || e.series.id === filterId); }
-  function openEntry(k) {
-    const e = entries[k]; current = k;
-    const t = T[lang], L = lang === "ja";
-    $("entry-plate").innerHTML = printSvg(e, "d");
-    $("entry-no").textContent = e.no;
-    $("entry-title").innerHTML = `<small>${L ? e.series.ja : e.series.en}</small>${L ? e.ja : e.en}`;
-    const rows = [[t.dl.year, e.year], [t.dl.series, L ? e.series.ja : e.series.en], [t.dl.tech, e.series.tech[L ? 0 : 1]], [t.dl.format, FORMAT[e.series.format][L ? "ja" : "en"]],
-      [t.dl.blocks, t.blocks(e.blocks)], [t.dl.impr, t.impr(e.impressions)], [t.dl.carve, t.carve], [t.dl.ed, t.ed(e.series.ed)], [t.dl.owner, t.owner[e.owner]]];
-    $("entry-dl").innerHTML = rows.map(([a, b]) => `<dt>${a}</dt><dd>${b}</dd>`).join("");
-    const dlg = $("entry");
-    if (!dlg.open) dlg.showModal();
-  }
-  function step(d) { const list = visible(); const i = list.findIndex((e) => e.k === current); openEntry(list[(i + d + list.length) % list.length].k); }
-
-  // ── views (hash routing) ──────────────────────────────────────────────────
-  function showView() {
-    const view = (location.hash || "#catalogue").slice(1);
-    const known = ["catalogue", "exhibitions", "biography", "library", "guide"].includes(view) ? view : "catalogue";
-    for (const s of document.querySelectorAll(".view")) s.hidden = s.id !== "view-" + known;
-    for (const a of document.querySelectorAll(".sections a")) {
-      if (a.dataset.view === known) a.setAttribute("aria-current", "page");
-      else a.removeAttribute("aria-current");
-    }
-    $("fab").hidden = known !== "catalogue";
-    if (known !== "catalogue") { $("filter").hidden = true; $("fab").setAttribute("aria-expanded", "false"); }
+    renderIndex(); renderRead(); setPlaying(playing);
+    const slot = $(front); slot.innerHTML = slotHtml(entries[cur]); renderNotes();
   }
 
   // ── events ────────────────────────────────────────────────────────────────
-  $("gallery").addEventListener("click", (ev) => { const b = ev.target.closest(".print"); if (b) openEntry(Number(b.dataset.k)); });
-  $("close").addEventListener("click", () => $("entry").close());
-  $("entry").addEventListener("click", (ev) => { if (ev.target === $("entry")) $("entry").close(); });
   $("prev").addEventListener("click", () => step(-1));
   $("next").addEventListener("click", () => step(1));
-  $("entry").addEventListener("keydown", (ev) => { if (ev.key === "ArrowLeft") step(-1); if (ev.key === "ArrowRight") step(1); });
-  $("fab").addEventListener("click", () => { const open = $("filter").hidden; $("filter").hidden = !open; $("fab").setAttribute("aria-expanded", String(open)); });
-  $("filter-list").addEventListener("click", (ev) => { const b = ev.target.closest("button[data-f]"); if (!b) return; filterId = b.dataset.f; applyFilter(); });
-  document.addEventListener("keydown", (ev) => { if (ev.key === "Escape" && !$("filter").hidden) { $("filter").hidden = true; $("fab").setAttribute("aria-expanded", "false"); $("fab").focus(); } });
-  for (const b of document.querySelectorAll(".lang button")) b.addEventListener("click", () => {
-    lang = b.dataset.lang;
-    try { localStorage.setItem("aisai-lang", lang); } catch { /* ignore */ }
-    renderAll();
-    if ($("entry").open) openEntry(current);
+  $("hit-prev").addEventListener("click", () => step(-1));
+  $("hit-next").addEventListener("click", () => step(1));
+  $("play").addEventListener("click", () => setPlaying(!playing));
+  $("about").addEventListener("click", () => { const open = $("notes").hidden; $("notes").hidden = !open; $("about").setAttribute("aria-expanded", String(open)); });
+  $("reel").addEventListener("click", (ev) => { const b = ev.target.closest("button[data-k]"); if (!b) return; const k = Number(b.dataset.k); show(k, k >= cur ? 1 : -1); restart(); });
+  $("tabs").addEventListener("click", (ev) => {
+    const b = ev.target.closest("button[data-s]"); if (!b) return;
+    seriesId = b.dataset.s; renderIndex();
+    const first = list()[0]; if (first) show(first.k, 1); restart();
   });
-  window.addEventListener("hashchange", showView);
+  document.addEventListener("keydown", (ev) => {
+    if (ev.target instanceof HTMLInputElement) return;
+    if (ev.key === "ArrowLeft") step(-1);
+    if (ev.key === "ArrowRight") step(1);
+  });
+  const stage = $("stage");
+  const hold = (on) => () => { holding = on; restart(); };
+  stage.addEventListener("mouseenter", hold(true));
+  stage.addEventListener("mouseleave", hold(false));
+  const controls = document.querySelector(".controls");
+  controls.addEventListener("focusin", (ev) => { if (ev.target.matches(":focus-visible")) hold(true)(); });
+  controls.addEventListener("focusout", hold(false));
+  let x0 = null;
+  stage.addEventListener("pointerdown", (ev) => { x0 = ev.clientX; });
+  stage.addEventListener("pointerup", (ev) => { if (x0 !== null && Math.abs(ev.clientX - x0) > 40) step(ev.clientX < x0 ? 1 : -1); x0 = null; });
+  for (const b of document.querySelectorAll(".lang button")) b.addEventListener("click", () => { lang = b.dataset.lang; try { localStorage.setItem("aisai-lang", lang); } catch { /* ignore */ } applyLang(); });
 
-  renderAll();
-  showView();
+  // ── start on the newest print ─────────────────────────────────────────────
+  cur = 0;
+  $("slot-a").dataset.format = entries[0].series.format;
+  applyLang();
+  show(0, 1);
 })();
 </script>
+
 </body>
 </html>
