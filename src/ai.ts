@@ -5,7 +5,8 @@
 import { query, type Options } from "@anthropic-ai/claude-agent-sdk";
 import { homedir } from "node:os";
 import { join } from "node:path";
-import { index, renderForAI } from "./render.ts";
+import type { AstNode, LayoutAst } from "./ast.ts";
+import { fromAst, index, renderForAI } from "./render.ts";
 import { note } from "./term.ts";
 import type { LayoutNode } from "./types.ts";
 
@@ -96,4 +97,21 @@ export async function relabelWithAI(root: LayoutNode, opts: AiOptions = {}): Pro
   const reply = extractJson(text);
   const relabeled = applyLabels(nodes, reply.labels ?? {});
   return { relabeled, costUsd, durationMs: Date.now() - started, notes: reply.notes };
+}
+
+function preorder(n: AstNode, out: AstNode[] = []): AstNode[] {
+  out.push(n);
+  n.children.forEach((c) => preorder(c, out));
+  return out;
+}
+
+/** The same pass on an exported AST document, in place: ids and geometry stay, `type`s change. */
+export async function relabelAst(ast: LayoutAst, opts: AiOptions = {}): Promise<AiResult> {
+  const tree = fromAst(ast.root);
+  const result = await relabelWithAI(tree, opts);
+  const before = index(tree);
+  const after = preorder(ast.root);
+  before.forEach((n, i) => { after[i].type = n.type; });
+  ast.source.generator = ast.source.generator.replace(/\+ai$/, "") + "+ai";
+  return result;
 }

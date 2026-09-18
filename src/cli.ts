@@ -1,13 +1,13 @@
 #!/usr/bin/env node
-// uimodulay CLI — see USAGE below.
+// uimodulay CLI — subcommands over one input kind: a URL, a saved snapshot, or a Layout AST file.
 
 import { readFile, writeFile } from "node:fs/promises";
+import { relabelAst } from "./ai.ts";
 import { toAst, type LayoutAst } from "./ast.ts";
-import { emitTailwind, type CopyDeck } from "./emit.ts";
 import { capture } from "./capture.ts";
+import { emitTailwind, type CopyDeck } from "./emit.ts";
 import { analyzeResponsive, analyzeSnapshot, crawl, finish, PRESET_WIDTHS, renderChanges, renderSiteTree } from "./index.ts";
-import { renderAst, renderTree, type RenderOptions } from "./render.ts";
-import type { ResponsiveSet } from "./responsive.ts";
+import { fromAst, renderAst, renderTree, type RenderOptions } from "./render.ts";
 import { sketchSvg } from "./sketch.ts";
 import { note, print } from "./term.ts";
 import type { Snapshot } from "./types.ts";
@@ -15,57 +15,54 @@ import { VERSION } from "./version.ts";
 
 const USAGE = `uimodulay ${VERSION} — semantic UI structure analyzer
 
-  uimodulay <url>                 print the layout tree
-  uimodulay <url> --json          print the Layout AST document
-  uimodulay <url> --ai            let Claude (your own login, via the Agent SDK) refine the names
-  uimodulay <url> --widths phone,tablet,desktop
-                                  responsive run: one tree per width + a table of what rearranges
-  uimodulay <url> --crawl 20      follow same-origin links (--crawl-depth 2) and print the site tree
-  uimodulay --from snap.json      re-analyze a saved snapshot offline
+  uimodulay tree   <input>              the layout tree as text          [--depth N] [--bounds] [--ai]
+  uimodulay ast    <input>              the Layout AST document (JSON)   [--ai]
+  uimodulay sketch <input> -o page.svg  hand-drawn monochrome wireframe  [--sketch-width 720]
+  uimodulay emit   <input> -o page.html the structure as a Tailwind page [--copy deck.json]
+  uimodulay name   <ast.json>           let Claude rename the modules of a saved AST (prints the AST)
+  uimodulay diff   <url>                the page at several widths       [--widths phone,tablet,desktop] [--json]
+  uimodulay crawl  <url>                same-origin site tree            [--max 20] [--depth 2] [--widths …] [--json]
+  uimodulay app                         the sketchbook at http://127.0.0.1:4310/  [--port N] [--open]
+
+<input> is a URL, a snapshot saved with --save, or a Layout AST .json (from \`ast\`).
 
 Options
-  --width N       viewport width (default 1440)
-  --widths LIST   phone,tablet,laptop,desktop (390/820/1024/1440) or plain numbers
-  --height N      viewport height (default 900)
-  --bounds        show W×H@x,y on every node
-  --depth N       limit tree depth in the text output
-  --model NAME    model for --ai (default: your claude default)
-  --save FILE     save the raw snapshot (boxes) for offline re-analysis
-  --sketch FILE   write a hand-drawn monochrome wireframe as SVG (--sketch-width N; one file per width)
-  --tailwind FILE write the structure back as a Tailwind HTML page (--copy deck.json for the words)
-  --raw           print the raw snapshot JSON instead of the tree
-  --no-scroll     do not scroll through the page before capturing
+  --width N        viewport width for a URL (default 1440)
+  --save FILE      keep the raw snapshot of a URL for offline re-analysis
+  --ai             Claude renames generic modules through your own claude login (--model NAME)
+  --no-scroll      do not scroll through the page before capturing
+  -o FILE          output file for sketch / emit
 `;
 
-const VALUE_FLAGS = ["width", "widths", "height", "depth", "model", "save", "from", "sketch", "sketch-width", "crawl", "crawl-depth", "tailwind", "copy"];
+const VALUE_FLAGS = new Set(["width", "widths", "height", "depth", "model", "save", "sketch-width", "copy", "max", "port", "o"]);
 
 interface Args {
-  url?: string;
+  cmd: string;
+  input?: string;
   flags: Set<string>;
   values: Map<string, string>;
 }
 
 function parseArgs(argv: string[]): Args {
+  const [cmd = "", ...rest] = argv;
   const flags = new Set<string>();
   const values = new Map<string, string>();
-  let url: string | undefined;
-  for (let i = 0; i < argv.length; i++) {
-    const a = argv[i];
-    if (!a.startsWith("--")) {
-      url ??= a;
-    } else if (VALUE_FLAGS.includes(a.slice(2))) {
-      values.set(a.slice(2), argv[i + 1] ?? "");
+  let input: string | undefined;
+  for (let i = 0; i < rest.length; i++) {
+    const a = rest[i];
+    const name = a.startsWith("--") ? a.slice(2) : a === "-o" ? "o" : undefined;
+    if (name === undefined) input ??= a;
+    else if (VALUE_FLAGS.has(name)) {
+      values.set(name, rest[i + 1] ?? "");
       i += 1;
-    } else {
-      flags.add(a.slice(2));
-    }
+    } else flags.add(name);
   }
-  return { url, flags, values };
+  return { cmd, input, flags, values };
 }
 
-function normalizeUrl(url: string | undefined): string {
-  if (!url) throw new Error("a URL is required; try `uimodulay --help`");
-  return /^[a-z]+:\/\//.test(url) ? url : "https://" + url;
+function toUrl(input: string | undefined): string {
+  if (!input) throw new Error("a URL is required; try `uimodulay --help`");
+  return /^[a-z]+:\/\//.test(input) ? input : "https://" + input;
 }
 
 function parseWidths(list: string): number[] {
@@ -74,90 +71,122 @@ function parseWidths(list: string): number[] {
   return widths;
 }
 
-function renderOpts(a: Args): RenderOptions {
-  const depth = a.values.get("depth");
-  return { bounds: a.flags.has("bounds"), maxDepth: depth === undefined ? undefined : Number(depth) };
-}
-
 function aiOpts(a: Args): { model?: string } | false {
   return a.flags.has("ai") ? { model: a.values.get("model") } : false;
 }
 
-async function writeSketch(a: Args, ast: LayoutAst, file: string): Promise<void> {
-  const width = Number(a.values.get("sketch-width") ?? Math.min(720, ast.source.viewport.width));
-  await writeFile(file, sketchSvg(ast, { width }));
+function output(a: Args): string {
+  const o = a.values.get("o");
+  if (!o) throw new Error("-o FILE is required for this command");
+  return o;
+}
+
+// ── input resolution ──────────────────────────────────────────────────────
+
+interface Loaded { ast: LayoutAst; snapshot?: Snapshot }
+
+function isFile(input: string): boolean {
+  return input.endsWith(".json") && !/^[a-z]+:\/\//.test(input);
+}
+
+async function analyzeUrl(a: Args): Promise<Loaded> {
+  const snapshot = await capture(toUrl(a.input), {
+    width: Number(a.values.get("width") ?? 1440),
+    height: Number(a.values.get("height") ?? 900),
+    scroll: !a.flags.has("no-scroll"),
+  });
+  const save = a.values.get("save");
+  if (save) await writeFile(save, JSON.stringify(snapshot));
+  return fromSnapshot(snapshot, a);
+}
+
+async function fromSnapshot(snapshot: Snapshot, a: Args): Promise<Loaded> {
+  const result = await finish(snapshot, { ai: aiOpts(a) });
+  if (result.ai) {
+    const tail = result.ai.notes ? " — " + result.ai.notes : "";
+    note(`ai: relabeled ${result.ai.relabeled} nodes in ${result.ai.durationMs}ms${tail}`);
+  }
+  return { ast: toAst(result.tree, snapshot, `uimodulay ${VERSION}${result.ai ? "+ai" : ""}`), snapshot };
+}
+
+/** A URL is rendered; a snapshot file is analyzed; an AST file is taken as is (plus --ai when asked). */
+async function load(a: Args): Promise<Loaded> {
+  if (!a.input) throw new Error("an input is required; try `uimodulay --help`");
+  if (!isFile(a.input)) return analyzeUrl(a);
+  const doc = JSON.parse(await readFile(a.input, "utf8")) as { format?: string; boxes?: unknown };
+  if (doc.boxes) return fromSnapshot(doc as unknown as Snapshot, a);
+  if (doc.format !== "uimodulay/layout-ast") throw new Error(`${a.input} is neither a snapshot nor a Layout AST`);
+  const ast = doc as unknown as LayoutAst;
+  const ai = aiOpts(a);
+  if (ai) {
+    const r = await relabelAst(ast, ai);
+    note(`ai: relabeled ${r.relabeled} nodes in ${r.durationMs}ms`);
+  }
+  return { ast };
+}
+
+// ── commands ──────────────────────────────────────────────────────────────
+
+async function cmdTree(a: Args): Promise<void> {
+  const { ast } = await load(a);
+  const depth = a.values.get("depth");
+  const opts: RenderOptions = { bounds: a.flags.has("bounds"), maxDepth: depth === undefined ? undefined : Number(depth) };
+  print(renderAst(ast.root, opts));
+}
+
+async function cmdAst(a: Args): Promise<void> {
+  const { ast } = await load(a);
+  print(JSON.stringify(ast, null, 2));
+}
+
+async function cmdSketch(a: Args): Promise<void> {
+  const file = output(a);
+  const { ast } = await load(a);
+  await writeFile(file, sketchSvg(ast, { width: Number(a.values.get("sketch-width") ?? 720) }));
   note(`sketch: wrote ${file}`);
 }
 
-/** Tailwind skeleton of the page, with words from a copy deck when one is given. */
-async function writeTailwind(a: Args, ast: LayoutAst, file: string): Promise<void> {
-  const deckFile = a.values.get("copy");
-  const copy = deckFile ? (JSON.parse(await readFile(deckFile, "utf8")) as CopyDeck) : undefined;
+async function cmdEmit(a: Args): Promise<void> {
+  const file = output(a);
+  const { ast } = await load(a);
+  const deck = a.values.get("copy");
+  const copy = deck ? (JSON.parse(await readFile(deck, "utf8")) as CopyDeck) : undefined;
   await writeFile(file, emitTailwind(ast, { copy }));
-  note(`tailwind: wrote ${file}`);
+  note(`emit: wrote ${file}`);
 }
 
-/** Responsive run: one tree per width, then the table of arrangement changes. */
-async function runResponsive(a: Args, widths: number[]): Promise<void> {
-  const set: ResponsiveSet = await analyzeResponsive(normalizeUrl(a.url), widths, { ai: aiOpts(a), scroll: !a.flags.has("no-scroll") }, `uimodulay ${VERSION}`);
+async function cmdName(a: Args): Promise<void> {
+  a.flags.add("ai");
+  const { ast } = await load(a);
+  print(JSON.stringify(ast, null, 2));
+}
+
+async function cmdDiff(a: Args): Promise<void> {
+  const widths = parseWidths(a.values.get("widths") ?? "phone,tablet,desktop");
+  const set = await analyzeResponsive(toUrl(a.input), widths, { ai: aiOpts(a), scroll: !a.flags.has("no-scroll") }, `uimodulay ${VERSION}`);
   if (a.flags.has("json")) {
     print(JSON.stringify(set, null, 2));
     return;
   }
-  const sketch = a.values.get("sketch");
+  const depth = a.values.get("depth");
   for (const v of set.variants) {
     print(`━━ ${v.width}px`);
-    print(renderAst(v.ast.root, renderOpts(a)));
-    if (sketch) await writeSketch(a, v.ast, sketch.replace(/\.svg$/, "") + `-${v.width}.svg`);
+    print(renderTree(fromAst(v.ast.root), { bounds: a.flags.has("bounds"), maxDepth: depth === undefined ? undefined : Number(depth) }));
   }
   print("━━ changes");
   print(renderChanges(set));
 }
 
-async function loadSnapshot(a: Args): Promise<Snapshot> {
-  const from = a.values.get("from");
-  if (from) return JSON.parse(await readFile(from, "utf8")) as Snapshot;
-  return capture(normalizeUrl(a.url), {
-    width: Number(a.values.get("width") ?? 1440),
-    height: Number(a.values.get("height") ?? 900),
-    scroll: !a.flags.has("no-scroll"),
-  });
-}
-
-async function runSingle(a: Args): Promise<void> {
-  const snapshot = await loadSnapshot(a);
-  const save = a.values.get("save");
-  if (save) await writeFile(save, JSON.stringify(snapshot));
-  if (a.flags.has("raw")) {
-    print(JSON.stringify(snapshot, null, 2));
-    return;
-  }
-  const result = await finish(snapshot, { ai: aiOpts(a) });
-  if (result.ai) {
-    const tail = result.ai.notes ? " — " + result.ai.notes : "";
-    note(`ai: relabeled ${result.ai.relabeled} nodes in ${result.ai.durationMs}ms ($${result.ai.costUsd.toFixed(4)})${tail}`);
-  }
-  const ast = toAst(result.tree, snapshot, `uimodulay ${VERSION}${result.ai ? "+ai" : ""}`);
-  const sketch = a.values.get("sketch");
-  if (sketch) await writeSketch(a, ast, sketch);
-  const html = a.values.get("tailwind");
-  if (html) await writeTailwind(a, ast, html);
-  if (a.flags.has("json")) print(JSON.stringify(ast, null, 2));
-  else print(renderTree(result.tree, renderOpts(a)));
-}
-
-/** Crawl run: the site's URL tree, each page summarized by its top-level modules. */
-async function runCrawl(a: Args, maxPages: number): Promise<void> {
+async function cmdCrawl(a: Args): Promise<void> {
   const widthsArg = a.values.get("widths");
   const summaries = new Map<string, string>();
-  const tree = await crawl(normalizeUrl(a.url), {
-    maxPages,
-    maxDepth: Number(a.values.get("crawl-depth") ?? 2),
+  const tree = await crawl(toUrl(a.input), {
+    maxPages: Number(a.values.get("max") ?? 20),
+    maxDepth: Number(a.values.get("depth") ?? 2),
     widths: widthsArg ? parseWidths(widthsArg) : undefined,
     scroll: !a.flags.has("no-scroll"),
   }, (page) => {
-    const top = analyzeSnapshot(page.snapshots[0]).children.map((c) => c.type).join(" · ");
-    summaries.set(page.url, top);
+    summaries.set(page.url, analyzeSnapshot(page.snapshots[0]).children.map((c) => c.type).join(" · "));
     note(`crawl: ${page.url}`);
   });
   if (a.flags.has("json")) {
@@ -168,17 +197,24 @@ async function runCrawl(a: Args, maxPages: number): Promise<void> {
   if (tree.skipped.length > 0) print(`(${tree.skipped.length} links not visited: budget, depth or robots.txt)`);
 }
 
+async function cmdApp(a: Args): Promise<void> {
+  const { serve } = await import("./serve.ts");
+  const argv = [...(a.values.has("port") ? ["--port", a.values.get("port") ?? ""] : []), ...(a.flags.has("open") ? ["--open"] : [])];
+  serve(argv);
+}
+
+const COMMANDS: Record<string, (a: Args) => Promise<void>> = {
+  tree: cmdTree, ast: cmdAst, sketch: cmdSketch, emit: cmdEmit, name: cmdName, diff: cmdDiff, crawl: cmdCrawl, app: cmdApp,
+};
+
 async function main(argv: string[]): Promise<void> {
-  if (argv.length === 0 || argv.includes("-h") || argv.includes("--help")) {
-    print(USAGE);
-    process.exit(argv.length === 0 ? 1 : 0);
-  }
   const a = parseArgs(argv);
-  const widths = a.values.get("widths");
-  const crawlPages = a.values.get("crawl");
-  if (crawlPages !== undefined) await runCrawl(a, Number(crawlPages));
-  else if (widths && !a.values.has("from")) await runResponsive(a, parseWidths(widths));
-  else await runSingle(a);
+  const run: ((a: Args) => Promise<void>) | undefined = COMMANDS[a.cmd];
+  if (!run || a.flags.has("help") || argv.includes("-h")) {
+    print(USAGE);
+    process.exit(run ? 0 : 1);
+  }
+  await run(a);
 }
 
 main(process.argv.slice(2)).catch((e: unknown) => {

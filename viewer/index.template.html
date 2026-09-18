@@ -276,7 +276,11 @@
   for (const ev of ["dragleave", "drop"]) drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.remove("over"); });
   drop.addEventListener("drop", (e) => { const f = e.dataTransfer.files[0]; if (f) f.text().then((t) => loadText(t, f.name)); });
 
-  $("sample").addEventListener("change", (e) => { current = e.target.value; active = 0; compare = false; draw(); });
+  $("sample").addEventListener("change", (e) => {
+    const v = e.target.value;
+    if (v.startsWith("corpus:")) { openCorpus(v.slice(7)); return; }
+    current = v; active = 0; compare = false; draw();
+  });
   for (const id of ["depth", "labels", "seed"]) $(id).addEventListener("input", draw);
   $("copy").addEventListener("click", async () => {
     const svg = compare ? [...document.querySelectorAll("#canvas svg")].map((s) => s.outerHTML).join("\n") : $("canvas").innerHTML;
@@ -286,6 +290,32 @@
   let raf = 0;
   window.addEventListener("resize", () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(draw); });
   draw();
+
+  // Corpus mode: when served by uimodulay-corpus, /api/catalog lists stored ASTs; pick one to draw it.
+  fetch("/api/catalog").then((r) => r.ok ? r.json() : Promise.reject()).then((entries) => {
+    const sel = $("sample");
+    const byHost = new Map();
+    for (const e of entries) { if (!byHost.has(e.host)) byHost.set(e.host, []); byHost.get(e.host).push(e); }
+    for (const [host, list] of byHost) {
+      const group = document.createElement("optgroup");
+      group.label = host;
+      for (const e of list.sort((a, b) => a.slug.localeCompare(b.slug) || a.width - b.width)) {
+        const opt = document.createElement("option");
+        opt.value = "corpus:" + e.file;
+        opt.textContent = `${e.slug} · ${e.width}${e.named ? " · ai" : ""}`;
+        group.appendChild(opt);
+      }
+      sel.appendChild(group);
+    }
+    $("status").textContent = `Corpus: ${entries.length} ASTs from ${byHost.size} hosts.`;
+  }).catch(() => {});
+  async function openCorpus(file) {
+    const r = await fetch("/api/ast?file=" + encodeURIComponent(file));
+    if (!r.ok) { $("status").textContent = "Could not load " + file; return; }
+    const set = asSet(await r.json(), file);
+    pages[file] = set; current = file; active = 0; compare = false;
+    draw();
+  }
 
   // App mode: when served by `node src/serve.ts`, a URL bar appears and analyses run live.
   const form = $("urlform");

@@ -5,6 +5,7 @@
 //   console.log(renderTree(tree));
 
 import { relabelWithAI, type AiOptions, type AiResult } from "./ai.ts";
+export { relabelAst, relabelWithAI } from "./ai.ts";
 import { toAst, type LayoutAst } from "./ast.ts";
 import { capture, captureMany, type CaptureOptions } from "./capture.ts";
 import { makeSet, type ResponsiveSet, type Variant } from "./responsive.ts";

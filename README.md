@@ -58,17 +58,18 @@ Or from a clone: `npm install`, then `node src/cli.ts …` — Node runs the Typ
 ## CLI
 
 ```
-uimodulay <url>                              layout tree
-uimodulay <url> --json                       Layout AST document
-uimodulay <url> --bounds --depth 3           rectangles, three levels deep
-uimodulay <url> --sketch page.svg            hand-drawn wireframe
-uimodulay <url> --ai                         Claude renames generic modules (your own claude login)
-uimodulay <url> --widths phone,tablet,desktop
-                                             390 / 820 / 1440: one tree per width + what rearranges
-uimodulay <url> --crawl 20 --crawl-depth 2   follow same-origin links; site tree with each page's modules
-uimodulay <url> --save snap.json             keep the raw snapshot …
-uimodulay --from snap.json                   … and re-analyze it offline, instantly
+uimodulay tree   <input>               layout tree            [--depth 3] [--bounds] [--ai]
+uimodulay ast    <input>               Layout AST document    [--ai]
+uimodulay sketch <input> -o page.svg   hand-drawn wireframe
+uimodulay emit   <input> -o page.html  Tailwind page          [--copy deck.json]
+uimodulay name   <ast.json>            Claude renames the modules of a saved AST
+uimodulay diff   <url>                 several widths + what rearranges   [--widths phone,tablet,desktop]
+uimodulay crawl  <url>                 same-origin site tree  [--max 20] [--depth 2]
+uimodulay app                          the sketchbook at http://127.0.0.1:4310/
 ```
+
+`<input>` is a URL, a snapshot saved with `--save snap.json` (re-analyzed offline, instantly), or a
+Layout AST file. `--ai` runs the naming pass through your own `claude` login.
 
 A responsive run ends with a table of the modules whose arrangement changes. Modules are matched
 across widths by the words they contain, so a desktop `Gallery` that the phone heuristics call a
@@ -162,7 +163,7 @@ CI runs the same gate with [codopsy](https://github.com/O6lvl4/codopsy).
 ## Structure back out: Tailwind
 
 ```
-uimodulay <url> --tailwind page.html --copy deck.json
+uimodulay emit <input> -o page.html --copy deck.json
 ```
 
 Turns the AST back into an HTML page with Tailwind classes: regions become `header` / `main` /

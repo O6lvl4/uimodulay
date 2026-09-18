@@ -113,4 +113,5 @@ export function serve(argv: string[] = process.argv.slice(2)): void {
   });
 }
 
-serve();
+// Run when started directly (`uimodulay-app`); the CLI's `app` command imports and calls serve() itself.
+if (/serve\.(ts|js)$/.test(process.argv[1] ?? "")) serve();
