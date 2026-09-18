@@ -210,9 +210,10 @@ const COMMANDS: Record<string, (a: Args) => Promise<void>> = {
 async function main(argv: string[]): Promise<void> {
   const a = parseArgs(argv);
   const run: ((a: Args) => Promise<void>) | undefined = COMMANDS[a.cmd];
-  if (!run || a.flags.has("help") || argv.includes("-h")) {
+  const known = run !== undefined;
+  if (!known || a.flags.has("help") || argv.includes("-h")) {
     print(USAGE);
-    process.exit(run ? 0 : 1);
+    process.exit(known ? 0 : 1);
   }
   await run(a);
 }
