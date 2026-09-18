@@ -43,6 +43,12 @@ interface Args {
   values: Map<string, string>;
 }
 
+/** `--name` → "name", `-o` → "o", anything else is a positional. */
+function flagName(a: string): string | undefined {
+  if (a.startsWith("--")) return a.slice(2);
+  return a === "-o" ? "o" : undefined;
+}
+
 function parseArgs(argv: string[]): Args {
   const [cmd = "", ...rest] = argv;
   const flags = new Set<string>();
@@ -50,7 +56,7 @@ function parseArgs(argv: string[]): Args {
   let input: string | undefined;
   for (let i = 0; i < rest.length; i++) {
     const a = rest[i];
-    const name = a.startsWith("--") ? a.slice(2) : a === "-o" ? "o" : undefined;
+    const name = flagName(a);
     if (name === undefined) input ??= a;
     else if (VALUE_FLAGS.has(name)) {
       values.set(name, rest[i + 1] ?? "");
